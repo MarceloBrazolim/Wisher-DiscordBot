@@ -1,0 +1,19 @@
+{
+  "name": "discordbot",
+  "version": "2.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Hiro Fujisame",
+  "license": "ISC",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.5",
+    "date-fns": "^2.17.0",
+    "discord.js": "^12.5.1",
+    "lodash": "^4.17.20",
+    "mongoose": "^5.11.15",
+    "request": "^2.88.2"
+  }
+}
