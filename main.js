@@ -23,7 +23,7 @@ client.on("message", async (message) => {
   const command = args.shift().toLowerCase();
   console.log(`Command: { --${command} ${args} }`);
 
-  await getCommand(message, command, args);
+  await getCommand(message, command, args, client);
 });
 
 client.login(config.token);
