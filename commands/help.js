@@ -7,7 +7,7 @@ module.exports = async (message, args, client) => {
     .setColor("#831fde")
     .setTitle("Lista de comandos disponíveis")
     .setAuthor("Wisher", ID.displayAvatarURL({ dynamic: true }))
-    .addField("`--help`", "Exibe esta lista que você está lendo.")
+    .addField("`--help <misc/adm/dev>`", "Exibe esta lista que você está lendo.")
     .addField(
       "`--set <bd/rmd> <mention> <ano/mês/dia>`",
       "**[off]** Define um lembrete personalizado(rmd) ou uma data de aniversario(bd) 🥳!"
@@ -77,13 +77,13 @@ module.exports = async (message, args, client) => {
       await isAdm(message);
       if (!isAdm) return;
 
-      helpEmbed.addFields(
-        { name: "\u200B", value: "\u200B" },
-        {
-          name: "`[dev] --debugg <args>`",
-          value: "Mando os args formatados e processados no console",
-        }
-      );
+      if (!misc || !adm) {
+        helpEmbed.addFields({ name: "\u200B", value: "\u200B" });
+      }
+      helpEmbed.addFields({
+        name: "`[dev] --debugg <args>`",
+        value: "Mando os args formatados e processados no console",
+      });
     }
   }
   message.channel.send(helpEmbed);
