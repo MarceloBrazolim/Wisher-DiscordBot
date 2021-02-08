@@ -3,7 +3,6 @@
 module.exports = (message) => {
   if (message.guild.member(message.author).hasPermission("ADMINISTRATOR")) {
     return true;
-  } else {
-    return false;
   }
+  return false;
 };

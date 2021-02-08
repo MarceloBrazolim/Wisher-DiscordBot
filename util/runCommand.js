@@ -1,7 +1,7 @@
 const isAdm = require("./isAdm");
 
 // Dev
-const debug = require("../commands/debug")
+const debug = require("../commands/debug");
 
 // Misc
 const ping = require("../commands/ping");
@@ -25,8 +25,11 @@ module.exports = async (message, command, args) => {
 
     // Dev
     case "debug":
-      if (isAdm()) {
-        await debug(message)
+      if (isAdm) {
+        await debug(message, args);
+      } else {
+        await message.channel.send("Você não tem permissão pra fazer isso.");
+        console.log("User without permission to perform action.")
       }
       break;
 
