@@ -1,3 +1,3 @@
-module.exports = (message) => {
-  message.channel.send("Pong! 🏓");
+module.exports = async (message) => {
+  await message.channel.send("Pong! 🏓");
 };
