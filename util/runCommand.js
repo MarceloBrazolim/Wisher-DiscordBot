@@ -14,13 +14,16 @@ const debug = require("../commands/debug");
 const getUserID = require("./getUserID");
 
 // Main
-const help = require("../commands/help")
+const help = require("../commands/help");
 
 // Method to handle multiple commands
 module.exports = async (message, command, args, client) => {
   // Command triggers
   switch (command) {
     // Main
+    case "help":
+      await help(message, args, client);
+      break;
     // case "set":
     //   await set(message, args);
     //   break;
