@@ -23,14 +23,18 @@ module.exports = async (message, command, args) => {
     //   await img(message, args);
     //   break;
 
+    // Adm
+    // case "avatar":
+    //   isAdm(message);
+    //   if (!isAdm) break;
+    //   await avatar(message, args);
+    //   break;
+
     // Dev
     case "debug":
-      if (isAdm) {
-        await debug(message, args);
-      } else {
-        await message.channel.send("Você não tem permissão pra fazer isso.");
-        console.log("User without permission to perform action.")
-      }
+      isAdm(message);
+      if (!isAdm) break;
+      await debug(message, args);
       break;
 
     // Misc
