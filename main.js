@@ -13,17 +13,17 @@ client.once("ready", async () => {
   //     }
   //   });
   client.user.setActivity(`${config.prefix}help`, { type: "LISTENING" }).catch(console.error);
-  console.log("Wisher is online!");
+  console.log("Wisher is Online!");
 });
 
-client.on("message", (message) => {
+client.on("message", async (message) => {
   if (!message.content.startsWith(config.prefix) || message.author.bot) return;
   
   const args = message.content.slice(config.prefix.length).split(/ +/);
   const command = args.shift().toLowerCase();
   console.log(`Command: { --${command} ${args} }`);
 
-  getCommand(message, command, args);
+  await getCommand(message, command, args);
 });
 
 client.login(config.token);

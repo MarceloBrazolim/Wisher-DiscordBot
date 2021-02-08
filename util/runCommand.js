@@ -1,9 +1,10 @@
 const ping = require("../commands/ping");
 
+// Method to handle multiple commands
 module.exports = async (message, command, args) => {
   switch (command) {
     case "ping":
-      ping(message);
+      await ping(message);
       break;
   }
 };
