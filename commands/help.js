@@ -27,9 +27,30 @@ module.exports = async (message, args, client) => {
     );
 
   for (let i in args) {
-    if (adm == true) {
-      break;
+    if (misc) break;
+    if (args[i] == "misc" || args[i] == "miscelaneous") {
+      var misc = true;
+
+      helpEmbed.addFields(
+        { name: "\u200B", value: "\u200B" },
+        {
+          name: "`[misc] --macaco `",
+          value: "🦎",
+        },
+        {
+          name: "`[misc] --lagarto`",
+          value: "🐒",
+        },
+        {
+          name: "`[misc] --coinmaster`",
+          value: "👀",
+        }
+      );
     }
+  }
+
+  for (let i in args) {
+    if (adm) break;
     if (args[i] == "adm" || args[i] == "administrator") {
       var adm = true;
       await isAdm(message);
@@ -50,9 +71,7 @@ module.exports = async (message, args, client) => {
   }
 
   for (let i in args) {
-    if (dev == true) {
-      break;
-    }
+    if (dev) break;
     if (args[i] == "dev" || args[i] == "developer") {
       var dev = true;
       await isAdm(message);
