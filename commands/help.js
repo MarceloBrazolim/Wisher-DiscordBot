@@ -7,7 +7,10 @@ module.exports = async (message, args, client) => {
     .setColor("#831fde")
     .setTitle("Lista de comandos disponíveis")
     .setAuthor("Wisher", ID.displayAvatarURL({ dynamic: true }))
-    .addField("`--help <misc/adm/dev>`", "Exibe esta lista que você está lendo.")
+    .addField(
+      "`--help <misc/adm/dev>`",
+      "Exibe esta lista que você está lendo."
+    )
     .addField(
       "`--set <bd/rmd> <mention> <ano/mês/dia>`",
       "**[off]** Define um lembrete personalizado(rmd) ou uma data de aniversario(bd) 🥳!"
@@ -20,11 +23,7 @@ module.exports = async (message, args, client) => {
       "`--gif <args>`",
       "É praticamente a mesma coisa do --img... só que .gif"
     )
-    .addField("`--astolfo`", "hehehehehe~ 😍")
-    .addField(
-      "`--embed <mention>`",
-      "**[off]** ou mexer nesse ainda, mas ele ta dá parabens. :)"
-    );
+    .addField("`--astolfo`", "hehehehehe~ 😍");
 
   for (let i in args) {
     if (misc) break;
