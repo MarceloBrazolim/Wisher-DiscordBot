@@ -5,26 +5,6 @@ const config = require("./config.json");
 
 const getCommand = require("./util/getCommand");
 
-const regex = [
-  `\'`,
-  `\"`,
-  `\[`,
-  `\]`,
-  `\/`,
-  `\{`,
-  `\}`,
-  `\(`,
-  `\)`,
-  `\*`,
-  `\+`,
-  `\?`,
-  `\.`,
-  `\\`,
-  `\^`,
-  `\$`,
-  `\|`,
-];
-
 client.once("ready", async () => {
   //   await mongo().then((mongoose) => {
   //     try {
@@ -43,7 +23,10 @@ client.on("message", async (message) => {
   if (!message.content.startsWith(config.prefix) || message.author.bot) return;
 
   var arg = message.content.slice(config.prefix.length).split("'");
-  var args = arg.filter(a => arg = regex).join("").split(/ +/);
+  const args = arg
+    .filter(() => (arg = "'"))
+    .join("")
+    .split(/ +/);
   console.log(args);
 
   const command = args.shift().toLowerCase();
