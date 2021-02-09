@@ -22,13 +22,16 @@ client.once("ready", async () => {
 client.on("message", async (message) => {
   if (!message.content.startsWith(config.prefix) || message.author.bot) return;
 
-  var arg = message.content.slice(config.prefix.length).split("'");
+  var arg = message.content
+    .slice(config.prefix.length)
+    .toLowerCase()
+    .split("'");
   const args = arg
     .filter(() => (arg = "'"))
     .join("")
     .split(/ +/);
   const command = args.shift().toLowerCase();
-  console.log(`\nCommand: { --${command} ${args} }`);
+  console.log(`\nCommand: { ${config.prefix}${command} ${args} }`);
 
   await getCommand(message, command, args, client);
 });
