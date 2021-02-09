@@ -14,13 +14,13 @@ module.exports = async (message, args, client) => {
     )
     .addField(
       "`--img <args>`",
-      "**[off]** Mostra uma imagem aleatória com o que você quiser."
+      "Mostra uma imagem aleatória com o que você quiser."
     )
     .addField(
       "`--gif <args>`",
-      "**[off]** É praticamente a mesma coisa do --img... só que .gif"
+      "É praticamente a mesma coisa do --img... só que .gif"
     )
-    .addField("`--astolfo`", "**[off]** hehehehehe~ 😍")
+    .addField("`--astolfo`", "hehehehehe~ 😍")
     .addField(
       "`--embed <mention>`",
       "**[off]** ou mexer nesse ainda, mas ele ta dá parabens. :)"
@@ -77,7 +77,7 @@ module.exports = async (message, args, client) => {
       await isAdm(message);
       if (!isAdm) return;
 
-      if (!misc || !adm) {
+      if (!misc && !adm) {
         helpEmbed.addFields({ name: "\u200B", value: "\u200B" });
       }
       helpEmbed.addFields({
