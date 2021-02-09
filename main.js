@@ -31,11 +31,12 @@ client.on("message", async (message) => {
       .split(/ +/);
     const command = args.shift().toLowerCase();
     console.log(`\nCommand: { ${config.prefix}${command} ${args} }`);
+
+    await getCommand(message, command, args, client);
   } catch {
-    message.react("🤔")
+    message.react("🤔");
     console.error;
   }
-  await getCommand(message, command, args, client);
 });
 
 client.login(config.token);
