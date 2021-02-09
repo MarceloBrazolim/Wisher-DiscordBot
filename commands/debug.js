@@ -1,4 +1,4 @@
-module.exports = async (message, args) => {
+module.exports = async (args) => {
     console.log(args);
   };
   

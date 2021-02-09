@@ -1,5 +1,4 @@
 const Discord = require("discord.js");
-const { findIndex } = require("lodash");
 const client = new Discord.Client();
 const config = require("./config.json");
 

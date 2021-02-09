@@ -9,7 +9,7 @@ module.exports = async (message, mention, client, command) => {
   if (mention.startsWith("<@") && mention.endsWith(">")) {
     mention = mention.slice(2, -1);
 
-    if (!mention.startsWith("!")) {
+    if (mention.startsWith("&")) {
       message.channel.send("Ei! N vou cair nessa kk 😘");
       return;
     } else if (mention.startsWith("!")) {
