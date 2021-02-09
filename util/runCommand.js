@@ -16,6 +16,9 @@ const getUserID = require("./getUserID");
 // Main
 const help = require("../commands/help");
 
+// Side
+const imgInit = require("../commands/imgInit");
+
 // Method to handle multiple commands
 module.exports = async (message, command, args, client) => {
   // Command triggers
@@ -29,9 +32,15 @@ module.exports = async (message, command, args, client) => {
     //   break;
 
     // Side
-    // case "img":
-    //   await img(message, args);
-    //   break;
+    case "img":
+      await imgInit(message, command, args);
+      break;
+    case "gif":
+      await imgInit(message, command, args);
+      break;
+    case "astolfo":
+      await imgInit(message, command, args);
+      break;
 
     // Adm
     case "avatar":
@@ -39,7 +48,6 @@ module.exports = async (message, command, args, client) => {
       if (!isAdm) break;
       await getUserID(message, args[0], client, command);
       break;
-
     case "info":
       await isAdm(message);
       if (!isAdm) break;
@@ -57,15 +65,12 @@ module.exports = async (message, command, args, client) => {
     case "ping":
       await ping(message);
       break;
-
     case "macaco":
       await macaco(message);
       break;
-
     case "lagarto":
       await lagarto(message);
       break;
-
     case "coinmaster":
       await coinmaster(message);
       break;
