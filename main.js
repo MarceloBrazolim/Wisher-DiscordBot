@@ -27,7 +27,6 @@ client.on("message", async (message) => {
     .filter(() => (arg = "'"))
     .join("")
     .split(/ +/);
-  console.log(args);
 
   const command = args.shift().toLowerCase();
   console.log(`\nCommand: { --${command} ${args} }`);
