@@ -42,12 +42,8 @@ client.once("ready", async () => {
 client.on("message", async (message) => {
   if (!message.content.startsWith(config.prefix) || message.author.bot) return;
 
-  var args = message.content
-    .slice(config.prefix.length)
-    .split("'")
-    .splice(findIndex("'"), 1, " ")
-    .join(" ")
-    .split(/ +/);
+  var arg = message.content.slice(config.prefix.length).split("'");
+  var args = arg.filter(a => arg = regex).join("").split(/ +/);
   console.log(args);
 
   const command = args.shift().toLowerCase();
