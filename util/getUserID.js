@@ -5,6 +5,7 @@ module.exports = async (message, mention, client, command) => {
     return;
   }
 
+  console.log(mention)
   if (mention.startsWith("<@") && mention.endsWith(">")) {
     mention = mention.slice(2, -1);
 
