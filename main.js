@@ -20,23 +20,19 @@ client.once("ready", async () => {
 
 client.on("message", async (message) => {
   if (!message.content.startsWith(config.prefix) || message.author.bot) return;
-  try {
-    var arg = message.content
-      .slice(config.prefix.length)
-      .toLowerCase()
-      .split("'");
-    const args = arg
-      .filter(() => (arg = "'"))
-      .join("")
-      .split(/ +/);
-    const command = args.shift().toLowerCase();
-    console.log(`\nCommand: { ${config.prefix}${command} ${args} }`);
 
-    await getCommand(message, command, args, client);
-  } catch {
-    message.react("🤔");
-    console.error;
-  }
+  var arg = message.content
+    .slice(config.prefix.length)
+    .toLowerCase()
+    .split("'");
+  const args = arg
+    .filter(() => (arg = "'"))
+    .join("")
+    .split(/ +/);
+  const command = args.shift().toLowerCase();
+  console.log(`\nCommand: { ${config.prefix}${command} ${args} }`);
+
+  await getCommand(message, command, args, client);
 });
 
 client.login(config.token);
