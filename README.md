@@ -1,6 +1,18 @@
 # Wisher-DiscordBot
 
-### Method for mongoDB setup
+## Setup/Installation
+Just create a file called "config.json" alongside "main.js" with the following information:
+```json
+{
+    "token": "YOUR_BOT_ACCES_KEY_HERE",
+    "prefix": "YOUR_PREFIX_HERE"
+}
+```
+
+## TODO:
+
+- Implement MongoDB
+#### Method for mongoDB setup
 ```js
 const mongoose = require("mongoose")
 
