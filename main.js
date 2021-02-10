@@ -20,15 +20,15 @@ client.once("ready", async () => {
 
 client.on("message", async (message) => {
   if (!message.content.startsWith(config.prefix) || message.author.bot) return;
-
-  var arg = message.content
+  var uMessage = encodeURI(message)
+  var arg = uMessage
     .slice(config.prefix.length)
     .toLowerCase()
     .split("'");
   const args = arg
     .filter(() => (arg = "'"))
     .join("")
-    .split(/ +/);
+    .split("%20");
   const command = args.shift().toLowerCase();
   console.log(`\nCommand: { ${config.prefix}${command} ${args} }`);
 
