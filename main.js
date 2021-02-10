@@ -5,13 +5,6 @@ const config = require("./config.json");
 const getCommand = require("./util/getCommand");
 
 client.once("ready", async () => {
-  //   await mongo().then((mongoose) => {
-  //     try {
-  //       console.log("Connected to MongoDB!");
-  //     } finally {
-  //       mongoose.connection.close();
-  //     }
-  //   });
   client.user
     .setActivity(`${config.prefix}help`, { type: "LISTENING" })
     .catch(console.error);
