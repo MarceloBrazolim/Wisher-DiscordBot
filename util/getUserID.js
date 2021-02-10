@@ -1,3 +1,6 @@
+const avatar = require("../commands/avatar");
+const info = require("../commands/info");
+
 module.exports = async (message, mention, client, command) => {
   if (!mention) {
     console.log("No mention");
@@ -5,7 +8,7 @@ module.exports = async (message, mention, client, command) => {
     return;
   }
 
-  console.log(mention)
+  console.log(mention);
   if (mention.startsWith("<@") && mention.endsWith(">")) {
     mention = mention.slice(2, -1);
 
@@ -17,8 +20,7 @@ module.exports = async (message, mention, client, command) => {
     }
 
     var user = client.users.cache.get(mention);
-    var { username, discriminator } = user;
-    console.log(`mentioned: { ${username}#${discriminator} }`);
+    console.log(`mentioned: { ${user.username}#${user.discriminator} }`);
   }
 
   if (!user) {
@@ -29,45 +31,10 @@ module.exports = async (message, mention, client, command) => {
 
   switch (command) {
     case "avatar":
-      await message.author.send(user.displayAvatarURL({ dynamic: true }));
+      await avatar(message, user);
       break;
     case "info":
-      var {
-        id,
-        system,
-        locale,
-        flags,
-        username,
-        bot,
-        discriminator,
-        avatar,
-        lastMessageID,
-        lastMessageChannelID,
-      } = user;
-      console.log(user);
-      await message.author.send(
-        "```\nid: " +
-          id +
-          "\nsystem: " +
-          system +
-          "\nlocale: " +
-          locale +
-          "\nflags: UserFlags { bitfield: " +
-          flags +
-          " }\nusername: " +
-          username +
-          "\nbot: " +
-          bot +
-          "\ndiscriminator: " +
-          discriminator +
-          "\navatar: " +
-          avatar +
-          "\nlastMessageID: " +
-          lastMessageID +
-          "\nlastMessageChannelID: " +
-          lastMessageChannelID +
-          "```"
-      );
+      await info(message, user);
       break;
   }
 };
