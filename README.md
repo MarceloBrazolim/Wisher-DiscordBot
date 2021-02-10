@@ -11,7 +11,7 @@ Just create a file called "config.json" alongside "main.js" with the following i
 
 ## TODO:
 
-#### - Implement MongoDB
+### - Implement MongoDB
 ```js
 // Method for mongoDB setup
 const mongoose = require("mongoose")
