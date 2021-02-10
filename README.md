@@ -32,7 +32,7 @@ client.once("ready", async () => {
 ```
 
 ```js
-// Schema on "schema.js".
+// Schema on "schemes/main-schema.js".
 const mongoose = require("mongoose");
 const reminder = mongoose.Schema({
   //member ID
@@ -52,9 +52,9 @@ module.exports = mongoose.model("wisherReminder", reminder);
 
 ```js
 // Update MongoDB on "util/update.js"
-const remindSchema = require("../schemes/reminder-schema");
+const remindSchema = require("../schemes/main-schema");
 const { result } = require("./processDate");
-const { uID } = require("../commands/set");
+const { user } = require("../commands/setInir");
 
 module.exports = async () => {
   await mongo().then(async (mongoose) => {
