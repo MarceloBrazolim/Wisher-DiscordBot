@@ -1,5 +1,6 @@
 const avatar = require("../commands/avatar");
 const info = require("../commands/info");
+const set = require("../commands/set");
 
 module.exports = async (message, mention, client, command) => {
   if (!mention) {
@@ -35,6 +36,9 @@ module.exports = async (message, mention, client, command) => {
       break;
     case "info":
       await info(message, user);
+      break;
+    case "set":
+      await set;
       break;
   }
 };

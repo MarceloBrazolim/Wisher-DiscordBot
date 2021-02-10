@@ -15,7 +15,6 @@ const getUserID = require("./getUserID");
 
 // Main
 const help = require("../commands/help");
-// const set = require("../commands/set");
 
 // Side
 const imgInit = require("../commands/imgInit");
@@ -28,9 +27,9 @@ module.exports = async (message, command, args, client) => {
     case "help":
       await help(message, args, client);
       break;
-    // case "set":
-    //   await set(message, args, client);
-    //   break;
+    case "set":
+      await getUserID(message, args, client);
+      break;
 
     // Side
     case "img":
