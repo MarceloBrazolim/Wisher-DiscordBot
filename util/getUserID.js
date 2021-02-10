@@ -1,6 +1,6 @@
 const avatar = require("../commands/avatar");
 const info = require("../commands/info");
-const set = require("../commands/set");
+const setInit = require("./setInit");
 
 module.exports = async (message, mention, client, command) => {
   if (!mention) {
@@ -38,7 +38,7 @@ module.exports = async (message, mention, client, command) => {
       await info(message, user);
       break;
     case "set":
-      await set(message, mention, client);
+      await setInit(message, mention, client);
       break;
   }
 };
