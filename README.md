@@ -12,5 +12,5 @@ client.once("ready", async () => {
       mongoose.connection.close();
     }
   });
-)};
+});
 ```
