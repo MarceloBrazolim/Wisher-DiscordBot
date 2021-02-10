@@ -12,8 +12,12 @@ Just create a file called "config.json" alongside "main.js" with the following i
 ## TODO:
 
 ### - Implement MongoDB
+```diff
+- SOME OF THE FOLLOWING CODE IS __DEPRECATE__, VALIDATE BEFORE IMPLEMENTING
+```
+
 ```js
-// Method for mongoDB setup
+// Method for mongoDB setup on "main.js".
 const mongoose = require("mongoose")
 
 client.once("ready", async () => {
@@ -25,4 +29,69 @@ client.once("ready", async () => {
     }
   });
 });
+```
+
+```js
+// Schema on "schema.js".
+const mongoose = require("mongoose");
+const reminder = mongoose.Schema({
+  //member ID
+  _id: {
+    type: String,
+    required: true,
+  },
+  //Birthday Date
+  Date: {
+    type: Number,
+    required: true,
+  },
+});
+
+module.exports = mongoose.model("wisherReminder", reminder);
+```
+
+```js
+// Update MongoDB on "util/update.js"
+const remindSchema = require("../schemes/reminder-schema");
+const { result } = require("./processDate");
+const { uID } = require("../commands/set");
+
+module.exports = async () => {
+  await mongo().then(async (mongoose) => {
+    try {
+      await remindSchema
+        .findOneAndUpdate(
+          {
+            _id: uID,
+          },
+          {
+            Date: result,
+          },
+          {
+            upsert: true,
+          }
+        )
+        .exec();
+    } finally {
+      mongoose.connection.close();
+    }
+  });
+};
+```
+
+```js
+// Method to process the data to "update.js" on "util/processDate.js"
+const { ptBR } = require("date-fns/locale");
+const { isFuture } = require("date-fns");
+const update = require("./update");
+
+module.exports = async (date, uID) => {
+  //process date
+  result = format(date, "M d", { locale: ptBR }).split(/ +/);
+  console.log(result);
+
+  if (isFuture(new date())) {
+    update(uID)
+  }
+};
 ```
