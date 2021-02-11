@@ -12,7 +12,9 @@ Just create a file called "config.json" alongside "main.js" with the following i
 
 ## TODO:
 
-### - Implement MongoDB
+- [ ] Create "set" command _embed interface_ and dialog
+
+- [x] Implement MongoDB
 ```diff
 - SOME OF THE FOLLOWING CODE IS __DEPRECATE__, VALIDATE BEFORE IMPLEMENTING.
 ```
