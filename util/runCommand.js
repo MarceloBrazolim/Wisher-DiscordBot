@@ -44,13 +44,13 @@ module.exports = async (message, command, args, client) => {
 
     // Adm
     case "avatar":
-      await isAdm(message);
-      if (!isAdm) break;
+      var checkPerm = await isAdm(message);
+      if (!checkPerm) break;
       await getUserID(message, args[0], client, command);
       break;
     case "info":
-      await isAdm(message);
-      if (!isAdm) break;
+      var checkPerm = await isAdm(message);
+      if (!checkPerm) break;
       await getUserID(message, args[0], client, command);
       break;
 
