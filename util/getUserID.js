@@ -4,7 +4,7 @@ const setInit = require("./setInit");
 
 module.exports = async (message, mention, client, command) => {
   if (!mention) {
-    console.log("X|Err: No mention");
+    console.log("X|<|Err: No mention");
     message.channel.send("Você tem que mencionar alguém, bobinho..");
     return;
   }
@@ -20,11 +20,11 @@ module.exports = async (message, mention, client, command) => {
     }
 
     var user = client.users.cache.get(mention);
-    console.log(`||<Mentioned: { ${user.username}#${user.discriminator} }`);
+    console.log(`||>|Mentioned: { ${user.username}#${user.discriminator} }`);
   }
 
   if (!user) {
-    console.log("X|Err: No mention");
+    console.log("X|>|Err: No mention");
     message.channel.send("Você tem que mencionar alguém, bobinho..");
     return;
   }

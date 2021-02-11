@@ -16,13 +16,13 @@ client.once("ready", async () => {
   // Method for mongoDB setup on "main.js".
   await mongo().then((mongoose) => {
     try {
-      console.log(`\n=>_$/Wisher Bot App v${version}\n||<Connected to MongoDB!`);
+      console.log(`\n=>_$./Wisher Bot App v${version}\n||>|Connected to MongoDB!`);
     } finally {
       mongoose.connection.close();
     }
   });
 
-  console.log("||<Wisher is Online!");
+  console.log("||>|Wisher is Online!");
 });
 
 client.on("message", async (message) => {
@@ -35,7 +35,7 @@ client.on("message", async (message) => {
     .split("%20");
   const command = args.shift().toLowerCase();
   console.log(
-    `||\n||=>|${message.author.username}#${message.author.discriminator}:\n||>Command: { ${config.prefix}${command} ${args} }`
+    `||_.\n||=|${message.author.username}#${message.author.discriminator}:\n||<|Command: { ${config.prefix}${command} ${args} }`
   );
 
   await getCommand(message, command, args, client);
