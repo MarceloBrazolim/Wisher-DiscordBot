@@ -14,6 +14,7 @@ Just create a file called "config.json" alongside "main.js" with the following i
 
 - [ ] Create "set" command _embed interface_ and dialog;
 - [ ] Create support for "set reminder" command (OPTIONAL);
+- [ ] Test and validade the application. Fix any bugs;
 
 - [x] Implement MongoDB;
 ```diff
