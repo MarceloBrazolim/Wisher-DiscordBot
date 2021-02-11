@@ -4,7 +4,7 @@
 
 // module.exports = async (date, ID) => {
 //   result = format(date, "M d", { locale: ptBR }).split(/ +/);
-//   console.log(result);
+//   console.log(D|result);
 
 //   switch (args[0]) {
 //     case "":

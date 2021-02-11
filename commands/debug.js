@@ -1,4 +1,4 @@
 module.exports = async (args) => {
-    console.log(`<Debug: ${args}`);
+    console.log(`D|<Debug: ${args}`);
   };
   
