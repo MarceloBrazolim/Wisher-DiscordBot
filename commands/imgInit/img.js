@@ -1,7 +1,7 @@
 const getImage = require("../../util/getImage");
 
 module.exports = async (message, args) => {
-  if (command === "img" && args[0]) {
+  if (args[0]) {
     const xpath = ".image a.link";
     const path = "https://www.dogpile.com/serp?qc=images&q=" + args; // jpg/png search engine
     const att = "href";
