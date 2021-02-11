@@ -35,6 +35,9 @@ module.exports = async (message, command, args, client) => {
     case "img":
       await imgInit(message, command, args);
       break;
+    case "image":
+      await imgInit(message, command, args);
+      break;
     case "gif":
       await imgInit(message, command, args);
       break;
@@ -68,7 +71,16 @@ module.exports = async (message, command, args, client) => {
     case "macaco":
       await macaco(message);
       break;
+    case "mamaco":
+      await macaco(message);
+      break;
     case "lagarto":
+      await lagarto(message);
+      break;
+    case "largarto":
+      await lagarto(message);
+      break;
+    case "largato":
       await lagarto(message);
       break;
     case "coinmaster":
