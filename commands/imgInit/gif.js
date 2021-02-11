@@ -1,4 +1,4 @@
-const getImage = require("../util/getImage");
+const getImage = require("../../util/getImage");
 
 module.exports = async (message, args) => {
   if (command === "gif" && args[0]) {

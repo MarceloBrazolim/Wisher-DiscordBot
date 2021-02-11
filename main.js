@@ -1,6 +1,10 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
+const mongoose = require("mongoose");
+const mongo = require("./mongo");
+
 const config = require("./config.json");
+const { version } = require("./package.json")
 
 const getCommand = require("./util/getCommand");
 
@@ -8,6 +12,16 @@ client.once("ready", async () => {
   client.user
     .setActivity(`${config.prefix}help`, { type: "LISTENING" })
     .catch(console.error);
+
+  // Method for mongoDB setup on "main.js".
+  await mongo().then((mongoose) => {
+    try {
+      console.log(`\n=>_$/Wisher Bot App v${version}\n||<Connected to MongoDB!`);
+    } finally {
+      mongoose.connection.close();
+    }
+  });
+
   console.log("||<Wisher is Online!");
 });
 
@@ -21,7 +35,7 @@ client.on("message", async (message) => {
     .split("%20");
   const command = args.shift().toLowerCase();
   console.log(
-    `\n=>|${message.author.username}#${message.author.discriminator}:\n>Command: { ${config.prefix}${command} ${args} }`
+    `||\n||=>|${message.author.username}#${message.author.discriminator}:\n||>Command: { ${config.prefix}${command} ${args} }`
   );
 
   await getCommand(message, command, args, client);

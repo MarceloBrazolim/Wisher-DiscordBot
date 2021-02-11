@@ -3,6 +3,7 @@ const ping = require("../commands/ping");
 const macaco = require("../commands/macaco");
 const lagarto = require("../commands/lagarto");
 const coinmaster = require("../commands/coinmaster");
+const hello = require("../commands/hello");
 
 // Util
 const isAdm = require("./isAdm");
@@ -85,6 +86,9 @@ module.exports = async (message, command, args, client) => {
       break;
     case "coinmaster":
       await coinmaster(message);
+      break;
+    case "hello":
+      await hello(message);
       break;
   }
 };

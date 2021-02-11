@@ -1,20 +1,19 @@
-const Discord = require("discord.js");
 const setBirthday = require("../commands/setBirthday");
-const setReminder = require("../commands/setReminder");
+// const setReminder = require("../commands/setReminder");
 
-module.exports = async (message, args, client) => {
+module.exports = async (message, args, user, client) => {
   switch (args[0]) {
-    case "reminder":
-      await setReminder(message, client);
-      break;
-    case "rm":
-      await setReminder(message, client);
-      break;
     case "birthday":
-      await setBirthday(message, client);
+      await setBirthday(message, args, user, client);
       break;
     case "bd":
-      await setBirthday(message, client);
+      await setBirthday(message, args, user, client);
       break;
+    // case "reminder":
+    //   await setReminder(message, client);
+    //   break;
+    // case "rm":
+    //   await setReminder(message, client);
+    //   break;
   }
 };

@@ -44,6 +44,10 @@ module.exports = async (message, args, client) => {
         {
           name: "`[misc] " + prefix + "coinmaster`",
           value: "👀",
+        },
+        {
+          name: "`[misc] " + prefix + "hello`",
+          value: "📑",
         }
       );
     }
