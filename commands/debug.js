@@ -4,7 +4,7 @@ module.exports = async (message, args) => {
   switch (args[0]) {
     case "date":
       console.log(`D|>|Date: ${args[1]}`)
-      const result = processDate(new Date(args[1]), { typeFormat: "monthAndDate" }); // ~~"MMMM d" or~~ "monthAndDate"
+      const result = processDate(args[1], "monthAndDate"); // ~~"MMMM d" or~~ "monthAndDate"
       console.log(`D|>|Result: ${result}`);
       // message.channel.send(result);
       break;
