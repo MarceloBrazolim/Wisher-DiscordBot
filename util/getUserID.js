@@ -5,7 +5,7 @@ const setInit = require("./setInit");
 module.exports = async (message, args, client, command) => {
   let x = 0;
   if (command === "set") x = 1;
-  let mention = args[0];
+  let mention = args[x];
   if (!mention) {
     console.log("X|<|Err: No mention");
     message.channel.send("Você tem que mencionar alguém, bobinho..");

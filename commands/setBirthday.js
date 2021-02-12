@@ -4,7 +4,7 @@ const moment = require("moment");
 
 module.exports = async (message, args, uID, client) => {
   moment.locale("pt-br");
-  var date = moment(new Date(args[2])).format("DD [de] MMMM");
+  var date = moment(new Date(args[2])).format("DD [de] MMMM[.]");
   console.log(`D|>|Debug: ${date}`);
 
   var ID = client.users.cache.get("805035898990755850");
@@ -12,7 +12,7 @@ module.exports = async (message, args, uID, client) => {
     .setColor("#831fde")
     .setTitle("Confirmação")
     .setAuthor("Wisher", ID.displayAvatarURL({ dynamic: true }))
-    .addField("Blz! A data de aniversário tá correta?" + date);
+    .addField("Blz! A data de aniversário tá correta?", date);
   console.log(confirmationEmbed);
   message.channel.send(confirmationEmbed);
 
