@@ -65,7 +65,7 @@ module.exports = async (message, command, args, client) => {
     case "debug":
       await isAdm(message);
       if (!isAdm) break;
-      await debug(args);
+      await debug(message, args);
       break;
 
     // Misc
