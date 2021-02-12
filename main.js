@@ -28,7 +28,7 @@ client.once("ready", async () => {
 client.on("message", async (message) => {
   if (!message.content.startsWith(config.prefix) || message.author.bot) return;
   var uMessage = encodeURI(message);
-  var arg = uMessage.slice(config.prefix.length).toLowerCase().split("'");
+  var arg = uMessage.slice(config.prefix.length).split("'");
   const args = arg
     .filter(() => (arg = "'"))
     .join("")
