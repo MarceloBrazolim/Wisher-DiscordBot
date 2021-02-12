@@ -6,10 +6,15 @@ const { format, parseISO } = require("date-fns");
 // const dateFns = new DateFnsAdapter({ locale: ptBR });
 // console.log(dateFns);
 
-var a = "2014-02-11T11:30:30";
-console.log(a);
+var a = encodeURI("2014-02-11T11:30:30")
+.split("'")
+.filter(() => (arg = "'"))
+.join("")
+.split("%20");
 
-var b = format(parseISO(a), /*typeFormat*/ "MMMM d", { locale: ptBR });
+console.log(a[0]);
+
+var b = format(parseISO(a[0]), /*typeFormat*/ "MMMM d", { locale: ptBR });
 console.log(b);
 // const initialDateFnsDate = dateFns.date(a);
 // console.log(initialDateFnsDate);
