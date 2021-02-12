@@ -14,13 +14,13 @@ client.once("ready", async () => {
     .catch(console.error);
 
   // Method for mongoDB setup on "main.js".
-  await mongo().then((mongoose) => {
-    try {
-      console.log(`\n=>_$./Wisher Bot App v${version}\n||>|Connected to MongoDB!`);
-    } finally {
-      mongoose.connection.close();
-    }
-  });
+  // await mongo().then((mongoose) => {
+  //   try {
+  //     console.log(`\n=>_$./Wisher Bot App v${version}\n||>|Connected to MongoDB!`);
+  //   } finally {
+  //     mongoose.connection.close();
+  //   }
+  // });
 
   console.log("||>|Wisher is Online!");
 });
@@ -28,7 +28,7 @@ client.once("ready", async () => {
 client.on("message", async (message) => {
   if (!message.content.startsWith(config.prefix) || message.author.bot) return;
   var uMessage = encodeURI(message);
-  var arg = uMessage.slice(config.prefix.length).toLowerCase().split("'");
+  var arg = uMessage.slice(config.prefix.length).split("'");
   const args = arg
     .filter(() => (arg = "'"))
     .join("")

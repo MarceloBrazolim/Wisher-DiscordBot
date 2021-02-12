@@ -29,9 +29,9 @@ module.exports = async (message, command, args, client) => {
       await help(message, args, client);
       break;
     case "set":
-      if (isAdm(message)) { // Temporary adm permission needed
-        await getUserID(message, args, client);
-      }
+      if (!await isAdm(message)) break;
+      // Temporary adm permission needed
+      await getUserID(message, args, client, command);
       break;
 
     // Side
@@ -50,21 +50,18 @@ module.exports = async (message, command, args, client) => {
 
     // Adm
     case "avatar":
-      var checkPerm = await isAdm(message);
-      if (!checkPerm) break;
+      if (!await isAdm(message)) break;
       await getUserID(message, args[0], client, command);
       break;
     case "info":
-      var checkPerm = await isAdm(message);
-      if (!checkPerm) break;
+      if (!await isAdm(message)) break;
       await getUserID(message, args[0], client, command);
       break;
 
     // Dev
     case "debug":
-      await isAdm(message);
-      if (!isAdm) break;
-      await debug(args);
+      if (!await isAdm(message)) break;
+      await debug(message, args);
       break;
 
     // Misc
@@ -72,17 +69,11 @@ module.exports = async (message, command, args, client) => {
       await ping(message);
       break;
     case "macaco":
-      await macaco(message);
-      break;
     case "mamaco":
       await macaco(message);
       break;
     case "lagarto":
-      await lagarto(message);
-      break;
     case "largarto":
-      await lagarto(message);
-      break;
     case "largato":
       await lagarto(message);
       break;
