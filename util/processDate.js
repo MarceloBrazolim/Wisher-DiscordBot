@@ -1,5 +1,5 @@
 const { ptBR } = require("date-fns/locale");
-const format = require("date-fns/format");
+const { format, parseISO } = require("date-fns");
 // const DateFnsAdapter = require("@date-io/date-fns");
 
 module.exports = async (date, typeFormat) => {
@@ -8,5 +8,5 @@ module.exports = async (date, typeFormat) => {
 
   // return dateFns.format(initialDate, typeFormat);
 
-  return format(date, /*typeFormat*/"MMMM d", { locale: ptBR });
+  return format(parseISO(date), /*typeFormat*/"MMMM d", { locale: ptBR });
 };
