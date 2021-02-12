@@ -2,14 +2,17 @@ const avatar = require("../commands/avatar");
 const info = require("../commands/info");
 const setInit = require("./setInit");
 
-module.exports = async (message, mention, client, command) => {
+module.exports = async (message, args, client, command) => {
+  let x = 0;
+  if (command === "set") x = 1;
+  let mention = args[0];
   if (!mention) {
     console.log("X|<|Err: No mention");
     message.channel.send("Você tem que mencionar alguém, bobinho..");
     return;
   }
 
-  if (mention.startsWith("%3c@") && mention.endsWith("%3e")) {
+  if (mention.startsWith("%3C@") && mention.endsWith("%3E")) {
     mention = mention.slice(4, -3);
 
     if (mention.startsWith("&")) {
@@ -18,7 +21,7 @@ module.exports = async (message, mention, client, command) => {
     } else if (mention.startsWith("!")) {
       mention = mention.slice(1);
     }
-
+    console.log(mention);
     var user = client.users.cache.get(mention);
     console.log(`||>|Mentioned: { ${user.username}#${user.discriminator} }`);
   }
@@ -37,7 +40,7 @@ module.exports = async (message, mention, client, command) => {
       await info(message, user);
       break;
     case "set":
-      await setInit(message, mention, user.id, client);
+      await setInit(message, args, user.id, client);
       break;
   }
 };

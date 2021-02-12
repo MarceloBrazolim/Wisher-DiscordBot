@@ -31,7 +31,7 @@ module.exports = async (message, command, args, client) => {
     case "set":
       if (!await isAdm(message)) break;
       // Temporary adm permission needed
-      await getUserID(message, args, client);
+      await getUserID(message, args, client, command);
       break;
 
     // Side
@@ -69,17 +69,11 @@ module.exports = async (message, command, args, client) => {
       await ping(message);
       break;
     case "macaco":
-      await macaco(message);
-      break;
     case "mamaco":
       await macaco(message);
       break;
     case "lagarto":
-      await lagarto(message);
-      break;
     case "largarto":
-      await lagarto(message);
-      break;
     case "largato":
       await lagarto(message);
       break;

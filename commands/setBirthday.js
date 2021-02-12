@@ -12,10 +12,7 @@ module.exports = async (message, args, uID, client) => {
     .setColor("#831fde")
     .setTitle("Confirmação")
     .setAuthor("Wisher", ID.displayAvatarURL({ dynamic: true }))
-    .addFields({
-      name: "A data de aniversário tá correta?",
-      value: date,
-    });
+    .addField("Blz! A data de aniversário tá correta?" + date);
   console.log(confirmationEmbed);
   message.channel.send(confirmationEmbed);
 
