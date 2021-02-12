@@ -12,9 +12,12 @@ Just create a file called "config.json" alongside "main.js" with the following i
 
 ## TODO:
 
+- [ ] __Document__ (optional...)
+- [ ] Test and validade the application. Fix any bugs,
 - [ ] Create "set" command _embed interface_ and dialog,
 - [ ] Create support for "set reminder" argumented command (OPTIONAL),
-- [ ] Test and validade the application. Fix any bugs,
+- [ ] Create management functions and interaction,
+- [x] Implement date processment,
 
 - [x] Implement MongoDB.
 ```diff
