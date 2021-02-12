@@ -5,7 +5,7 @@ const DateFnsAdapter = require("@date-io/date-fns");
 const dateFns = new DateFnsAdapter({ locale: ptBR });
 // console.log(dateFns);
 
-var a = "2018-10-28t11:44:00.000Z";
+var a = "2018-10-28t11:44:00.000z";
 console.log(a);
 const initialDateFnsDate = dateFns.date(a);
 console.log(initialDateFnsDate);
