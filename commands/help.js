@@ -13,7 +13,7 @@ module.exports = async (message, args, client) => {
       "Exibe esta lista que você está lendo."
     )
     .addField(
-      "`" + prefix + "set <bd/rmd> <mention> <ano/mês/dia>`",
+      "`" + prefix + "set <bd/rmd> <mention> <mês/dia>`",
       "**[off]** Define um lembrete personalizado(rmd) ou uma data de aniversario(bd) 🥳!"
     )
     .addField(
