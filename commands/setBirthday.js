@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const moment = require("moment");
-// const addReaction = require("../util/addReaction");
+const addReaction = require("../util/addReaction");
 
 module.exports = async (message, args, uID, client) => {
   moment.locale("pt-br");
@@ -15,7 +15,8 @@ module.exports = async (message, args, uID, client) => {
     .addField("Blz! A data de aniversário tá correta?", date);
 
   let msgEmbed = await message.channel.send(confirmationEmbed);
-  msgEmbed.react("❌");
+  var reactions = ["❌", "🔸", "✅"];
+  await addReaction(msgEmbed, reactions)
 
   // Inserts into DB
   // await update(date, uID);
