@@ -6,7 +6,7 @@ const { format, parseISO } = require("date-fns");
 // const dateFns = new DateFnsAdapter({ locale: ptBR });
 // console.log(dateFns);
 
-var a = encodeURI("2014-02-11T11:30:30")
+var a = encodeURI("2014-02-13")
 .split("'")
 .filter(() => (arg = "'"))
 .join("")
@@ -14,7 +14,7 @@ var a = encodeURI("2014-02-11T11:30:30")
 
 console.log(a[0]);
 
-var b = format(parseISO(a[0]), /*typeFormat*/ "MMMM d", { locale: ptBR });
+var b = format(new Date(a[0]), "MMMM d");
 console.log(b);
 // const initialDateFnsDate = dateFns.date(a);
 // console.log(initialDateFnsDate);

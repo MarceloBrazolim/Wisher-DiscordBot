@@ -14,13 +14,13 @@ client.once("ready", async () => {
     .catch(console.error);
 
   // Method for mongoDB setup on "main.js".
-  await mongo().then((mongoose) => {
-    try {
-      console.log(`\n=>_$./Wisher Bot App v${version}\n||>|Connected to MongoDB!`);
-    } finally {
-      mongoose.connection.close();
-    }
-  });
+  // await mongo().then((mongoose) => {
+  //   try {
+  //     console.log(`\n=>_$./Wisher Bot App v${version}\n||>|Connected to MongoDB!`);
+  //   } finally {
+  //     mongoose.connection.close();
+  //   }
+  // });
 
   console.log("||>|Wisher is Online!");
 });
