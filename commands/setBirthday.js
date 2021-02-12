@@ -13,8 +13,9 @@ module.exports = async (message, args, uID, client) => {
     .setTitle("Confirmação")
     .setAuthor("Wisher", ID.displayAvatarURL({ dynamic: true }))
     .addField("Blz! A data de aniversário tá correta?", date);
-  console.log(confirmationEmbed);
-  message.channel.send(confirmationEmbed);
+
+  let msgEmbed = await message.channel.send(confirmationEmbed);
+  msgEmbed.react("❌");
 
   // Inserts into DB
   // await update(date, uID);
