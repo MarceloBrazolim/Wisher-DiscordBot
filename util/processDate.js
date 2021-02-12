@@ -9,5 +9,5 @@ module.exports = async (date, typeFormat) => {
   // return dateFns.format(initialDate, typeFormat);
 
   var a = "2014-02-11T11:30:30";
-  return format(parseISO(date), typeFormat, { locale: ptBR });
+  return result = format(parseISO(date), typeFormat, { locale: ptBR });
 };
