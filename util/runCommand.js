@@ -29,7 +29,8 @@ module.exports = async (message, command, args, client) => {
       await help(message, args, client);
       break;
     case "set":
-      if (isAdm(message)) { // Temporary adm permission needed
+      if (isAdm(message)) {
+        // Temporary adm permission needed
         await getUserID(message, args, client);
       }
       break;
