@@ -1,22 +1,22 @@
-const { ptBR } = require("date-fns/locale");
-const { format, parseISO } = require("date-fns");
+// const { ptBR } = require("date-fns/locale");
+// const { format, parseISO } = require("date-fns");
 
-// const DateFnsAdapter = require("@date-io/date-fns");
+// var a = encodeURI("2014-02-13")
+// .split("'")
+// .filter(() => (arg = "'"))
+// .join("")
+// .split("%20");
 
-// const dateFns = new DateFnsAdapter({ locale: ptBR });
-// console.log(dateFns);
+// console.log(a[0]);
 
-var a = encodeURI("2014-02-13")
-.split("'")
-.filter(() => (arg = "'"))
-.join("")
-.split("%20");
-
-console.log(a[0]);
-
-var b = format(new Date(a[0]), "MMMM d");
-console.log(b);
-// const initialDateFnsDate = dateFns.date(a);
-// console.log(initialDateFnsDate);
-
-// console.log(dateFns.format(initialDateFnsDate, "fullDateTime24h")); // "2018, October 30th 11:44"
+// var b = format(new Date(a[0]), "MMMM d");
+// console.log(b);
+var test = "b";
+switch (test) {
+  case "a":
+  case "b":
+    console.log("ok");
+    break;
+  default:
+      console.log("not ok");
+}
