@@ -17,9 +17,7 @@
   },
   "homepage": "https://github.com/MarceloMarchezini/Wisher-DiscordBot#readme",
   "dependencies": {
-    "@date-io/date-fns": "^2.10.7",
     "cheerio": "^1.0.0-rc.5",
-    "date-fns": "^2.17.0",
     "discord.js": "^12.5.1",
     "lodash": "^4.17.20",
     "moment": "^2.29.1",
