@@ -5,7 +5,7 @@ module.exports = async (message) => {
     await message.react("👍");
     return true;
   } else {
-    console.log("User without permission to perform action.")
+    console.log("X|>|Err: User without permission to perform action.")
     await message.channel.send("Você não tem permissão pra fazer isso.");}
   return false;
 };

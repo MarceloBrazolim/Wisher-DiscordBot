@@ -5,15 +5,20 @@ Just create a file called "config.json" alongside "main.js" with the following i
 ```json
 {
     "token": "YOUR_BOT_ACCES_KEY_HERE",
-    "prefix": "YOUR_PREFIX_HERE"
+    "prefix": "YOUR_PREFIX_HERE",
+    "mongoPath": "YOUR_DATABASE_PATH_HERE"
 }
 ```
 
 ## TODO:
 
-### - Implement MongoDB
+- [ ] Create "set" command _embed interface_ and dialog,
+- [ ] Create support for "set reminder" argumented command (OPTIONAL),
+- [ ] Test and validade the application. Fix any bugs,
+
+- [x] Implement MongoDB.
 ```diff
-- SOME OF THE FOLLOWING CODE IS __DEPRECATE__, VALIDATE BEFORE IMPLEMENTING
+- SOME OF THE FOLLOWING CODE IS __DEPRECATE__, VALIDATE BEFORE IMPLEMENTING.
 ```
 
 ```js
@@ -51,7 +56,7 @@ module.exports = mongoose.model("wisherReminder", reminder);
 ```
 
 ```js
-// Update MongoDB on "util/update.js"
+// Update MongoDB on "util/update.js".
 const remindSchema = require("../schemes/main-schema");
 const { result } = require("./processDate");
 const { user } = require("../commands/setInir");
@@ -80,7 +85,7 @@ module.exports = async () => {
 ```
 
 ```js
-// Method to process the data to "update.js" on "util/processDate.js"
+// Method to process the data to "update.js" on "util/processDate.js".
 const { ptBR } = require("date-fns/locale");
 const { isFuture } = require("date-fns");
 const update = require("./update");

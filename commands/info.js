@@ -1,5 +1,4 @@
 module.exports = async (message, user) => {
-  console.log(user);
   await message.author.send(
     "```\nid: " +
       user.id +

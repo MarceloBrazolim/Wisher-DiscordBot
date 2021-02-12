@@ -4,14 +4,13 @@ const setInit = require("./setInit");
 
 module.exports = async (message, mention, client, command) => {
   if (!mention) {
-    console.log("No mention");
+    console.log("X|<|Err: No mention");
     message.channel.send("Você tem que mencionar alguém, bobinho..");
     return;
   }
 
-  console.log(mention);
-  if (mention.startsWith("<@") && mention.endsWith(">")) {
-    mention = mention.slice(2, -1);
+  if (mention.startsWith("%3c@") && mention.endsWith("%3e")) {
+    mention = mention.slice(4, -3);
 
     if (mention.startsWith("&")) {
       message.channel.send("Ei! N vou cair nessa kk 😘");
@@ -21,11 +20,11 @@ module.exports = async (message, mention, client, command) => {
     }
 
     var user = client.users.cache.get(mention);
-    console.log(`mentioned: { ${user.username}#${user.discriminator} }`);
+    console.log(`||>|Mentioned: { ${user.username}#${user.discriminator} }`);
   }
 
   if (!user) {
-    console.log("No mention");
+    console.log("X|>|Err: No mention");
     message.channel.send("Você tem que mencionar alguém, bobinho..");
     return;
   }
@@ -38,7 +37,7 @@ module.exports = async (message, mention, client, command) => {
       await info(message, user);
       break;
     case "set":
-      await setInit(message, mention, client);
+      await setInit(message, mention, user.id, client);
       break;
   }
 };

@@ -1,6 +1,10 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
+const mongoose = require("mongoose");
+const mongo = require("./mongo");
+
 const config = require("./config.json");
+const { version } = require("./package.json")
 
 const getCommand = require("./util/getCommand");
 
@@ -8,22 +12,31 @@ client.once("ready", async () => {
   client.user
     .setActivity(`${config.prefix}help`, { type: "LISTENING" })
     .catch(console.error);
-  console.log("Wisher is Online!");
+
+  // Method for mongoDB setup on "main.js".
+  await mongo().then((mongoose) => {
+    try {
+      console.log(`\n=>_$./Wisher Bot App v${version}\n||>|Connected to MongoDB!`);
+    } finally {
+      mongoose.connection.close();
+    }
+  });
+
+  console.log("||>|Wisher is Online!");
 });
 
 client.on("message", async (message) => {
   if (!message.content.startsWith(config.prefix) || message.author.bot) return;
-  var uMessage = encodeURI(message)
-  var arg = uMessage
-    .slice(config.prefix.length)
-    .toLowerCase()
-    .split("'");
+  var uMessage = encodeURI(message);
+  var arg = uMessage.slice(config.prefix.length).toLowerCase().split("'");
   const args = arg
     .filter(() => (arg = "'"))
     .join("")
     .split("%20");
   const command = args.shift().toLowerCase();
-  console.log(`\nCommand: { ${config.prefix}${command} ${args} }`);
+  console.log(
+    `||_.\n||=|${message.author.username}#${message.author.discriminator}:\n||<|Command: { ${config.prefix}${command} ${args} }`
+  );
 
   await getCommand(message, command, args, client);
 });

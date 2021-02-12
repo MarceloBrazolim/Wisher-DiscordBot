@@ -44,6 +44,10 @@ module.exports = async (message, args, client) => {
         {
           name: "`[misc] " + prefix + "coinmaster`",
           value: "👀",
+        },
+        {
+          name: "`[misc] " + prefix + "hello`",
+          value: "📑",
         }
       );
     }
@@ -53,8 +57,8 @@ module.exports = async (message, args, client) => {
     if (adm) break;
     if (args[i] == "adm" || args[i] == "administrator") {
       var adm = true;
-      await isAdm(message);
-      if (!isAdm) return;
+	  var checkPerm = await isAdm(message);
+      if (!checkPerm) return;
 
       helpEmbed.addFields(
         { name: "\u200B", value: "\u200B" },
@@ -74,8 +78,8 @@ module.exports = async (message, args, client) => {
     if (dev) break;
     if (args[i] == "dev" || args[i] == "developer") {
       var dev = true;
-      await isAdm(message);
-      if (!isAdm) return;
+	  var checkPerm = await isAdm(message);
+      if (!checkPerm) return;
 
       if (!misc && !adm) {
         helpEmbed.addFields({ name: "\u200B", value: "\u200B" });

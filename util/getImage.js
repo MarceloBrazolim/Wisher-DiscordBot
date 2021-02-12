@@ -14,7 +14,7 @@ module.exports = async (message, path, xpath, att) => {
 
   request(options, function (error, response, body) {
     if (error) {
-      console.log(error);
+      console.error();
       return;
     }
 
@@ -39,12 +39,10 @@ module.exports = async (message, path, xpath, att) => {
         message.channel.send(
           "Acho que estou com problemas. Por favor chame meu criador."
         );
-      } else {
-        urls[0] = urls[x];
       }
     }
 
-    console.log(`OUTPUT: ${urls[0]}`);
-    message.channel.send(urls[0]);
+    console.log(`||>|URL: ${urls[x]}`);
+    message.channel.send(urls[x]);
   });
 };
