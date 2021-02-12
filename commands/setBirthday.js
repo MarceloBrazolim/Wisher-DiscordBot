@@ -11,7 +11,7 @@ module.exports = async (message, args, uID, client) => {
     .setTitle("Confirmação")
     .setAuthor("Wisher", ID.displayAvatarURL({ dynamic: true }))
     .addFields(
-      {name: "A data de aniversário tá correta?", value: processDate(date, { format: "MMMM d" })}
+      {name: "A data de aniversário tá correta?", value: processDate(date, { format: "monthAndDate" })}
     );
   message.channel.send(helpEmbed);
 
