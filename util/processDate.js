@@ -1,5 +1,6 @@
-const { ptBR } = require("date-fns/locale");
-const { format, parseISO } = require("date-fns");
+// const { ptBR } = require("date-fns/locale");
+// const { format, parseISO } = require("date-fns");
+const { format } = require("moment");
 // const DateFnsAdapter = require("@date-io/date-fns");
 
 module.exports = async (date, typeFormat) => {
@@ -9,9 +10,6 @@ module.exports = async (date, typeFormat) => {
   // return dateFns.format(initialDate, typeFormat);
 
   var a = encodeURI("2014-02-11T11:30:30");
-  let troxa = new Date(date);
-  console.log(troxa);
-  let result = format(troxa, "MMMM d");
-  console.log(result);
+  console.log(a.format("MMMM [de] d"));
   // format(new Date(date), "MMMM d");
 };
