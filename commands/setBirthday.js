@@ -15,9 +15,13 @@ module.exports = async (message, args, u, client) => {
     .setAuthor("Wisher", ID.displayAvatarURL({ dynamic: true }))
     .setDescription(`**${date}.**`);
 
-  let msgEmbed = message.channel.send(confirmationEmbed);
-  var reactions = ["❌", "🔸", "✅"];
-  await addReaction(msgEmbed, reactions);
+  let msgEmbed = message.channel
+    .send(confirmationEmbed)
+    .react("❌")
+    .then(() => msgEmbed.react("🔸"))
+    .then(() => msgEmbed.react("✅"));
+  // var reactions = ["❌", "🔸", "✅"];
+  // await addReaction(msgEmbed, reactions);
 
   const handleReactions = (reaction, user) => {
     const emoji = reaction._emoji.name;
@@ -28,10 +32,10 @@ module.exports = async (message, args, u, client) => {
     if (!message.author.id == member.id) return;
     switch (emoji) {
       case "✅":
-        msgEmbed.delete(1000);
+        msgEmbed.delete();
         return true;
       case "❌":
-        msgEmbed.delete(1000);
+        msgEmbed.delete();
         return false;
     }
   };
