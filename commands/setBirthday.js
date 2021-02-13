@@ -2,17 +2,9 @@ const Discord = require("discord.js");
 const { prefix } = require("../config.json");
 const addReaction = require("../util/addReaction");
 //
-const confirmYes = new Discord.MessageEmbed()
-  .setColor("#831fde")
-  .setTitle("Irei me lembrar!! 👌")
-  .setDescription(
-    `**O aniversário de username#discriminator será em date!**`
-  );
+const confirmYes = new Discord.MessageEmbed();
 
-const confirmNo = new Discord.MessageEmbed()
-  .setColor("#831fde")
-  .setTitle("Se está com problemas, a sintaxe correta é:")
-  .setDescription(`**${prefix}set bd <mention> <mes/dia>**`);
+const confirmNo = new Discord.MessageEmbed();
 
 module.exports = async (message, u, date) => {
   const confirmationEmbed = new Discord.MessageEmbed()
@@ -46,14 +38,20 @@ module.exports = async (message, u, date) => {
 
     switch (handleReactions(reaction, user)) {
       case true:
-        confirmYes.setDescription(
-          `**O aniversário de ${u.username}#${u.discriminator} será em ${date}!**`
-        );
+        confirmYes
+          .setColor("#831fde")
+          .setTitle("Irei me lembrar!! 👌")
+          .setDescription(
+            `**O aniversário de username#discriminator será em date!**`
+          );
         await message.channel.send(confirmYes);
         return;
 
       case false:
-        confirmNo.setDescription(`**${prefix}set bd <mention> <mes/dia>**`);
+        confirmNo
+          .setColor("#831fde")
+          .setTitle("Se está com problemas, a sintaxe correta é:")
+          .setDescription(`**${prefix}set bd <mention> <mes/dia>**`);
         await message.channel.send(confirmNo);
         return;
     }
