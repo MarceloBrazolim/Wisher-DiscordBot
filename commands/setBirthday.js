@@ -8,7 +8,7 @@ const confirmNo = new Discord.MessageEmbed();
 
 const confirmationEmbed = new Discord.MessageEmbed();
 
-module.exports = async (message, u, date) => {
+module.exports = async (message, uID, date) => {
   confirmationEmbed
     .setColor("#831fde")
     .setTitle("Blz! A data de aniversário está certa?")
