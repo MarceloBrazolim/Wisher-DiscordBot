@@ -1,31 +1,19 @@
 const Discord = require("discord.js");
-const { client } = require("../main")
 const { prefix } = require("../config.json");
 const addReaction = require("../util/addReaction");
-const { date } = require("../util/setInit")
 //
-const ID = client.users.cache.get("805035898990755850");
-
 const confirmYes = new Discord.MessageEmbed()
-.setColor("#831fde")
-.setTitle("Irei me lembrar!! 👌")
-.setAuthor("Wisher", ID.displayAvatarURL({ dynamic: true }))
-.setDescription(
-  `**O aniversário de ${u.username}#${u.discriminator} será em ${date}!**`
-);
+  .setColor("#831fde")
+  .setTitle("Irei me lembrar!! 👌");
 
 const confirmNo = new Discord.MessageEmbed()
-.setColor("#831fde")
-.setTitle("Se está com problemas, a sintaxe correta é:")
-.setAuthor("Wisher", ID.displayAvatarURL({ dynamic: true }))
-.setDescription(`**${prefix}set bd <mention> <mes/dia>**`);
+  .setColor("#831fde")
+  .setTitle("Se está com problemas, a sintaxe correta é:");
 
-module.exports = async (message, date) => {
-
+module.exports = async (message, u, date) => {
   const confirmationEmbed = new Discord.MessageEmbed()
     .setColor("#831fde")
     .setTitle("Blz! A data de aniversário está certa?")
-    .setAuthor("Wisher", ID.displayAvatarURL({ dynamic: true }))
     .setDescription(`${date}.`);
 
   var msgEmbed = await message.channel.send(confirmationEmbed);
@@ -54,10 +42,14 @@ module.exports = async (message, date) => {
 
     switch (handleReactions(reaction, user)) {
       case true:
+        confirmYes.setDescription(
+          `**O aniversário de ${u.username}#${u.discriminator} será em ${date}!**`
+        );
         await message.channel.send(confirmYes);
         return;
 
       case false:
+        confirmNo.setDescription(`**${prefix}set bd <mention> <mes/dia>**`);
         await message.channel.send(confirmNo);
         return;
     }
