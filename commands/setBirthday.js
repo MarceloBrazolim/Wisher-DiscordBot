@@ -36,6 +36,7 @@ module.exports = async (message, args, u, client) => {
 
   client.on("messageReactionAdd", async (reaction, user) => {
     if (user.id === "805035898990755850") return;
+
     switch (handleReactions(reaction, user)) {
       case true:
         var confirmYes = new Discord.MessageEmbed()
@@ -46,7 +47,7 @@ module.exports = async (message, args, u, client) => {
             `**O aniversário de ${u.username}#${u.discriminator} será em ${date}!**`
           );
         await message.channel.send(confirmYes);
-        msgEmbed.delete();
+        await msgEmbed.delete();
         break;
 
       case false:
@@ -56,14 +57,16 @@ module.exports = async (message, args, u, client) => {
           .setAuthor("Wisher", ID.displayAvatarURL({ dynamic: true }))
           .setDescription(`**${prefix}set bd <mention> <mes/dia>**`);
         await message.channel.send(confirmNo);
-        msgEmbed.delete();
+        await msgEmbed.delete();
         break;
 
       default:
         await message.channel.send(
           "Ops. Acho que quebrei 🥴. Chame meu criador, por favor"
         );
+        await msgEmbed.delete();
     }
+    return;
   });
 
   // Inserts into DB
