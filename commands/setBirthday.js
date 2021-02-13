@@ -3,12 +3,11 @@ const moment = require("moment");
 const { prefix } = require("../config.json");
 const addReaction = require("../util/addReaction");
 
-module.exports = async (message, args, u, client) => {
+var generateEmbed = async (message, args, ID) => {
   moment.locale("pt-br");
   var date = moment(new Date(args[2])).format("DD [de] MMMM");
   console.log(`D|>|Debug: ${date}`);
 
-  var ID = client.users.cache.get("805035898990755850");
   var confirmationEmbed = new Discord.MessageEmbed()
     .setColor("#831fde")
     .setTitle("Blz! A data de aniversário está certa?")
@@ -18,6 +17,11 @@ module.exports = async (message, args, u, client) => {
   let msgEmbed = await message.channel.send(confirmationEmbed);
   var reactions = ["❌", "🔸", "✅"];
   await addReaction(msgEmbed, reactions);
+  return msgEmbed;
+};
+
+module.exports = async (message, args, u, client) => {
+  const ID = client.users.cache.get("805035898990755850");
 
   const handleReactions = (reaction, user) => {
     const emoji = reaction._emoji.name;
@@ -34,8 +38,10 @@ module.exports = async (message, args, u, client) => {
     }
   };
 
+  var msgEmbed = await generateEmbed(message, args, ID);
+
   client.on("messageReactionAdd", async (reaction, user) => {
-    if (user.id === "805035898990755850") return;
+    if (user.id == "805035898990755850") return;
 
     switch (handleReactions(reaction, user)) {
       case true:
@@ -48,7 +54,7 @@ module.exports = async (message, args, u, client) => {
           );
         await message.channel.send(confirmYes);
         await msgEmbed.delete();
-        break;
+        return;
 
       case false:
         var confirmNo = new Discord.MessageEmbed()
@@ -58,7 +64,7 @@ module.exports = async (message, args, u, client) => {
           .setDescription(`**${prefix}set bd <mention> <mes/dia>**`);
         await message.channel.send(confirmNo);
         await msgEmbed.delete();
-        break;
+        return;
 
       default:
         await message.channel.send(
