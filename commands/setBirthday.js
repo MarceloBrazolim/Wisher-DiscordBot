@@ -4,11 +4,15 @@ const addReaction = require("../util/addReaction");
 //
 const confirmYes = new Discord.MessageEmbed()
   .setColor("#831fde")
-  .setTitle("Irei me lembrar!! 👌");
+  .setTitle("Irei me lembrar!! 👌")
+  .setDescription(
+    `**O aniversário de username#discriminator será em date!**`
+  );
 
 const confirmNo = new Discord.MessageEmbed()
   .setColor("#831fde")
-  .setTitle("Se está com problemas, a sintaxe correta é:");
+  .setTitle("Se está com problemas, a sintaxe correta é:")
+  .setDescription(`**${prefix}set bd <mention> <mes/dia>**`);
 
 module.exports = async (message, u, date) => {
   const confirmationEmbed = new Discord.MessageEmbed()
