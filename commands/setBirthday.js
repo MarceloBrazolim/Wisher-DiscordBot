@@ -20,7 +20,7 @@ const confirmNo = new Discord.MessageEmbed()
 .setAuthor("Wisher", ID.displayAvatarURL({ dynamic: true }))
 .setDescription(`**${prefix}set bd <mention> <mes/dia>**`);
 
-module.exports = async (message) => {
+module.exports = async (message, date) => {
 
   const confirmationEmbed = new Discord.MessageEmbed()
     .setColor("#831fde")
