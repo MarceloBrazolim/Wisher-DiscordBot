@@ -1,25 +1,29 @@
 const Discord = require("discord.js");
-const client = Discord.Client();
+const client = new Discord.Client();
 const moment = require("moment");
 const { prefix } = require("../config.json");
 const addReaction = require("../util/addReaction");
 //
+const ID = client.users.cache.get("805035898990755850");
 
-// const generateEmbed = async (message, args, ID) => {
-
-// };
-
-const confirmNo = new Discord.MessageEmbed()
-  .setColor("#831fde")
-  .setTitle("Se está com problemas, a sintaxe correta é:")
-  .setDescription(`**${prefix}set bd <mention> <mes/dia>**`);
-
-module.exports = async (message, args, u, client) => {
-  const ID = client.users.cache.get("805035898990755850");
-
+module.exports = async (message, args) => {
   moment.locale("pt-br");
   const date = moment(new Date(args[2])).format("DD [de] MMMM");
   console.log(`D|>|Debug: ${date}`);
+
+  const confirmYes = Discord.MessageEmbed()
+    .setColor("#831fde")
+    .setTitle("Irei me lembrar!! 👌")
+    .setAuthor("Wisher", ID.displayAvatarURL({ dynamic: true }))
+    .setDescription(
+      `**O aniversário de ${u.username}#${u.discriminator} será em ${date}!**`
+    );
+
+  const confirmNo = Discord.MessageEmbed()
+    .setColor("#831fde")
+    .setTitle("Se está com problemas, a sintaxe correta é:")
+    .setAuthor("Wisher", ID.displayAvatarURL({ dynamic: true }))
+    .setDescription(`**${prefix}set bd <mention> <mes/dia>**`);
 
   const confirmationEmbed = new Discord.MessageEmbed()
     .setColor("#831fde")
