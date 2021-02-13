@@ -6,12 +6,13 @@ const confirmYes = new Discord.MessageEmbed();
 
 const confirmNo = new Discord.MessageEmbed();
 
+const confirmationEmbed = new Discord.MessageEmbed();
+
 module.exports = async (message, u, date) => {
-  const confirmationEmbed = new Discord.MessageEmbed()
+  confirmationEmbed
     .setColor("#831fde")
     .setTitle("Blz! A data de aniversário está certa?")
     .setDescription(`${date}.`);
-
   var msgEmbed = await message.channel.send(confirmationEmbed);
   const reactions = ["❌", "🔸", "✅"];
   await addReaction(msgEmbed, reactions);
@@ -19,14 +20,14 @@ module.exports = async (message, u, date) => {
   const handleReactions = (reaction, user) => {
     const emoji = reaction._emoji.name;
     const { guild } = reaction.message;
-
     const member = guild.members.cache.find((member) => member.id === user.id);
-
     if (!message.author.id == member.id) return;
     switch (emoji) {
       case "✅":
+        console.log("ok");
         return true;
       case "❌":
+        console.log("not ok");
         return false;
     }
   };
@@ -42,11 +43,10 @@ module.exports = async (message, u, date) => {
           .setColor("#831fde")
           .setTitle("Irei me lembrar!! 👌")
           .setDescription(
-            `**O aniversário de username#discriminator será em date!**`
+            `**O aniversário de ${u.username}#${u.discriminator} será em date!**`
           );
         await message.channel.send(confirmYes);
         return;
-
       case false:
         confirmNo
           .setColor("#831fde")
