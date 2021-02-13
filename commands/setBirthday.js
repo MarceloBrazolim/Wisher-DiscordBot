@@ -65,12 +65,6 @@ module.exports = async (message, args, u, client) => {
         await message.channel.send(confirmNo);
         await msgEmbed.delete();
         return;
-
-      default:
-        await message.channel.send(
-          "Ops. Acho que quebrei 🥴. Chame meu criador, por favor"
-        );
-        await msgEmbed.delete();
     }
     return;
   });
