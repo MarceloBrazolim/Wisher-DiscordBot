@@ -13,15 +13,11 @@ module.exports = async (message, args, u, client) => {
     .setColor("#831fde")
     .setTitle("Blz! A data de aniversário está certa?")
     .setAuthor("Wisher", ID.displayAvatarURL({ dynamic: true }))
-    .setDescription(`**${date}.**`);
+    .setDescription(`${date}.`);
 
-  let msgEmbed = message.channel
-    .send(confirmationEmbed)
-    .react("❌")
-    .then(() => msgEmbed.react("🔸"))
-    .then(() => msgEmbed.react("✅"));
-  // var reactions = ["❌", "🔸", "✅"];
-  // await addReaction(msgEmbed, reactions);
+  let msgEmbed = await message.channel.send(confirmationEmbed);
+  var reactions = ["❌", "🔸", "✅"];
+  await addReaction(msgEmbed, reactions);
 
   const handleReactions = (reaction, user) => {
     const emoji = reaction._emoji.name;
@@ -66,5 +62,5 @@ module.exports = async (message, args, u, client) => {
   });
 
   // Inserts into DB
-  // update(date, u.id);
+  // await update(date, uID);
 };
