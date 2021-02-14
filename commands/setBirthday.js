@@ -7,11 +7,10 @@ const confirmNo = new Discord.MessageEmbed();
 const confirmationEmbed = new Discord.MessageEmbed();
 
 module.exports = async (message, u, date) => {
-  confirmationEmbed = new Discord.MessageEmbed()
+  confirmationEmbed
     .setColor("#831fde")
     .setTitle("Blz! A data de aniversário está certa?")
     .setDescription(`${date}.`);
-  const message.channel.fetch().then((wMessage) => { await message.channel.send(confirmationEmbed);}
   const reactions = ["❌", "🔸", "✅"];
   await addReaction(msgEmbed, reactions);
 
