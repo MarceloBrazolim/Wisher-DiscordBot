@@ -4,11 +4,7 @@ const mongoose = require("mongoose");
 const mongo = require("./mongo");
 
 const config = require("./config.json");
-<<<<<<< Updated upstream
 const { version } = require("./package.json")
-=======
-const { version } = require("./package.json");
->>>>>>> Stashed changes
 
 const getCommand = require("./util/getCommand");
 
@@ -16,12 +12,11 @@ client.once("ready", async () => {
   client.user
     .setActivity(`${config.prefix}help`, { type: "LISTENING" })
     .catch(console.error);
-  console.log(`\n=>_$./Wisher Bot App v${version}`);
 
   // Method for mongoDB setup on "main.js".
   // await mongo().then((mongoose) => {
   //   try {
-  //     console.log(`||>|Connected to MongoDB!`);
+  //     console.log(`\n=>_$./Wisher Bot App v${version}\n||>|Connected to MongoDB!`);
   //   } finally {
   //     mongoose.connection.close();
   //   }
@@ -31,37 +26,19 @@ client.once("ready", async () => {
 });
 
 client.on("message", async (message) => {
-  // console.log("message:\n" + message + "\n");
-  if (/*!message.content.startsWith(config.prefix) || */ message.author.bot)
-    return;
+  if (!message.content.startsWith(config.prefix) || message.author.bot) return;
+  var uMessage = encodeURI(message);
+  var arg = uMessage.slice(config.prefix.length).split("'");
+  const args = arg
+    .filter(() => (arg = "'"))
+    .join("")
+    .split("%20");
+  const command = args.shift().toLowerCase();
+  console.log(
+    `||_.\n||=|${message.author.username}#${message.author.discriminator}:\n||<|Command: { ${config.prefix}${command} ${args} }`
+  );
 
-  // const channel = await client.channels.fetch(message.channel.id);
-  // channel.messages.fetch().then((messages) => {
-  //   // message.channel.send("test");
-  //   // message.channel.send("test2");
-  //   for (const message of messages)
-  //   console.log(message[1].content)
-  //   // message[0].edit("test3");
-  // })
-  // channel.message.fetch().then(() => {
-  //   channel.send("ola");
-  //   for(const message in messages) {
-  //     message[1].edit("oi")
-  //   }
-  // });
-
-  // var uMessage = encodeURI(message);
-  // var arg = uMessage.slice(config.prefix.length).split("'");
-  // const args = arg
-  //   .filter(() => (arg = "'"))
-  //   .join("")
-  //   .split("%20");
-  // const command = args.shift().toLowerCase();
-  // console.log(
-  //   `||_.\n||=|${message.author.username}#${message.author.discriminator}:\n||<|Command: { ${config.prefix}${command} ${args} }`
-  // );
-
-  // await getCommand(message, command, args, client);
+  await getCommand(message, command, args, client);
 });
 
 client.login(config.token);
