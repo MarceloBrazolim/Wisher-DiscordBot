@@ -16,7 +16,7 @@ module.exports = async (message, args, uID, client) => {
 
   let msgEmbed = await message.channel.send(confirmationEmbed);
   var reactions = ["❌", "🔸", "✅"];
-  await addReaction(msgEmbed, reactions)
+  await addReaction(msgEmbed, reactions);
 
   // Inserts into DB
   // await update(date, uID);
