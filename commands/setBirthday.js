@@ -57,9 +57,11 @@ module.exports = async (message, args, u, client) => {
     switch (handleReactions(reaction, user)) {
       case true:
         await msgEmbed.edit(confirmYes);
+        client.off("messageReactionAdd");
         return;
       case false:
         await msgEmbed.edit(confirmNo);
+        client.off("messageReactionAdd");
         return;
     }
   });
