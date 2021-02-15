@@ -52,17 +52,22 @@ module.exports = async (message, args, u, client) => {
   };
 
   // Reaction listener
-  client.on("messageReactionAdd", async (reaction, user) => {
+  const editMessage = async (reaction, user) => {
     if (user.id == "805035898990755850") return;
-    if (handleReactions(reaction, user) === true) {
-      await msgEmbed.edit(confirmYes);
-      client.off("messageReactionAdd", () => {});
-    } else {
-      await msgEmbed.edit(confirmNo);
-      client.off("messageReactionAdd", () => {});
+    switch (handleReactions(reaction, user)) {
+      case true:
+        await msgEmbed.edit(confirmYes);
+        break;
+      case false:
+        await msgEmbed.edit(confirmNo);
+        break;
     }
-    return;
-  });
+  };
+
+  client.on("messageReactionAdd", editMessage(reaction, user){
+  if (user.id == "805035898990755850") return;
+  await client.off("messageReactionAdd", editMessage());
+  })
 
   // Inserts into DB
   // await update(date, u.id);
