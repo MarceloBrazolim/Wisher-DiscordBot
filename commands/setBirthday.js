@@ -65,5 +65,5 @@ module.exports = async (message, args, u, client) => {
   });
 
   // Inserts into DB
-  // await update(date, uID);
+  // await update(date, u.id);
 };
