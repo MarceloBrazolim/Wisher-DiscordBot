@@ -33,6 +33,7 @@ module.exports = async (message, args, u, client) => {
   let msgEmbed = await message.channel.send(confirmationEmbed);
   var reactions = ["❌", "🔸", "✅"];
   await addReaction(msgEmbed, reactions);
+  console.log("msgEmbed: " + msgEmbed);
 
   // Embed handle
   const handleReactions = (reaction, user) => {
