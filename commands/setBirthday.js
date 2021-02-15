@@ -1,20 +1,33 @@
 const Discord = require("discord.js");
+const { prefix } = require("../config.json");
 const moment = require("moment");
 const addReaction = require("../util/addReaction");
 
-module.exports = async (message, args, uID, client) => {
+module.exports = async (message, args, u, client) => {
   // Format date
   moment.locale("pt-br");
   var date = moment(new Date(args[2])).format("DD [de] MMMM[.]");
-  console.log(`D|>|Debug: ${date}`);
+  console.log(`D|>|Date: ${date}`);
 
   // Embeds
   const ID = client.users.cache.get("805035898990755850");
   var confirmationEmbed = new Discord.MessageEmbed()
     .setColor("#831fde")
-    .setTitle("Confirmação")
+    .setTitle("Blz! A data de aniversário está certa?")
     .setAuthor("Wisher", ID.displayAvatarURL({ dynamic: true }))
-    .addField("Blz! A data de aniversário tá correta?", date);
+    .setDescription(`**${date}**`);
+
+  const confirmNo = new Discord.MessageEmbed()
+    .setColor("#831fde")
+    .setTitle("Se está com problemas, a sintaxe correta é:")
+    .setDescription(`**${prefix}set bd <mention> <mes/dia>**`);
+
+  const confirmYes = new Discord.MessageEmbed()
+    .setColor("#831fde")
+    .setTitle("Irei me lembrar!! 👌")
+    .setDescription(
+      `**O aniversário de ${u.username}#${u.discriminator} será em ${date}!**`
+    );
 
   // First embed
   let msgEmbed = await message.channel.send(confirmationEmbed);
@@ -36,6 +49,19 @@ module.exports = async (message, args, uID, client) => {
         return false;
     }
   };
+
+  // Reaction listener
+  client.on("messageReactionAdd", async (reaction, user) => {
+    if (user.id == "805035898990755850") return;
+    switch (handleReactions(reaction, user)) {
+      case true:
+        await msgEmbed.edit(confirmYes);
+        return;
+      case false:
+        await msgEmbed.edit(confirmNo);
+        return;
+    }
+  });
 
   // Inserts into DB
   // await update(date, uID);
