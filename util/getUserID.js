@@ -39,7 +39,7 @@ module.exports = async (message, args, client, command) => {
       await info(message, user);
       break;
     case "set":
-      await setInit(message, user, args);
+      await setInit(message, args, user, client);
       break;
   }
 };
