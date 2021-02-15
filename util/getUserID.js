@@ -21,7 +21,6 @@ module.exports = async (message, args, client, command) => {
     } else if (mention.startsWith("!")) {
       mention = mention.slice(1);
     }
-    console.log(mention);
     var user = client.users.cache.get(mention);
     console.log(`||>|Mentioned: { ${user.username}#${user.discriminator} }`);
   }

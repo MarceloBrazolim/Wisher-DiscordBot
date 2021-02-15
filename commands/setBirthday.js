@@ -1,6 +1,5 @@
 const Discord = require("discord.js");
 const { prefix } = require("../config.json");
-const moment = require("moment");
 const addReaction = require("../util/addReaction");
 
 module.exports = async (message, args, u, client) => {
@@ -51,6 +50,7 @@ module.exports = async (message, args, u, client) => {
   };
 
   // Reaction listener
+
   client.on("messageReactionAdd", async (reaction, user) => {
     if (user.id == "805035898990755850") return;
     switch (handleReactions(reaction, user)) {

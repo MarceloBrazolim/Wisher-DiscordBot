@@ -12,6 +12,7 @@ client.once("ready", async () => {
   client.user
     .setActivity(`${config.prefix}help`, { type: "LISTENING" })
     .catch(console.error);
+
   console.log(`\n=>_$./Wisher Bot App v${version}`);
   // Method for mongoDB setup on "main.js".
   // await mongo().then((mongoose) => {
@@ -26,19 +27,27 @@ client.once("ready", async () => {
 });
 
 client.on("message", async (message) => {
-  if (!message.content.startsWith(config.prefix) || message.author.bot) return;
-  var uMessage = encodeURI(message);
-  var arg = uMessage.slice(config.prefix.length).split("'");
-  const args = arg
-    .filter(() => (arg = "'"))
-    .join("")
-    .split("%20");
-  const command = args.shift().toLowerCase();
-  console.log(
-    `||_.\n||=|${message.author.username}#${message.author.discriminator}:\n||<|Command: { ${config.prefix}${command} ${args} }`
-  );
+  if (/*!message.content.startsWith(config.prefix) || */message.author.bot) return;
+  const channel = await client.channels.fetch(message.channel.id);
 
-  await getCommand(message, command, args, client);
+  channel.messages.fetch().then((messages) => {
+    for (const element in messages) {
+      console.log(messages[element].content);
+    }
+  });
+
+  // var uMessage = encodeURI(message);
+  // var arg = uMessage.slice(config.prefix.length).split("'");
+  // const args = arg
+  //   .filter(() => (arg = "'"))
+  //   .join("")
+  //   .split("%20");
+  // const command = args.shift().toLowerCase();
+  // console.log(
+  //   `||_.\n||=|${message.author.username}#${message.author.discriminator}:\n||<|Command: { ${config.prefix}${command} ${args} }`
+  // );
+
+  // await getCommand(message, command, args, client);
 });
 
 client.login(config.token);
