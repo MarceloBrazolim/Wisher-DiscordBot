@@ -51,7 +51,6 @@ module.exports = async (message, args, u, client) => {
   };
 
   // Reaction listener
-
   client.on("messageReactionAdd", async (reaction, user) => {
     if (user.id == "805035898990755850") return;
     switch (handleReactions(reaction, user)) {
