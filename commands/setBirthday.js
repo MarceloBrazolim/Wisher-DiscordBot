@@ -32,9 +32,9 @@ module.exports = async (message, args, u, client) => {
   // First embed
   let msgEmbed = await message.channel.send(confirmationEmbed);
 
-  const answer = await message.channel.awaitMessage(
-    (msg) => msg.content.includes("oi"),
-    { max: 2, time: 5000 }
+  const answer = await message.channel.awaitMessages(
+    (msg) => msg.content.includes(prefix),
+    { max: 1, time: 30000 }
   );
   console.log(answer.map((msg) => msg.content).join(", "));
   switch (answer) {
