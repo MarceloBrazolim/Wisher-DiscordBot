@@ -48,9 +48,13 @@ module.exports = async (message, args, u, client) => {
       switch (confirmationTimeout) {
         case `${prefix}yes`:
         case `${prefix}sim`:
+          await message.channel.send(confirmYes);
+          break;
         case `${prefix}no`:
         case `${prefix}nao`:
         case `${prefix}não`:
+          await message.channel.send(confirmYes);
+          break;
       }
   }
   // var reactions = ["❌", "🔸", "✅"];
