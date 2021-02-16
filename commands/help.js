@@ -87,7 +87,7 @@ module.exports = async (message, args, client) => {
       }
       helpEmbed.addFields({
         name: "`[dev] " + prefix + "debugg <args>`",
-        value: "Mando os args formatados e processados no console",
+        value: "Ferramenta de teste do desenvolvedor.",
       });
     }
   }
