@@ -55,10 +55,10 @@ module.exports = async (message, command, args, client) => {
       if (!(await isAdm(message))) break;
       await getUserID(message, args[0], client, command);
       break;
-    case "checkDate":
-      if (!(await isAdm(message))) break;
-      await checkDate(message, args[0], client, command);
-      break;
+    // case "checkDate":
+    //   if (!(await isAdm(message))) break;
+    //   await checkDate(message, args[0], client, command);
+    //   break;
 
     // Dev
     case "debug":
