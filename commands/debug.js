@@ -19,9 +19,14 @@ module.exports = async (message, args) => {
       const msgs = await message.channel.awaitMessages((msg) => msg.content, {
         time: 10000,
       });
-      const msgMap = msgs.map(msg => msg.content).join(", ")
-      console.log(`D|>|Await: ${msgMap}`)
+      const msgMap = msgs.map((msg) => msg.content).join(", ");
+      console.log(`D|>|Await: ${msgMap}`);
       message.channel.send(`Terminei de escutar: ${msgMap}`);
+      break;
+    case "mention":
+      const target = message.mentions.users.first();
+      console.log(target);
+      break;
     default:
       console.log(`D|>|Default: ${args}`);
   }
