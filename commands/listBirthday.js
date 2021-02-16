@@ -12,16 +12,19 @@ module.exports = async (message, u, client) => {
         id,
       });
 
-      const { date } = results.bddates;
-
       const listEmbed = new Discord.MessageEmbed()
         .setColor("#831fde")
         .setTitle("Aniversariante")
-        .setAuthor("Wisher", ID.displayAvatarURL({ dynamic: true }))
-        .addField(
+        .setAuthor("Wisher", ID.displayAvatarURL({ dynamic: true }));
+
+      for (const bddate of results.bddates) {
+        const { bdate } = bddate;
+        listEmbed.addField(
           `@${u.username} faz aniversário em`,
-          `${moment(new Date(date)).format("DD [de] MMMM")}`
+          `${moment(new Date(bdate)).format("DD [de] MMMM")}`
         );
+      }
+
       await message.channel.send(listEmbed);
     } catch {
       await message.channel.send(

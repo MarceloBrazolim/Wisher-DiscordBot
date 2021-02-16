@@ -11,7 +11,7 @@ module.exports = async (date, u) => {
             _id: u,
           },
           {
-            date: date,
+            bdate: date,
           },
           {
             upsert: true,
