@@ -16,4 +16,4 @@ const reminder = mongoose.Schema(
   { versionKey: false }
 );
 
-module.exports = mongoose.model("wisherReminder", reminder);
+module.exports = mongoose.model("BDDates", reminder);

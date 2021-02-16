@@ -10,7 +10,6 @@ module.exports = async (message, args, client, command) => {
     message.channel.send("Você tem que mencionar alguém, bobinho..");
     return;
   }
-  console.log(user);
   console.log(`||>|Mentioned: { ${user.username}#${user.discriminator} }`);
 
   switch (command) {
