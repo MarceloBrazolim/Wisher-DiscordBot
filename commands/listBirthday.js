@@ -23,9 +23,15 @@ module.exports = async (message, u, client) => {
             "DD [de] MMMM"
           )}`
         );
-      message.channel.send(listEmbed);
+      await message.channel.send(listEmbed);
+    } catch {
+      await message.channel.send(
+        "Não achei registros dessa pessoa na minha lista.. 🧐"
+      );
+      return;
     } finally {
-      mongoose.connection.close();
+      await mongoose.connection.close();
+      return;
     }
   });
 };
