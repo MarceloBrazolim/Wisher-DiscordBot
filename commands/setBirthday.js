@@ -5,7 +5,11 @@ const { prefix } = require("../config.json");
 module.exports = async (message, args, u, client) => {
   // Format date
   moment.locale("pt-br");
-  var date = moment(new Date(args[2])).format("DD [de] MMMM");
+  var dateRaw = moment(new Date(args[2]));
+  console.log(`dateRaw: ${dateRaw}`);
+  var dateIntern = dateRaw.format("MM DD");
+  console.log(`dateIntern ${dateIntern}`);
+  var date = dateRaw.format("DD [de] MMMM");
   console.log(`D|>|Date: ${date}`);
 
   // Embeds

@@ -5,6 +5,7 @@ const reminder = mongoose.Schema({
   _id: {
     type: String,
     required: true,
+    unique: true
   },
   //Birthday Date
   Date: {
