@@ -15,7 +15,7 @@ module.exports = async (message, args, u, client) => {
     .setColor("#831fde")
     .setTitle("Blz! A data de aniversário está certa?")
     .setAuthor("Wisher", ID.displayAvatarURL({ dynamic: true }))
-    .addField(`**${date}**`, `${prefix}yes / ${prefix}no`);
+    .addField(`**${date}**`, `${prefix}sim / ${prefix}nao`);
 
   const confirmNo = new Discord.MessageEmbed()
     .setColor("#831fde")
@@ -31,31 +31,24 @@ module.exports = async (message, args, u, client) => {
 
   // First embed
   let msgEmbed = await message.channel.send(confirmationEmbed);
-  switch (message.content.startsWith()) {
+
+  const answer = await message.channel.awaitMessage(
+    (msg) => msg.content.includes("oi"),
+    { max: 2, time: 5000 }
+  );
+  console.log(answer.map((msg) => msg.content).join(", "));
+  switch (answer) {
     case `${prefix}yes`:
     case `${prefix}sim`:
+      await message.channel.send(confirmYes);
+      break;
     case `${prefix}no`:
     case `${prefix}nao`:
     case `${prefix}não`:
-      !message.content.startsWith(`${prefix}yes`) ||
-        !message.content.startsWith(`${prefix}no`);
-      const confirmationTimeout = await message.channel.awaitMessage(
-        (msg) =>
-          msg.content.includes(prefix),
-        { max: 1, time: 5000 }
-      );
-      switch (confirmationTimeout) {
-        case `${prefix}yes`:
-        case `${prefix}sim`:
-          await message.channel.send(confirmYes);
-          break;
-        case `${prefix}no`:
-        case `${prefix}nao`:
-        case `${prefix}não`:
-          await message.channel.send(confirmYes);
-          break;
-      }
+      await message.channel.send(confirmYes);
+      break;
   }
+
   // var reactions = ["❌", "🔸", "✅"];
   // await addReaction(msgEmbed, reactions);
   // console.log("msgEmbed: " + msgEmbed);
