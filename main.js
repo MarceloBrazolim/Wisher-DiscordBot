@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 // const mongoose = require("mongoose");
-// const mongo = require("./mongo");
+const mongo = require("./mongo");
 
 const config = require("./config.json");
 const { version } = require("./package.json");
@@ -15,13 +15,13 @@ client.once("ready", async () => {
 
   console.log(`\n=>_$./Wisher Bot App v${version}`);
   // Method for mongoDB setup on "main.js".
-  // await mongo().then((mongoose) => {
-  //   try {
-  //     console.log(`||>|Connected to MongoDB!`);
-  //   } finally {
-  //     mongoose.connection.close();
-  //   }
-  // });
+  await mongo().then((mongoose) => {
+    try {
+      console.log(`||>|Connected to MongoDB!`);
+    } finally {
+      mongoose.connection.close();
+    }
+  });
 
   console.log("||>|Wisher is Online!");
 });

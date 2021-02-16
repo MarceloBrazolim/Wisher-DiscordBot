@@ -1,4 +1,5 @@
 // Update MongoDB on "util/update.js".
+const mongo = require("../mongo");
 const remindSchema = require("../schemes/main-schema");
 
 module.exports = async (date, u) => {

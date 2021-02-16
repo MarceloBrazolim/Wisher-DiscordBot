@@ -1,14 +1,13 @@
 const Discord = require("discord.js");
 const moment = require("moment");
+const update = require("../util/update");
 const { prefix } = require("../config.json");
 
 module.exports = async (message, args, u, client) => {
   // Format date
   moment.locale("pt-br");
   var dateRaw = moment(new Date(args[2]));
-  console.log(`dateRaw: ${dateRaw}`);
   var dateIntern = dateRaw.format("MM DD");
-  console.log(`dateIntern ${dateIntern}`);
   var date = dateRaw.format("DD [de] MMMM");
   console.log(`D|>|Date: ${date}`);
 
@@ -45,7 +44,8 @@ module.exports = async (message, args, u, client) => {
     case `${prefix}sim`:
       console.log(`D|>|Await: Yes`);
       // Inserts into DB
-      // await update(date, u.id);
+      await update(dateIntern, u.id);
+      await message.react("👍");
       await message.channel.send(confirmYes);
       break;
     case `${prefix}no`:
