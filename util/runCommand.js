@@ -33,7 +33,7 @@ module.exports = async (message, command, args, client) => {
       case "listbd":
       case "lbd":
       case "list":
-        await getUserID(message, client);
+        await getUserID(message, client, command);
         break;
 
     // Side
