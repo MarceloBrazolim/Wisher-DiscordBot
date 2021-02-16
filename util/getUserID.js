@@ -3,7 +3,7 @@ const info = require("../commands/info");
 const setInit = require("./setInit");
 const listBirthday = require("../commands/listBirthday");
 
-module.exports = async (message, args, client, command) => {
+module.exports = async (message, client, command, args) => {
   const user = message.mentions.users.first();
   if (!user) {
     console.log("X|>|Err: No mention");
@@ -20,13 +20,13 @@ module.exports = async (message, args, client, command) => {
       await info(message, user);
       break;
     case "set":
-      await setInit(message, args, user, client);
+      await setInit(message, user, client, args);
       break;
     case "listbirthday":
     case "listbd":
     case "lbd":
     case "list":
-      await listBirthday(message, args, user, client);
+      await listBirthday(message, user, client);
       break;
   }
 };

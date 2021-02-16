@@ -3,9 +3,8 @@ const mongo = require("../mongo");
 const BDStorage = require("../schemes/main-schema");
 const moment = require("moment");
 
-var ID = client.users.cache.get("805035898990755850");
-
-module.exports = async (message, args, u, client) => {
+module.exports = async (message, u, client) => {
+  var ID = client.users.cache.get("805035898990755850");
   const id = u.id;
   await mongo().then(async (mongoose) => {
     try {
@@ -19,7 +18,11 @@ module.exports = async (message, args, u, client) => {
         .setColor("#831fde")
         .setTitle("Aniversariante")
         .setAuthor("Wisher", ID.displayAvatarURL({ dynamic: true }))
-        .setDescription(`@${u.username} faz aniversário em ${moment(new Date(date)).format("DD [de] MMMM")}`);
+        .setDescription(
+          `@${u.username} faz aniversário em ${moment(new Date(date)).format(
+            "DD [de] MMMM"
+          )}`
+        );
       message.channel.send(listEmbed);
     } finally {
       mongoose.connection.close();

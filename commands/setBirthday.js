@@ -3,7 +3,7 @@ const moment = require("moment");
 const update = require("../util/update");
 const { prefix } = require("../config.json");
 
-module.exports = async (message, args, u, client) => {
+module.exports = async (message, u, client, args) => {
   // Format date
   moment.locale("pt-br");
   var dateRaw = moment(new Date(args[2]));
