@@ -8,7 +8,7 @@ const reminder = mongoose.Schema(
       required: true,
     },
     //Birthday Date
-    Date: {
+    date: {
       type: Date,
       required: true,
     },
