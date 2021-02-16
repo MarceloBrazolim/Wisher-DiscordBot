@@ -30,22 +30,24 @@ module.exports = async (message, args, u, client) => {
     );
 
   // First embed
-  let msgEmbed = await message.channel.send(confirmationEmbed);
+  await message.channel.send(confirmationEmbed);
 
   const answer = await message.channel.awaitMessages(
     (msg) => msg.content.includes(prefix),
     { max: 1, time: 30000 }
   );
-  console.log(answer.map((msg) => msg.content).join(", "));
-  switch (answer) {
+  const answerMap = answer.map((msg) => msg.content).join(", ");
+  switch (answerMap) {
     case `${prefix}yes`:
     case `${prefix}sim`:
+      console.log(`D|>|Await: Yes`);
       await message.channel.send(confirmYes);
       break;
     case `${prefix}no`:
     case `${prefix}nao`:
     case `${prefix}não`:
-      await message.channel.send(confirmYes);
+      console.log(`D|>|Await: No`);
+      await message.channel.send(confirmNo);
       break;
   }
 

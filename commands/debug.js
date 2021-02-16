@@ -11,7 +11,7 @@ module.exports = async (message, args) => {
     case "date":
       moment.locale("pt-br");
       var result = moment(new Date(args[1])).format("DD [de] MMMM");
-      console.log(`D|>|Debug: ${result}`);
+      console.log(`D|>|Date: ${result}`);
       message.channel.send(result);
       break;
     case "await":
@@ -20,9 +20,9 @@ module.exports = async (message, args) => {
         time: 10000,
       });
       const msgMap = msgs.map(msg => msg.content).join(", ")
-      console.log(msgMap)
-      message.channel.send(`Terminei de escutar. ${msgMap}`);
+      console.log(`D|>|Await: ${msgMap}`)
+      message.channel.send(`Terminei de escutar: ${msgMap}`);
     default:
-      console.log(`D|>|Debug: ${args}`);
+      console.log(`D|>|Default: ${args}`);
   }
 };
