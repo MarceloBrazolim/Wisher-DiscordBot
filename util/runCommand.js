@@ -27,13 +27,13 @@ module.exports = async (message, command, args, client) => {
       await help(message, args, client);
       break;
     case "set":
-      await getUserID(message, args, client, command);
+      await getUserID(message, client, command, args);
       break;
       case "listbirthday":
       case "listbd":
       case "lbd":
       case "list":
-        await getUserID(message, args[0], client);
+        await getUserID(message, client);
         break;
 
     // Side
