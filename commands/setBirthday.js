@@ -1,11 +1,12 @@
 const Discord = require("discord.js");
+const moment = require("moment");
 const { prefix } = require("../config.json");
 const addReaction = require("../util/addReaction");
 
 module.exports = async (message, args, u, client) => {
   // Format date
   moment.locale("pt-br");
-  var date = moment(new Date(args[2])).format("DD [de] MMMM[.]");
+  var date = moment(new Date(args[2])).format("DD [de] MMMM");
   console.log(`D|>|Date: ${date}`);
 
   // Embeds
@@ -32,6 +33,7 @@ module.exports = async (message, args, u, client) => {
   let msgEmbed = await message.channel.send(confirmationEmbed);
   var reactions = ["❌", "🔸", "✅"];
   await addReaction(msgEmbed, reactions);
+  console.log("msgEmbed: " + msgEmbed);
 
   // Embed handle
   const handleReactions = (reaction, user) => {
@@ -50,19 +52,23 @@ module.exports = async (message, args, u, client) => {
   };
 
   // Reaction listener
-
-  client.on("messageReactionAdd", async (reaction, user) => {
+  const editMessage = async (reaction, user) => {
     if (user.id == "805035898990755850") return;
     switch (handleReactions(reaction, user)) {
       case true:
         await msgEmbed.edit(confirmYes);
-        return;
+        break;
       case false:
         await msgEmbed.edit(confirmNo);
-        return;
+        break;
     }
-  });
+  };
+
+  client.on("messageReactionAdd", editMessage(reaction, user){
+  if (user.id == "805035898990755850") return;
+  await client.off("messageReactionAdd", editMessage());
+  })
 
   // Inserts into DB
-  // await update(date, uID);
+  // await update(date, u.id);
 };
