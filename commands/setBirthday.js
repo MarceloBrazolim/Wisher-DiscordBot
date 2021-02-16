@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const moment = require("moment");
 const { prefix } = require("../config.json");
-const addReaction = require("../util/addReaction");
+// const addReaction = require("../util/addReaction");
 
 module.exports = async (message, args, u, client) => {
   // Format date
@@ -15,7 +15,7 @@ module.exports = async (message, args, u, client) => {
     .setColor("#831fde")
     .setTitle("Blz! A data de aniversário está certa?")
     .setAuthor("Wisher", ID.displayAvatarURL({ dynamic: true }))
-    .setDescription(`**${date}**`);
+    .addField(`${prefix}yes / ${prefix}no`, `**${date}**`);
 
   const confirmNo = new Discord.MessageEmbed()
     .setColor("#831fde")
@@ -31,9 +31,28 @@ module.exports = async (message, args, u, client) => {
 
   // First embed
   let msgEmbed = await message.channel.send(confirmationEmbed);
-  var reactions = ["❌", "🔸", "✅"];
-  await addReaction(msgEmbed, reactions);
-  console.log("msgEmbed: " + msgEmbed);
+  switch (message.content.startsWith()) {
+    case `${prefix}yes`:
+    case `${prefix}sim`:
+    case `${prefix}no`:
+    case `${prefix}nao`:
+    case `${prefix}não`:
+      !message.content.startsWith(`${prefix}yes`) ||
+        !message.content.startsWith(`${prefix}no`);
+      const confirmationTimeout = await message.channel.awaitMessage(
+        (msg) =>
+          msg.content.startsWith(`${prefix}yes`) ||
+          msg.content.startsWith(`${prefix}no`),
+        { max: 1, time: 30000 }
+      );
+      switch (confirmationTimeout) {
+        case "yes":
+        case "sim":
+      }
+  }
+  // var reactions = ["❌", "🔸", "✅"];
+  // await addReaction(msgEmbed, reactions);
+  // console.log("msgEmbed: " + msgEmbed);
 
   // // Embed handle
   // const handleReactions = (reaction, user) => {
@@ -63,7 +82,6 @@ module.exports = async (message, args, u, client) => {
   //       break;
   //   }
   // };
-
 
   // Inserts into DB
   // await update(date, u.id);
