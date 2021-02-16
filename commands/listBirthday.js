@@ -18,10 +18,9 @@ module.exports = async (message, u, client) => {
         .setColor("#831fde")
         .setTitle("Aniversariante")
         .setAuthor("Wisher", ID.displayAvatarURL({ dynamic: true }))
-        .setDescription(
-          `@${u.username} faz aniversário em ${moment(new Date(date)).format(
-            "DD [de] MMMM"
-          )}`
+        .addField(
+          `@${u.username} faz aniversário em`,
+          `${moment(new Date(date)).format("DD [de] MMMM")}`
         );
       await message.channel.send(listEmbed);
     } catch {
