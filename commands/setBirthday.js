@@ -41,8 +41,8 @@ module.exports = async (message, args, u, client) => {
         !message.content.startsWith(`${prefix}no`);
       const confirmationTimeout = await message.channel.awaitMessage(
         (msg) =>
-          msg.content.startsWith(`${prefix}yes`)
-        { max: 1, time: 30000 }
+          msg.content.includes(prefix),
+        { max: 1, time: 5000 }
       );
       switch (confirmationTimeout) {
         case `${prefix}yes`:
