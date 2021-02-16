@@ -29,12 +29,12 @@ module.exports = async (message, command, args, client) => {
     case "set":
       await getUserID(message, args, client, command);
       break;
-    case "listbirthday":
-    case "listbd":
-    case "lbd":
-    case "list":
-      await listBirthday(message, args[0], client);
-      break;
+      case "listbirthday":
+      case "listbd":
+      case "lbd":
+      case "list":
+        await getUserID(message, args[0], client);
+        break;
 
     // Side
     case "img":

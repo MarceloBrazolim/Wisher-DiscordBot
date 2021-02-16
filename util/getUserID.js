@@ -3,43 +3,14 @@ const info = require("../commands/info");
 const setInit = require("./setInit");
 
 module.exports = async (message, args, client, command) => {
-  // let x = 0;
-  // if (command === "set") x = 1;
-  // let mention = args[x];
-  // if (!mention) {
-  //   console.log("X|<|Err: No mention");
-  //   message.channel.send("Você tem que mencionar alguém, bobinho..");
-  //   return;
-  // }
-
-  // if (mention.startsWith("%3C@") && mention.endsWith("%3E")) {
-  //   mention = mention.slice(4, -3);
-
-  //   if (mention.startsWith("&")) {
-  //     message.channel.send("Ei! N vou cair nessa kk 😘");
-  //     return;
-  //   } else if (mention.startsWith("!")) {
-  //     mention = mention.slice(1);
-  //   }
-
-  const target = message.mentions.users.first();
-  if (!target) {
-    console.log("X|>|Err: No mention");
-    message.channel.send("Você tem que mencionar alguém, bobinho..");
-  } else {
-    console.log(target);
-  }
-
-  var user = client.users.cache.get(target);
-  console.log(user);
-  console.log(`||>|Mentioned: { ${user.username}#${user.discriminator} }`);
-  // }
-
+  const user = message.mentions.users.first();
   if (!user) {
     console.log("X|>|Err: No mention");
     message.channel.send("Você tem que mencionar alguém, bobinho..");
     return;
   }
+  console.log(user);
+  console.log(`||>|Mentioned: { ${user.username}#${user.discriminator} }`);
 
   switch (command) {
     case "avatar":
@@ -50,6 +21,12 @@ module.exports = async (message, args, client, command) => {
       break;
     case "set":
       await setInit(message, args, user, client);
+      break;
+    case "listbirthday":
+    case "listbd":
+    case "lbd":
+    case "list":
+      await listBirthday(message, args, user, client);
       break;
   }
 };
