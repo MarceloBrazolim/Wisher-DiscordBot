@@ -37,7 +37,7 @@ client.on("message", async (message) => {
     .split("%20");
   const command = args.shift().toLowerCase();
   console.log(
-    `||_.\n||=|${message.author.username}#${message.author.discriminator}:\n||<|Command: { ${config.prefix}${command} ${args} }`
+    `||_:\n||=|${message.author.username}#${message.author.discriminator}:\n||<|Command: { ${config.prefix}${command} ${args} }`
   );
 
   await getCommand(message, command, args, client);
