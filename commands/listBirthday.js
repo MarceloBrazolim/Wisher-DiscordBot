@@ -5,13 +5,13 @@ const moment = require("moment");
 
 module.exports = async (message, u, client) => {
   var ID = client.users.cache.get("805035898990755850");
-  const id = u.id;
+  const uID = u.id;
   await mongo().then(async (mongoose) => {
     try {
       const results = await BDStorage.findOne({
-        id,
+        uID,
       });
-
+      console.log(results)
       const listEmbed = new Discord.MessageEmbed()
         .setColor("#831fde")
         .setTitle("Aniversariante")
