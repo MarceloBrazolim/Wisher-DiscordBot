@@ -15,7 +15,7 @@ module.exports = async (message, args, u, client) => {
     .setColor("#831fde")
     .setTitle("Blz! A data de aniversário está certa?")
     .setAuthor("Wisher", ID.displayAvatarURL({ dynamic: true }))
-    .addField(`${prefix}yes / ${prefix}no`, `**${date}**`);
+    .addField(`**${date}**`, `${prefix}yes / ${prefix}no`);
 
   const confirmNo = new Discord.MessageEmbed()
     .setColor("#831fde")
@@ -41,8 +41,7 @@ module.exports = async (message, args, u, client) => {
         !message.content.startsWith(`${prefix}no`);
       const confirmationTimeout = await message.channel.awaitMessage(
         (msg) =>
-          msg.content.startsWith(`${prefix}yes`) ||
-          msg.content.startsWith(`${prefix}no`),
+          msg.content.startsWith(`${prefix}yes`)
         { max: 1, time: 30000 }
       );
       switch (confirmationTimeout) {
