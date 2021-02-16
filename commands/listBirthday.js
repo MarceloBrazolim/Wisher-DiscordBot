@@ -13,7 +13,7 @@ module.exports = async (message, args, u, client) => {
         id,
       });
 
-      const { _id, date } = results.bddates;
+      const { date } = results.bddates;
 
       const listEmbed = new Discord.MessageEmbed()
         .setColor("#831fde")
