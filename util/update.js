@@ -19,7 +19,7 @@ module.exports = async (date, u) => {
         )
         .exec();
     } finally {
-      mongoose.connection.close();
+      await mongoose.connection.close();
     }
   });
 };
