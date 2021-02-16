@@ -1,6 +1,7 @@
 const avatar = require("../commands/avatar");
 const info = require("../commands/info");
 const setInit = require("./setInit");
+const listBirthday = require("../commands/listBirthday");
 
 module.exports = async (message, args, client, command) => {
   const user = message.mentions.users.first();
