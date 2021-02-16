@@ -41,6 +41,8 @@ module.exports = async (message, args, u, client) => {
     case `${prefix}yes`:
     case `${prefix}sim`:
       console.log(`D|>|Await: Yes`);
+      // Inserts into DB
+      // await update(date, u.id);
       await message.channel.send(confirmYes);
       break;
     case `${prefix}no`:
@@ -50,40 +52,4 @@ module.exports = async (message, args, u, client) => {
       await message.channel.send(confirmNo);
       break;
   }
-
-  // var reactions = ["❌", "🔸", "✅"];
-  // await addReaction(msgEmbed, reactions);
-  // console.log("msgEmbed: " + msgEmbed);
-
-  // // Embed handle
-  // const handleReactions = (reaction, user) => {
-  //   const emoji = reaction._emoji.name;
-  //   const { guild } = reaction.message;
-  //   const member = guild.members.cache.find((member) => member.id === user.id);
-  //   if (!message.author.id == member.id) return;
-  //   switch (emoji) {
-  //     case "✅":
-  //       console.log("ok");
-  //       return true;
-  //     case "❌":
-  //       console.log("not ok");
-  //       return false;
-  //   }
-  // };
-
-  // // Reaction listener
-  // const editMessage = async (reaction, user) => {
-  //   if (user.id == "805035898990755850") return;
-  //   switch (handleReactions(reaction, user)) {
-  //     case true:
-  //       await msgEmbed.edit(confirmYes);
-  //       break;
-  //     case false:
-  //       await msgEmbed.edit(confirmNo);
-  //       break;
-  //   }
-  // };
-
-  // Inserts into DB
-  // await update(date, u.id);
 };
