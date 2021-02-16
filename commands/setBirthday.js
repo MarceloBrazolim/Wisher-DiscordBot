@@ -1,7 +1,6 @@
 const Discord = require("discord.js");
 const moment = require("moment");
 const { prefix } = require("../config.json");
-// const addReaction = require("../util/addReaction");
 
 module.exports = async (message, args, u, client) => {
   // Format date

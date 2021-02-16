@@ -29,15 +29,13 @@ module.exports = async (message, command, args, client) => {
       await help(message, args, client);
       break;
     case "set":
-      if (!await isAdm(message)) break;
+      if (!(await isAdm(message))) break;
       // Temporary adm permission needed
       await getUserID(message, args, client, command);
       break;
 
     // Side
     case "img":
-      await imgInit(message, command, args);
-      break;
     case "image":
       await imgInit(message, command, args);
       break;
@@ -50,17 +48,21 @@ module.exports = async (message, command, args, client) => {
 
     // Adm
     case "avatar":
-      if (!await isAdm(message)) break;
+      if (!(await isAdm(message))) break;
       await getUserID(message, args[0], client, command);
       break;
     case "info":
-      if (!await isAdm(message)) break;
+      if (!(await isAdm(message))) break;
       await getUserID(message, args[0], client, command);
+      break;
+    case "checkDate":
+      if (!(await isAdm(message))) break;
+      await checkDate(message, args[0], client, command);
       break;
 
     // Dev
     case "debug":
-      if (!await isAdm(message)) break;
+      if (!(await isAdm(message))) break;
       await debug(message, args);
       break;
 
