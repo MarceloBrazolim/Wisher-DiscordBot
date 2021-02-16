@@ -11,10 +11,8 @@ const isAdm = require("./isAdm");
 // Dev
 const debug = require("../commands/debug");
 
-// Adm
-const getUserID = require("./getUserID");
-
 // Main
+const getUserID = require("./getUserID"); // Multiples functions (also ADM)
 const help = require("../commands/help");
 
 // Side
@@ -30,6 +28,12 @@ module.exports = async (message, command, args, client) => {
       break;
     case "set":
       await getUserID(message, args, client, command);
+      break;
+    case "listbirthday":
+    case "listbd":
+    case "lbd":
+    case "list":
+      await listBirthday(message, args[0], client);
       break;
 
     // Side
@@ -53,10 +57,6 @@ module.exports = async (message, command, args, client) => {
       if (!(await isAdm(message))) break;
       await getUserID(message, args[0], client, command);
       break;
-    // case "checkDate":
-    //   if (!(await isAdm(message))) break;
-    //   await checkDate(message, args[0], client, command);
-    //   break;
 
     // Dev
     case "debug":
