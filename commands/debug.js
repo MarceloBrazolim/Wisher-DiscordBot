@@ -25,7 +25,12 @@ module.exports = async (message, args) => {
       break;
     case "mention":
       const target = message.mentions.users.first();
-      console.log(target);
+      if (!target) {
+        console.log("X|>|Err: No mention");
+        message.channel.send("Você tem que mencionar alguém, bobinho..");
+      } else {
+        console.log(target);
+      }
       break;
     default:
       console.log(`D|>|Default: ${args}`);
