@@ -1,7 +1,6 @@
 const avatar = require("../commands/avatar");
 const info = require("../commands/info");
 const setInit = require("./setInit");
-const listBirthday = require("../commands/listBirthday");
 
 module.exports = async (message, client, command, args) => {
   const user = message.mentions.users.first();
@@ -22,9 +21,6 @@ module.exports = async (message, client, command, args) => {
     case "bd":
     case "birthday":
       await setInit(message, user, client, args);
-      break;
-    case "check":
-      await listBirthday(message, user, client, args);
       break;
   }
 };

@@ -3,7 +3,13 @@ const mongo = require("../mongo");
 const BDStorage = require("../schemes/main-schema");
 const moment = require("moment");
 
-module.exports = async (message, u, client) => {
+module.exports = async (message, client, args) => {
+  const user = message.mentions.users.first();
+  if (!user) {
+    for (const arg of args) {
+    }
+  }
+
   var ID = client.users.cache.get("805035898990755850");
   moment.locale("pt-br");
   await mongo().then(async (mongoose) => {

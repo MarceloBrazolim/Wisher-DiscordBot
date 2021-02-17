@@ -13,6 +13,7 @@ const debug = require("../commands/debug");
 
 // Main
 const getUserID = require("./getUserID"); // Multiples functions (also ADM)
+const listBirthday = require("../commands/listBirthday");
 const help = require("../commands/help");
 
 // Side
@@ -31,7 +32,7 @@ module.exports = async (message, command, args, client) => {
       await getUserID(message, client, command, args);
       break;
     case "check":
-      await getUserID(message, client, command, args);
+      await listBirthday(message, client, args);
       break;
 
     // Side
