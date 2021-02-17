@@ -26,15 +26,13 @@ module.exports = async (message, command, args, client) => {
     case "help":
       await help(message, args, client);
       break;
-    case "set":
+    case "bd":
+    case "birthday":
       await getUserID(message, client, command, args);
       break;
-      case "listbirthday":
-      case "listbd":
-      case "lbd":
-      case "list":
-        await getUserID(message, client, command);
-        break;
+    case "check":
+      await getUserID(message, client, command, args);
+      break;
 
     // Side
     case "img":

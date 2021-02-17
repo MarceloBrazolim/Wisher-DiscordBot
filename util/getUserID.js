@@ -19,14 +19,12 @@ module.exports = async (message, client, command, args) => {
     case "info":
       await info(message, user);
       break;
-    case "set":
+    case "bd":
+    case "birthday":
       await setInit(message, user, client, args);
       break;
-    case "listbirthday":
-    case "listbd":
-    case "lbd":
-    case "list":
-      await listBirthday(message, user, client);
+    case "check":
+      await listBirthday(message, user, client, args);
       break;
   }
 };
