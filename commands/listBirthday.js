@@ -6,7 +6,13 @@ const moment = require("moment");
 module.exports = async (message, client, args) => {
   const user = message.mentions.users.first();
   if (!user) {
-    for (const arg of args) {
+    try {
+      for (const arg of args) {
+        while (new Date(arg) == undefined) {}
+      }
+    } catch {
+      await message.channel.send("Não entendi.. 🧐");
+      return;
     }
   }
 
