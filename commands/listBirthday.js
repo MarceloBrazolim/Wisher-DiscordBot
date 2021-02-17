@@ -8,7 +8,7 @@ module.exports = async (message, client, args) => {
   if (!user) {
     try {
       for (const arg of args) {
-        while (new Date(arg) == undefined) {}
+        if (new Date(arg) == undefined) {}
       }
     } catch {
       await message.channel.send("Não entendi.. 🧐");
@@ -25,7 +25,6 @@ module.exports = async (message, client, args) => {
       }).then((results) => {
         console.log(results);
 
-        // const { bdate } = results.bddates;
         const listEmbed = new Discord.MessageEmbed()
           .setColor("#831fde")
           .setTitle("Aniversariante")
