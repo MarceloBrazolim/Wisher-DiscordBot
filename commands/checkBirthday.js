@@ -31,7 +31,7 @@ module.exports = async (message, client, args) => {
           .setAuthor("Wisher", ID.displayAvatarURL({ dynamic: true }))
           .addField(
             `@${u.username} faz aniversário em`,
-            `${moment(new Date(results.bdate)).format("DD [de] MMMM")}`
+            `${moment(new Date(results.date)).format("DD [de] MMMM")}`
           );
 
         message.channel.send(listEmbed);
