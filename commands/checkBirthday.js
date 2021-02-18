@@ -21,7 +21,8 @@ module.exports = async (message, client, args) => {
   await mongo().then(async (mongoose) => {
     try {
       await BDStorage.findOne({
-        _id: u.id,
+        _id: user.id,
+        bdate: date,
       }).then((results) => {
         console.log(results);
 
@@ -32,13 +33,13 @@ module.exports = async (message, client, args) => {
 
         if (user) {
           listEmbed.addField(
-            `@${u.username} faz aniversário em`,
-            `${moment(new Date(results.date)).format("DD [de] MMMM")}`
+            `@${results._id.username} faz aniversário em`,
+            `${moment(new Date(results.bdate)).format("DD [de] MMMM")}`
           );
         } else if (date) {
           listEmbed.addField(
             `@${u.username} faz aniversário em`,
-            `${moment(new Date(results.date)).format("DD [de] MMMM")}`
+            `${moment(new Date(results.bdate)).format("DD [de] MMMM")}`
           );
         } else {
           console.log(`X|>|Fatal Error: unknown.\n${error}`);
