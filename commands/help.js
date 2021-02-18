@@ -13,7 +13,7 @@ module.exports = async (message, args, client) => {
       "Exibe esta lista que você está lendo."
     )
     .addField(
-      "`" + prefix + "bd <set/check> <mention> <mês/dia>`",
+      "`" + prefix + "bd <set/check>\n" + " - set <mention> <mês/dia>\n" + " - check <mention/data>`",
       // Define um lembrete personalizado(rmd) ou uma data de aniversario(bd) 🥳!
       "Gerencia lembretes de aniversario! 🥳!"
     )
@@ -58,7 +58,7 @@ module.exports = async (message, args, client) => {
     if (adm) break;
     if (args[i] == "adm" || args[i] == "administrator") {
       var adm = true;
-	  var checkPerm = await isAdm(message);
+      var checkPerm = await isAdm(message);
       if (!checkPerm) return;
 
       helpEmbed.addFields(
@@ -79,7 +79,7 @@ module.exports = async (message, args, client) => {
     if (dev) break;
     if (args[i] == "dev" || args[i] == "developer") {
       var dev = true;
-	  var checkPerm = await isAdm(message);
+      var checkPerm = await isAdm(message);
       if (!checkPerm) return;
 
       if (!misc && !adm) {
