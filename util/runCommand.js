@@ -14,7 +14,7 @@ const { version } = require("../package.json");
 
 // Main
 const getUserID = require("./getUserID"); // Multiples functions (also ADM)
-const listBirthday = require("../commands/listBirthday");
+const bdInit = require("../util/bdInit");
 const help = require("../commands/help");
 
 // Side
@@ -30,7 +30,7 @@ module.exports = async (message, command, args, client) => {
       break;
     case "bd":
     case "birthday":
-      await getUserID(message, client, command, args);
+      await bdInit(message, client, command, args);
       break;
 
     // Side

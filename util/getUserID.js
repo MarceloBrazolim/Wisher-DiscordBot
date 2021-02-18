@@ -1,6 +1,6 @@
 const avatar = require("../commands/avatar");
 const info = require("../commands/info");
-const setInit = require("./setInit");
+const setBirthday = require("../commands/setBirthday")
 
 module.exports = async (message, client, command, args) => {
   const user = message.mentions.users.first();
@@ -20,7 +20,7 @@ module.exports = async (message, client, command, args) => {
       break;
     case "bd":
     case "birthday":
-      await setInit(message, user, client, args);
+      await setBirthday(message, user, client, args);
       break;
   }
 };
