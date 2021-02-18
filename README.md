@@ -17,7 +17,6 @@ Just create a file called "config.json" alongside "main.js" with the following i
 - [ ] - [ ] Create management functions and interaction,
 - [x] (v1.5.4) Test and validade the application,
 - [x] Create "set" command _embed interface_ and dialog,
-- [ ]~~Create support for "set reminder" argumented command (OPTIONAL),~~
 - [x] Implement date processment,
 
 - [x] Implement MongoDB.
