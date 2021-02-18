@@ -42,17 +42,14 @@ module.exports = async (message, client, args) => {
             `${moment(new Date(results.bdate)).format("DD [de] MMMM")}`
           );
         } else {
-          console.log(`X|>|Fatal Error: unknown.\n${error}`);
-          return;
+          throw "X|>|Fatal Error: unknown.";
         }
 
         message.channel.send(listEmbed);
       });
     } catch {
-      await message.channel.send(
-        "Não achei registros dessa pessoa na minha lista.. 🧐"
-      );
-      return;
+      console.error();
+      await message.channel.send("Não achei registros na minha lista.. 🧐");
     } finally {
       await mongoose.connection.close();
       return;
