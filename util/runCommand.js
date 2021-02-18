@@ -10,6 +10,7 @@ const isAdm = require("./isAdm");
 
 // Dev
 const debug = require("../commands/debug");
+const { version } = require("../package.json");
 
 // Main
 const getUserID = require("./getUserID"); // Multiples functions (also ADM)
@@ -30,9 +31,6 @@ module.exports = async (message, command, args, client) => {
     case "bd":
     case "birthday":
       await getUserID(message, client, command, args);
-      break;
-    case "check":
-      await listBirthday(message, client, args);
       break;
 
     // Side
@@ -61,6 +59,9 @@ module.exports = async (message, command, args, client) => {
     case "debug":
       if (!(await isAdm(message))) break;
       await debug(message, args);
+      break;
+    case "version":
+      await message.channel.send(`Wisher Bot App v${version}`);
       break;
 
     // Misc
