@@ -1,13 +1,13 @@
 const setBirthday = require("../commands/setBirthday");
-const listBirthday = require("../commands/listBirthday");
+const checkBirthday = require("../commands/checkBirthday");
 
-module.exports = async (message, client, command, args) => {
+module.exports = async (message, client, args) => {
   switch (args[0]) {
     case "set":
-      await setBirthday(message, client, command, args);
+      await setBirthday(message, client, args);
       break;
     case "check":
-      listBirthday(message, client, command, args);
+      checkBirthday(message, client, args);
       break;
   }
 };

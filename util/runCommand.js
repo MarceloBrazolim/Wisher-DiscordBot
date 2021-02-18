@@ -7,13 +7,17 @@ const hello = require("../commands/hello");
 
 // Util
 const isAdm = require("./isAdm");
+const getUserID = require("./getUserID");
 
 // Dev
 const debug = require("../commands/debug");
 const { version } = require("../package.json");
 
+// Adm
+const avatar = require("../commands/avatar");
+const info = require("../commands/info");
+
 // Main
-const getUserID = require("./getUserID"); // Multiples functions (also ADM)
 const bdInit = require("../util/bdInit");
 const help = require("../commands/help");
 
@@ -30,7 +34,7 @@ module.exports = async (message, command, args, client) => {
       break;
     case "bd":
     case "birthday":
-      await bdInit(message, client, command, args);
+      await bdInit(message, client, args);
       break;
 
     // Side
@@ -48,11 +52,11 @@ module.exports = async (message, command, args, client) => {
     // Adm
     case "avatar":
       if (!(await isAdm(message))) break;
-      await getUserID(message, args[0], client, command);
+      await avatar(message, getUserID(message));
       break;
     case "info":
       if (!(await isAdm(message))) break;
-      await getUserID(message, args[0], client, command);
+      await info(message, getUserID(message));
       break;
 
     // Dev

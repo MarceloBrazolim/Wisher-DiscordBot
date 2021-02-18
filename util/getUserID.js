@@ -1,8 +1,4 @@
-const avatar = require("../commands/avatar");
-const info = require("../commands/info");
-const setBirthday = require("../commands/setBirthday")
-
-module.exports = async (message, client, command, args) => {
+module.exports = async (message) => {
   const user = message.mentions.users.first();
   if (!user) {
     console.log("X|>|Err: No mention");
@@ -11,17 +7,4 @@ module.exports = async (message, client, command, args) => {
   }
   console.log(`||>|Mentioned: { ${user.username}#${user.discriminator} }`);
   return user;
-
-  switch (command) {
-    case "avatar":
-      await avatar(message, user);
-      break;
-    case "info":
-      await info(message, user);
-      break;
-    case "bd":
-    case "birthday":
-      await setBirthday(message, user, client, args);
-      break;
-  }
 };
