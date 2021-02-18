@@ -10,9 +10,9 @@ module.exports = async (message, args) => {
   switch (args[0]) {
     case "date":
       moment.locale("pt-br");
-      var result = moment(new Date(args[1])).format("DD [de] MMMM");
+      var result = moment(new Date(args[1]));
       console.log(`D|>|Date: ${result}`);
-      message.channel.send(result);
+      message.channel.send(result.format());
       break;
     case "await":
       await message.channel.send("Escutando..");
@@ -29,7 +29,7 @@ module.exports = async (message, args) => {
         console.log("X|>|Err: No mention");
         message.channel.send("Você tem que mencionar alguém, bobinho..");
       } else {
-        console.log(target);
+        console.log(`D|>|Mention: ${target}`);
       }
       break;
     default:
