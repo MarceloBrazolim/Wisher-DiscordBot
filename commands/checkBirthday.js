@@ -12,6 +12,7 @@ module.exports = async (message, client, args) => {
       const date = new Date(args[1]);
       if (date == "Invalid date") throw err;
     } catch (err) {
+      console.log(`X|>|Fatal Error\n${err}`);
       await message.channel.send("Não entendi.. 🧐");
       return;
     }
