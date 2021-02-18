@@ -10,6 +10,7 @@ module.exports = async (message, client, command, args) => {
     return;
   }
   console.log(`||>|Mentioned: { ${user.username}#${user.discriminator} }`);
+  return user;
 
   switch (command) {
     case "avatar":
