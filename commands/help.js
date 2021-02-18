@@ -13,9 +13,9 @@ module.exports = async (message, args, client) => {
       "Exibe esta lista que você está lendo."
     )
     .addField(
-      "`" + prefix + "set <bd> <mention> <mês/dia>`",
+      "`" + prefix + "bd <set/check> <mention> <mês/dia>`",
       // Define um lembrete personalizado(rmd) ou uma data de aniversario(bd) 🥳!
-      "Define um lembrete para uma data de aniversario(bd) 🥳!"
+      "Gerencia lembretes de aniversario! 🥳!"
     )
     .addField(
       "`" + prefix + "img <args>`",
