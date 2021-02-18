@@ -6,7 +6,7 @@ const moment = require("moment");
 module.exports = async (message, client, args) => {
   try {
     const user = message.mentions.users.first();
-    if (!user) throw "undefined"
+    if (!user) throw "undefined";
   } catch {
     try {
       const date = new Date(args[1]);
@@ -28,11 +28,22 @@ module.exports = async (message, client, args) => {
         const listEmbed = new Discord.MessageEmbed()
           .setColor("#831fde")
           .setTitle("Aniversariante")
-          .setAuthor("Wisher", ID.displayAvatarURL({ dynamic: true }))
-          .addField(
+          .setAuthor("Wisher", ID.displayAvatarURL({ dynamic: true }));
+
+        if (user) {
+          listEmbed.addField(
             `@${u.username} faz aniversário em`,
             `${moment(new Date(results.date)).format("DD [de] MMMM")}`
           );
+        } else if (date) {
+          listEmbed.addField(
+            `@${u.username} faz aniversário em`,
+            `${moment(new Date(results.date)).format("DD [de] MMMM")}`
+          );
+        } else {
+          console.log(`X|>|Fatal Error: unknown.\n${error}`);
+          return;
+        }
 
         message.channel.send(listEmbed);
       });
