@@ -4,18 +4,18 @@ const BDStorage = require("../schemes/main-schema");
 const moment = require("moment");
 
 module.exports = async (message, client, args) => {
-  const user = message.mentions.users.first();
-  if (!user) {
+  try {
+    const user = message.mentions.users.first();
+    if (!user) throw "undefined"
+  } catch {
     try {
-      for (const arg of args) {
-        if (new Date(arg) == undefined) {}
-      }
-    } catch {
+      const date = new Date(args[1]);
+      if (date == "Invalid date") throw err;
+    } catch (err) {
       await message.channel.send("Não entendi.. 🧐");
       return;
     }
   }
-
   var ID = client.users.cache.get("805035898990755850");
   moment.locale("pt-br");
   await mongo().then(async (mongoose) => {
