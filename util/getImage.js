@@ -2,7 +2,7 @@ const request = require("request");
 const { load } = require("cheerio");
 const _ = require("lodash");
 
-module.exports = async (message, path, xpath, att) => {
+module.exports = async (message, path, xpath, att, option) => {
   var options = {
     url: path,
     method: "GET",
@@ -45,6 +45,12 @@ module.exports = async (message, path, xpath, att) => {
 
     var url = urls[x];
     console.log(`||>|URL: ${url}`);
-    return url;
+    switch (option) {
+      case "msg":
+        message.channel.send(url);
+        break;
+      case "url":
+        return url;
+    }
   });
 };
