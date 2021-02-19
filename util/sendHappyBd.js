@@ -18,7 +18,7 @@ module.exports = async (message) => {
     .setAuthor(user.username, user.displayAvatarURL({ dynamic: true }))
     .setThumbnail(user.displayAvatarURL({ dynamic: true }))
     .addField(
-      "Obrigada por fazer parte do meu server!",
+      "Obrigada por fazer parte do nosso server!",
       "Muitas felicidades e muitos anos de vida pra você,\ntenha um ótimo dia e um excelente aniversário!",
       true
     )
