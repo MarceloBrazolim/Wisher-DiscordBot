@@ -1,4 +1,5 @@
 const moment = require("moment");
+const sendHappyBd = require("../util/sendHappyBd");
 
 // Kudo https://github.com/iSherlott
 // function formatDate(data) {
@@ -31,6 +32,11 @@ module.exports = async (message, args) => {
       } else {
         console.log(`D|>|Mention: ${target}`);
       }
+      break;
+    case "bdEmbed":
+    case "happyBd":
+    case "happy":
+      await sendHappyBd(message);
       break;
     default:
       console.log(`D|>|Default: ${args}`);
