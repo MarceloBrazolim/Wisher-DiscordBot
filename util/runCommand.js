@@ -21,6 +21,8 @@ const info = require("../commands/info");
 const bdInit = require("../util/bdInit");
 const help = require("../commands/help");
 
+const sendHappyBd = require("./sendHappyBd");
+
 // Side
 const imgInit = require("../commands/imgInit");
 
@@ -35,6 +37,12 @@ module.exports = async (message, command, args, client) => {
     case "bd":
     case "birthday":
       await bdInit(message, client, args);
+      break;
+
+    case "bdEmbed":
+    case "happyBd":
+    case "happy":
+      await sendHappyBd(message);
       break;
 
     // Side

@@ -9,15 +9,15 @@ module.exports = async (message) => {
   const att = "src";
   const gif = await getImage(message, path, xpath, att);
 
-  const user = getUserID(message);
-  console.log(user.username);
+  const { username, displayAvatarURL } = getUserID(message);
+  console.log(username);
 
   // Embed
-  var birthdayEmbed = new Discord.MessageEmbed()
+  const birthdayEmbed = new Discord.MessageEmbed()
     .setColor("#831fde")
     .setTitle("Hoje é seu aniversário!")
-    .setAuthor(user.username, user.displayAvatarURL({ dynamic: true }))
-    .setThumbnail(user.displayAvatarURL({ dynamic: true }))
+    .setAuthor(username, displayAvatarURL({ dynamic: true }))
+    .setThumbnail(displayAvatarURL({ dynamic: true }))
     .addField(
       "Obrigada por fazer parte do nosso server!",
       "Muitas felicidades e muitos anos de vida pra você,\ntenha um ótimo dia e um excelente aniversário!",
@@ -26,6 +26,6 @@ module.exports = async (message) => {
     .setImage(gif);
   // .addField("🇭 🇦 🇵 🇵 🇾 🥳 🎉 👏\n🇧 🇮 🇷 🇹 🇭 🇩 🇦 🇾");
 
-  message.channel.send(birthdayEmbed);
-  return;
+  console.log(birthdayEmbed);
+  await message.channel.send(birthdayEmbed);
 };
