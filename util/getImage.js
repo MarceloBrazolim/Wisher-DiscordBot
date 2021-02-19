@@ -43,6 +43,6 @@ module.exports = async (message, path, xpath, att) => {
     }
 
     console.log(`||>|URL: ${urls[x]}`);
-    message.channel.send(urls[x]);
+    return urls[x];
   });
 };
