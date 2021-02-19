@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-const getImage = require("../../util/getImage");
+const getImage = require("./getImage");
 const getUserID = require("./getUserID");
 
 module.exports = async (message) => {
@@ -7,9 +7,10 @@ module.exports = async (message) => {
   const xpath = ".GifList .column .GifListItem .Gif img";
   const path = "https://tenor.com/search/celebration-gifs";
   const att = "src";
-  await message.channel.send(await getImage(message, path, xpath, att));
+  const gif = await getImage(message, path, xpath, att);
 
   const user = getUserID(message);
+  console.log(user.username);
 
   // Embed
   var birthdayEmbed = new Discord.MessageEmbed()
@@ -22,8 +23,9 @@ module.exports = async (message) => {
       "Muitas felicidades e muitos anos de vida pra você,\ntenha um ótimo dia e um excelente aniversário!",
       true
     )
-    .setImage(urls[0])
-    .addField("🇭 🇦 🇵 🇵 🇾 🥳 🎉 👏\n🇧 🇮 🇷 🇹 🇭 🇩 🇦 🇾");
+    .setImage(gif);
+  // .addField("🇭 🇦 🇵 🇵 🇾 🥳 🎉 👏\n🇧 🇮 🇷 🇹 🇭 🇩 🇦 🇾");
 
   message.channel.send(birthdayEmbed);
+  return;
 };
