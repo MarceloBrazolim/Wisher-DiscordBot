@@ -7,7 +7,7 @@ module.exports = async (message) => {
   const xpath = ".GifList .column .GifListItem .Gif img";
   const path = "https://tenor.com/search/celebration-gifs";
   const att = "src";
-  await getImage(message, path, xpath, att, { option: "url" }).then((result) => console.log(result + " result"));
+  getImage(message, path, xpath, att).then((result) => console.log(result + " result"));
 
   // const user = await getUserID(message);
   // console.log(user);
