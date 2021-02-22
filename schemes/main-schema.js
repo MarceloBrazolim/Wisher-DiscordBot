@@ -8,12 +8,12 @@ const reminder = mongoose.Schema(
       required: true,
     },
     //Birthday Date
-    bdate: {
-      type: Date,
+    Date: {
+      type: String,
       required: true,
     },
   },
   { versionKey: false }
 );
 
-module.exports = mongoose.model("BDDates", reminder);
+module.exports = mongoose.model("wisherReminder", reminder);

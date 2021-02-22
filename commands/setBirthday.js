@@ -1,12 +1,9 @@
 const Discord = require("discord.js");
 const moment = require("moment");
 const update = require("../util/update");
-const getUserID = require("../util/getUserID");
 const { prefix } = require("../config.json");
 
-module.exports = async (message, client, args) => {
-  const user = await getUserID(message);
-
+module.exports = async (message, args, u, client) => {
   // Format date
   moment.locale("pt-br");
   var dateRaw = moment(new Date(args[2]));
@@ -31,7 +28,7 @@ module.exports = async (message, client, args) => {
     .setColor("#831fde")
     .setTitle("Irei me lembrar!! 👌")
     .setDescription(
-      `**O aniversário de ${user.username}#${user.discriminator} será em ${date}!**`
+      `**O aniversário de ${u.username}#${u.discriminator} será em ${date}!**`
     );
 
   // First embed
@@ -47,7 +44,7 @@ module.exports = async (message, client, args) => {
     case `${prefix}sim`:
       console.log(`D|>|Await: Yes`);
       // Inserts into DB
-      await update(dateIntern, user.id);
+      await update(dateIntern, u.id);
       await message.react("👍");
       await message.channel.send(confirmYes);
       break;
