@@ -20,8 +20,6 @@ module.exports = async (message, command, args) => {
 
   switch (command) {
     case "img":
-      await img(message, args);
-      break;
     case "image":
       await img(message, args);
       break;
