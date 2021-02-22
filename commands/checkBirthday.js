@@ -4,19 +4,16 @@ const BDStorage = require("../schemes/main-schema");
 const moment = require("moment");
 
 module.exports = async (message, client, args) => {
-  try {
-    const user = message.mentions.users.first();
-    if (!user) throw "undefined";
-  } catch {
-    try {
-      const date = new Date(args[1]);
-      if (date == "Invalid date") throw err;
-    } catch (err) {
-      console.log(`X|>|Fatal Error\n${err}`);
+  const user = message.mentions.users.first();
+  if (!user) {
+    const date = new Date(args[1]);
+    if (date == "Invalid date") {
+      console.log("X|>|No Mention or Date");
       await message.channel.send("Não entendi.. 🧐");
       return;
     }
   }
+
   var ID = client.users.cache.get("805035898990755850");
   moment.locale("pt-br");
   await mongo().then(async (mongoose) => {

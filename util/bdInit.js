@@ -7,7 +7,7 @@ module.exports = async (message, client, args) => {
       await setBirthday(message, client, args);
       break;
     case "check":
-      checkBirthday(message, client, args);
+      await checkBirthday(message, client, args);
       break;
   }
 };
