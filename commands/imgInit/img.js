@@ -5,7 +5,7 @@ module.exports = async (message, args) => {
     const xpath = ".image a.link";
     const path = "https://www.dogpile.com/serp?qc=images&q=" + args; // jpg/png search engine
     const att = "href";
-    await getImage(message, path, xpath, att);
+    await message.channle.send(await getImage(message, path, xpath, att));
   } else {
     await message.channel.send("Mas você nem me falou o que procurar!");
   }

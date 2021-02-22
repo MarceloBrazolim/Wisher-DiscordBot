@@ -1,6 +1,5 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
-// const mongoose = require("mongoose");
 const mongo = require("./mongo");
 
 const config = require("./config.json");
