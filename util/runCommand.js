@@ -49,11 +49,7 @@ module.exports = async (message, command, args, client) => {
     // Side
     case "img":
     case "image":
-      await imgInit(message, command, args);
-      break;
     case "gif":
-      await imgInit(message, command, args);
-      break;
     case "astolfo":
       await imgInit(message, command, args);
       break;

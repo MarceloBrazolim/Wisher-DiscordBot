@@ -43,8 +43,7 @@ module.exports = async (message, path, xpath, att) => {
       }
     }
 
-    var url = urls[x];
-    console.log(`||>|URL: ${url}`);
-    return url;
+    console.log(`||>|URL: ${urls[x]}`);
+    message.channel.send(urls[x])
   });
 };
