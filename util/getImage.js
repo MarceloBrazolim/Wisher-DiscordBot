@@ -34,17 +34,15 @@ module.exports = async (message, path, xpath, att) => {
 
     var x = 0;
     while (!urls[x].startsWith("http")) {
-      console.log(`D|>|X+1: ${urls[x]}`);
       x += 1;
-      if (x == 25 && !urls[x].startsWith("http")) {
+      if (x == 100 && !urls[x].startsWith("http")) {
         message.channel.send(
           "Acho que estou com problemas. Por favor chame meu criador."
         );
       }
     }
 
-    var url = urls[x];
-    console.log(`||>|URL: ${url}`);
-    return url;
+    console.log(`||>|URL: ${urls[x]}`);
+    message.channel.send(urls[x]);
   });
 };
