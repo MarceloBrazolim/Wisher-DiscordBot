@@ -5,11 +5,16 @@ const moment = require("moment");
 
 module.exports = async (message, client, args) => {
   const user = message.mentions.users.first();
+  if (!args[1]) {
+    console.log("X|>|No Mention or Date");
+    await message.channel.send("Não entendi.. 🧐");
+    return;
+  }
   if (!user) {
     const date = new Date(args[1]);
     if (date == "Invalid date") {
-      console.log("X|>|No Mention or Date");
-      await message.channel.send("Não entendi.. 🧐");
+      console.log("X|>|Invalid Mention or Date");
+      await message.channel.send("Usuário ou data inválida.. 🧐");
       return;
     }
   }
