@@ -10,7 +10,7 @@ module.exports = async (message, client, args) => {
     await message.channel.send("Não entendi..");
     return;
   }
-  if (!user) {
+  if (user == "undefined") {
     const date = new Date(args[1]);
     if (date == "Invalid date") {
       console.log("X|>|Invalid Mention or Date");
@@ -30,25 +30,14 @@ module.exports = async (message, client, args) => {
       const listEmbed = new Discord.MessageEmbed()
         .setColor("#831fde")
         .setTitle("Aniversariante")
-        .setAuthor("Wisher", ID.displayAvatarURL({ dynamic: true }));
-
-      if (user) {
-        listEmbed.addField(
+        .setAuthor("Wisher", ID.displayAvatarURL({ dynamic: true }))
+        .addField(
           `@${results._id.username} faz aniversário em`,
           `${moment(new Date(results.bdate)).format("DD [de] MMMM")}`
         );
-      } else if (date) {
-        listEmbed.addField(
-          `@${u.username} faz aniversário em`,
-          `${moment(new Date(results.bdate)).format("DD [de] MMMM")}`
-        );
-      } else {
-        throw "X|>|Fatal Error: unknown.";
-      }
 
       message.channel.send(listEmbed);
     } catch {
-      console.error();
       await message.channel.send("Não achei registros na minha lista.. 🧐");
     } finally {
       await mongoose.connection.close();
