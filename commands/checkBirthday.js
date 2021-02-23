@@ -10,10 +10,11 @@ module.exports = async (message, client, args) => {
     return;
   }
 
+  moment.locale("pt-br");
   const user = message.mentions.users.first();
+  const dateRaw = moment(new Date(args[1]));
   var ID = client.users.cache.get("805035898990755850");
 
-  moment.locale("pt-br");
   await mongo().then(async (mongoose) => {
     try {
       const results = await BDStorage.findOne({
