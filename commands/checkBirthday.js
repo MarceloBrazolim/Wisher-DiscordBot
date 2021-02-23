@@ -13,22 +13,28 @@ module.exports = async (message, client, args) => {
   moment.locale("pt-br");
   const user = message.mentions.users.first();
   const dateRaw = moment(new Date(args[1]));
+
   var ID = client.users.cache.get("805035898990755850");
 
   await mongo().then(async (mongoose) => {
     try {
-      const results = await BDStorage.findOne({
+      const results = await BDStorage.find({
         _id: user.id,
-        bdate: date,
-      });
+        bdate: dateRaw,
+      }).exec();
       const listEmbed = new Discord.MessageEmbed()
         .setColor("#831fde")
-        .setTitle("Aniversariante")
-        .setAuthor("Wisher", ID.displayAvatarURL({ dynamic: true }))
-        .addField(
-          `@${results._id.username}#${results._id.discriminator} faz aniversário em`,
-          `${moment(new Date(results.bdate)).format("DD [de] MMMM")}`
-        );
+        .setAuthor("Wisher", ID.displayAvatarURL({ dynamic: true }));
+
+      if (dateRaw) {
+        listEmbed.setTitle("Aniversariante");
+        for (let aniversariante of results) {
+          listEmbed.addField(
+            `@${results._id.username}#${results._id.discriminator} faz aniversário em`,
+            `${moment(new Date(results.bdate)).format("DD [de] MMMM")}`
+          );
+        }
+      }
 
       message.channel.send(listEmbed);
     } catch {
