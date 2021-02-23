@@ -27,15 +27,21 @@ module.exports = async (message, client, args) => {
         .setAuthor("Wisher", ID.displayAvatarURL({ dynamic: true }));
 
       if (dateRaw) {
-        listEmbed.setTitle("Aniversariante");
+        listEmbed.setTitle("Lista de Aniversariantes:");
         for (let aniversariante of results) {
           listEmbed.addField(
-            `@${results._id.username}#${results._id.discriminator} faz aniversário em`,
-            `${moment(new Date(results.bdate)).format("DD [de] MMMM")}`
+            `@${aniversariante._id.username}#${aniversariante._id.discriminator} faz aniversário em`,
+            `${moment(new Date(aniversariante.bdate)).format("DD [de] MMMM")}`
           );
         }
+      } else if (user && !dateRaw) {
+        listEmbed
+          .setTitle("Aniversariante")
+          .addField(
+            `@${aniversariante._id.username}#${aniversariante._id.discriminator} faz aniversário em`,
+            `${moment(new Date(aniversariante.bdate)).format("DD [de] MMMM")}`
+          );
       }
-
       message.channel.send(listEmbed);
     } catch {
       await message.channel.send("Não achei registros na minha lista.. 🧐");
