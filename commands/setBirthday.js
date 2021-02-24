@@ -35,7 +35,7 @@ module.exports = async (message, client, args) => {
     .setColor("#831fde")
     .setTitle("Irei me lembrar!! 👌")
     .setDescription(
-      `O aniversário de ${user.username}#${user.discriminator} será em ${date}!`
+      `O aniversário de **${user.username}**#${user.discriminator} será em **${date}**!`
     );
 
   // First embed
