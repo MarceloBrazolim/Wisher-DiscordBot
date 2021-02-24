@@ -27,7 +27,11 @@ module.exports = async (message, client, args) => {
         .setAuthor("Wisher", ID.displayAvatarURL({ dynamic: true }));
 
       if (dateRaw) {
-        listEmbed.setTitle(`Aniversariantes em ${moment(new Date(aniversariante.bdate)).format("DD [de] MMMM")}:`);
+        listEmbed.setTitle(
+          `Aniversariantes em ${moment(new Date(aniversariante.bdate)).format(
+            "DD [de] MMMM"
+          )}:`
+        );
         for (let aniversariante of results) {
           listEmbed.addField(
             `@${aniversariante._id.username}`,
