@@ -19,7 +19,6 @@ module.exports = async (message, client, args) => {
   console.log(`D|>|Date: ${date}`);
 
   // Embeds
-  const ID = client.users.cache.get("805035898990755850");
   var confirmationEmbed = new Discord.MessageEmbed()
     .setColor("#831fde")
     .setTitle("Blz! A data de aniversário está certa?")
