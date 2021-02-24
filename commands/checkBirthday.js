@@ -9,7 +9,7 @@ module.exports = async (message, client, args) => {
   if (!user) return;
 
   moment.locale("pt-br");
-  const dateRaw = moment(new Date(args[1]));
+  // const dateRaw = moment(new Date(args[1]));
 
   var ID = client.users.cache.get("805035898990755850");
 
