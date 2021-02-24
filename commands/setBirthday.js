@@ -10,6 +10,10 @@ module.exports = async (message, client, args) => {
   // Format date
   moment.locale("pt-br");
   var dateRaw = moment(new Date(args[2]));
+  if (!dateRaw) {
+    await message.channel.send("Você tem que falar uma data, ne! 🙄")
+    return;
+  }
   var dateIntern = dateRaw.format("MM DD");
   var date = dateRaw.format("DD [de] MMMM");
   console.log(`D|>|Date: ${date}`);
@@ -25,7 +29,7 @@ module.exports = async (message, client, args) => {
   const confirmNo = new Discord.MessageEmbed()
     .setColor("#831fde")
     .setTitle("Se está com problemas, a sintaxe correta é:")
-    .setDescription(`**${prefix}set bd <mention> <mes/dia>**`);
+    .setDescription(`**${prefix}bd set <mention> <mes/dia>**`);
 
   const confirmYes = new Discord.MessageEmbed()
     .setColor("#831fde")
