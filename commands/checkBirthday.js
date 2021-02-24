@@ -10,8 +10,6 @@ module.exports = async (message, client) => {
 
   moment.locale("pt-br");
 
-  var ID = client.users.cache.get("805035898990755850");
-
   await mongo().then(async (mongoose) => {
     try {
       const results = await BDStorage.find({
