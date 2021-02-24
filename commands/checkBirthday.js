@@ -18,7 +18,10 @@ module.exports = async (message, client) => {
       const results = await BDStorage.find({
         _id: user.id,
       }).exec();
-      if (!results) throw "Não achei registros na minha lista.. 🧐";
+      if (!results) {
+        await message.channel.send("Não achei registros na minha lista.. 🧐");
+        return;
+      }
       const listEmbed = new Discord.MessageEmbed()
         .setColor("#831fde")
         .setAuthor("Wisher", ID.displayAvatarURL({ dynamic: true }))
@@ -47,8 +50,6 @@ module.exports = async (message, client) => {
       //   listEmbed [...] }
 
       message.channel.send(listEmbed);
-    } catch (e) {
-      await message.channel.send(e);
     } finally {
       await mongoose.connection.close();
       return;
