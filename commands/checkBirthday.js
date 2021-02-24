@@ -4,7 +4,7 @@ const BDStorage = require("../schemes/main-schema");
 const getUserID = require("../util/getUserID");
 const moment = require("moment");
 
-module.exports = async (message, client, args) => {
+module.exports = async (message, client) => {
   const user = await getUserID(message);
   if (!user) return;
 
@@ -23,9 +23,12 @@ module.exports = async (message, client, args) => {
         .setColor("#831fde")
         .setAuthor("Wisher", ID.displayAvatarURL({ dynamic: true }))
         .setTitle("Aniversariante")
-        .addField(
-          `@${results._id.username}#${results._id.discriminator} faz aniversário em`,
-          `**${moment(new Date(results.bdate)).format("DD [de] MMMM")}**`
+        .setDescription(
+          `**${results._id.username}**#${
+            results._id.discriminator
+          } faz aniversário em **${moment(new Date(results.bdate)).format(
+            "DD [de] MMMM"
+          )}**`
         );
 
       // if (dateRaw) {
