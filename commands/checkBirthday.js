@@ -11,9 +11,9 @@ module.exports = async (message, client, args) => {
   }
 
   moment.locale("pt-br");
+
   const user = message.mentions.users.first();
   const dateRaw = moment(new Date(args[1]));
-
   var ID = client.users.cache.get("805035898990755850");
 
   await mongo().then(async (mongoose) => {
