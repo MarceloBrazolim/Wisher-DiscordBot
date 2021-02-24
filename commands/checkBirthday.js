@@ -1,11 +1,13 @@
 const Discord = require("discord.js");
 const mongo = require("../mongo");
 const BDStorage = require("../schemes/main-schema");
+const getUserID = require("../util/getUserID");
 const moment = require("moment");
 
 module.exports = async (message, client, args) => {
+  const user = await getUserID(message);
+  
   moment.locale("pt-br");
-  const user = message.mentions.users.first();
   const dateRaw = moment(new Date(args[1]));
   if (!args[1] || (!user && !dateRaw)) {
     console.log("X|>|No Mention or Date");
@@ -21,6 +23,7 @@ module.exports = async (message, client, args) => {
         _id: user.id,
         bdate: dateRaw,
       }).exec();
+      if (!results) throw "Não achei registros na minha lista.. 🧐";
       const listEmbed = new Discord.MessageEmbed()
         .setColor("#831fde")
         .setAuthor("Wisher", ID.displayAvatarURL({ dynamic: true }));
@@ -46,8 +49,8 @@ module.exports = async (message, client, args) => {
           );
       }
       message.channel.send(listEmbed);
-    } catch {
-      await message.channel.send("Não achei registros na minha lista.. 🧐");
+    } catch(e) {
+      await message.channel.send(e);
     } finally {
       await mongoose.connection.close();
       return;
