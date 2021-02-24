@@ -9,7 +9,6 @@ module.exports = async (message, client) => {
   if (!user) return;
 
   moment.locale("pt-br");
-  // const dateRaw = moment(new Date(args[1]));
 
   var ID = client.users.cache.get("805035898990755850");
 
@@ -32,21 +31,6 @@ module.exports = async (message, client) => {
             "D [de] MMMM"
           )}**`
         );
-
-      // if (dateRaw) {
-      //   listEmbed.setTitle(
-      //     `Aniversariantes em ${moment(new Date(aniversariante.bdate)).format(
-      //       "DD [de] MMMM"
-      //     )}:`
-      //   );
-      //   for (let aniversariante of results) {
-      //     listEmbed.addField(
-      //       `@${aniversariante._id.username}`,
-      //       `#${aniversariante._id.discriminator}`
-      //     );
-      //   }
-      // } else if (user && !dateRaw) {
-      //   listEmbed [...] }
 
       message.channel.send(listEmbed);
     } finally {
