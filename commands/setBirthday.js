@@ -10,8 +10,8 @@ module.exports = async (message, client, args) => {
   // Format date
   moment.locale("pt-br");
   var dateRaw = moment(new Date(args[2]));
-  if (!dateRaw) {
-    await message.channel.send("Você tem que falar uma data, ne! 🙄")
+  if (isNaN(dateRaw)) {
+    await message.channel.send("Você tem que falar uma data, ne! 🙄");
     return;
   }
   var dateIntern = dateRaw.format("MM DD");
@@ -29,13 +29,13 @@ module.exports = async (message, client, args) => {
   const confirmNo = new Discord.MessageEmbed()
     .setColor("#831fde")
     .setTitle("Se está com problemas, a sintaxe correta é:")
-    .setDescription(`**${prefix}bd set <mention> <mes/dia>**`);
+    .setDescription(`**${prefix}bd set** <**mention**> <**mes**/**dia**>`);
 
   const confirmYes = new Discord.MessageEmbed()
     .setColor("#831fde")
     .setTitle("Irei me lembrar!! 👌")
     .setDescription(
-      `**O aniversário de ${user.username}#${user.discriminator} será em ${date}!**`
+      `O aniversário de ${user.username}#${user.discriminator} será em ${date}!`
     );
 
   // First embed
@@ -49,12 +49,14 @@ module.exports = async (message, client, args) => {
   switch (answerMap) {
     case `${prefix}yes`:
     case `${prefix}sim`:
+    case `${prefix}s`:
       console.log(`D|>|Await: Yes`);
       // Inserts into DB
       await update(dateIntern, user.id);
       await message.react("👍");
       await message.channel.send(confirmYes);
       break;
+    case `${prefix}n`:
     case `${prefix}no`:
     case `${prefix}nao`:
     case `${prefix}não`:
