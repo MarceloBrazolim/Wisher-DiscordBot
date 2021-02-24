@@ -18,21 +18,22 @@ module.exports = async (message, client) => {
       const results = await BDStorage.find({
         _id: user.id,
       }).exec();
-      console.log("1");
+      console.log(results.bdate);
+      // console.log("1");
       if (!results) {
         await message.channel.send("Não achei registros na minha lista.. 🧐");
         return;
       }
-      console.log("2");
+      // console.log("2");
       const listEmbed = new Discord.MessageEmbed()
         .setColor("#831fde")
         .setAuthor("Wisher", ID.displayAvatarURL({ dynamic: true }))
-        .setTitle("Aniversariante")
+        .setTitle("Aniversariante:")
         .addField(
-          `**${results._id.username}**#${results._id.discriminator} faz aniversário em`,
+          `**${user.username}**#${user.discriminator} faz aniversário em`,
           `**${moment(new Date(results.bdate)).format("DD [de] MMMM")}**`
         );
-      console.log("3");
+      // console.log("3");
 
       // if (dateRaw) {
       //   listEmbed.setTitle(
@@ -50,10 +51,10 @@ module.exports = async (message, client) => {
       //   listEmbed [...] }
 
       message.channel.send(listEmbed);
-      console.log("4");
+      // console.log("4");
     } finally {
       await mongoose.connection.close();
-      console.log("5");
+      // console.log("5");
       return;
     }
   });
