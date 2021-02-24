@@ -4,6 +4,7 @@ const BDStorage = require("../schemes/main-schema");
 const moment = require("moment");
 
 module.exports = async (message, client, args) => {
+  moment.locale("pt-br");
   const user = message.mentions.users.first();
   const dateRaw = moment(new Date(args[1]));
   if (!args[1] || (!user && !dateRaw)) {
@@ -11,8 +12,6 @@ module.exports = async (message, client, args) => {
     await message.channel.send("Não entendi..");
     return;
   }
-
-  moment.locale("pt-br");
 
   var ID = client.users.cache.get("805035898990755850");
 
