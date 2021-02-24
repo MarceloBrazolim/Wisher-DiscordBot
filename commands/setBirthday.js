@@ -15,7 +15,7 @@ module.exports = async (message, client, args) => {
     return;
   }
   var dateIntern = dateRaw.format("MM DD");
-  var date = dateRaw.format("DD [de] MMMM");
+  var date = dateRaw.format("D [de] MMMM");
   console.log(`D|>|Date: ${date}`);
 
   // Embeds
@@ -23,7 +23,6 @@ module.exports = async (message, client, args) => {
   var confirmationEmbed = new Discord.MessageEmbed()
     .setColor("#831fde")
     .setTitle("Blz! A data de aniversário está certa?")
-    .setAuthor("Wisher", ID.displayAvatarURL({ dynamic: true }))
     .addField(`**${date}**`, `${prefix}sim / ${prefix}nao`);
 
   const confirmNo = new Discord.MessageEmbed()
