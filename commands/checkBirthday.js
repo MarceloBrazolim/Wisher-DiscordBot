@@ -43,7 +43,7 @@ module.exports = async (message, client, args) => {
           .setTitle("Aniversariante")
           .addField(
             `@${results._id.username}#${results._id.discriminator} faz aniversário em`,
-            `${moment(new Date(results.bdate)).format("DD [de] MMMM")}`
+            `**${moment(new Date(results.bdate)).format("DD [de] MMMM")}**`
           );
       }
       message.channel.send(listEmbed);
