@@ -24,11 +24,13 @@ module.exports = async (message, client) => {
       }
       const listEmbed = new Discord.MessageEmbed()
         .setColor("#831fde")
-        .setAuthor("Wisher", ID.displayAvatarURL({ dynamic: true }))
         .setTitle("Aniversariante:")
-        .addField(
-          `***${user.username}#${user.discriminator}*** faz aniversário em`,
-          `**${moment(new Date(results[0].bdate)).format("DD [de] MMMM")}**`
+        .setDescription(
+          `**${user.username}**#${
+            user.discriminator
+          } faz aniversário em **${moment(new Date(results[0].bdate)).format(
+            "D [de] MMMM"
+          )}**`
         );
 
       // if (dateRaw) {
