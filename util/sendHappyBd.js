@@ -3,12 +3,6 @@ const getImage = require("./getImage");
 // const getUserID = require("./getUserID");
 
 module.exports = async (message) => {
-  // Get gif
-  const xpath = ".GifList .column .GifListItem .Gif img";
-  const path = "https://tenor.com/search/celebration-gifs";
-  const att = "src";
-  getImage(message, path, xpath, att);
-
   const user = await getUserID(message);
 
   // Embed
@@ -27,5 +21,12 @@ module.exports = async (message) => {
 
   console.log(birthdayEmbed);
   await message.channel.send(birthdayEmbed);
+
+  // Send gif
+  const xpath = ".GifList .column .GifListItem .Gif img";
+  const path = "https://tenor.com/search/celebration-gifs";
+  const att = "src";
+  getImage(message, path, xpath, att);
+
   return;
 };
