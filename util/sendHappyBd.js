@@ -1,6 +1,6 @@
-// const Discord = require("discord.js");
+const Discord = require("discord.js");
 const getImage = require("./getImage");
-// const getUserID = require("./getUserID");
+const getUserID = require("./getUserID");
 
 module.exports = async (message) => {
   console.log("a");
