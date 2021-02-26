@@ -11,7 +11,7 @@ module.exports = async (message) => {
 
   const user = await getUserID(message);
 
-  // // Embed
+  // Embed
   const birthdayEmbed = new Discord.MessageEmbed()
     .setColor("#831fde")
     .setTitle("Hoje é seu aniversário!")
