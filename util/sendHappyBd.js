@@ -3,6 +3,7 @@ const getImage = require("./getImage");
 // const getUserID = require("./getUserID");
 
 module.exports = async (message) => {
+  console.log("a");
   const user = await getUserID(message);
 
   // Embed
