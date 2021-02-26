@@ -4,7 +4,7 @@ const update = require("../util/update");
 const getUserID = require("../util/getUserID");
 const { prefix } = require("../config.json");
 
-module.exports = async (message, client, args) => {
+module.exports = async (message, args) => {
   const user = await getUserID(message);
 
   // Format date

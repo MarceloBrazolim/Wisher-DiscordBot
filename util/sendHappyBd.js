@@ -10,6 +10,7 @@ module.exports = async (message) => {
     .setColor("#831fde")
     .setTitle("Hoje é seu aniversário!")
     // .setAuthor(user.username, user.displayAvatarURL({ dynamic: true }))
+    .setDescription(`@${user.username}#${user.discriminator}`)
     .setThumbnail(user.displayAvatarURL({ dynamic: true }))
     .addField(
       "Obrigada por fazer parte do nosso server!",
@@ -18,8 +19,6 @@ module.exports = async (message) => {
     )
     // .setImage(gif);
     .addField("🇭 🇦 🇵 🇵 🇾 🥳 🎉 👏\n🇧 🇮 🇷 🇹 🇭 🇩 🇦 🇾");
-
-  console.log(birthdayEmbed);
   await message.channel.send(birthdayEmbed);
 
   // Send gif
