@@ -2,10 +2,10 @@ const setBirthday = require("../commands/setBirthday");
 const checkBirthday = require("../commands/checkBirthday");
 const sendHappyBd = require("./sendHappyBd");
 
-module.exports = async (message, client, args) => {
+module.exports = async (message, args) => {
   switch (args[0]) {
     case "set":
-      await setBirthday(message, args);
+      await setBirthday(message , args);
       break;
     case "check":
       await checkBirthday(message);
