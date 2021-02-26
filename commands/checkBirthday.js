@@ -4,7 +4,7 @@ const BDStorage = require("../schemes/main-schema");
 const getUserID = require("../util/getUserID");
 const moment = require("moment");
 
-module.exports = async (message, client) => {
+module.exports = async (message) => {
   const user = await getUserID(message);
   if (!user) return;
 
