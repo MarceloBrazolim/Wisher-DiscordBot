@@ -2,7 +2,7 @@ const request = require("request");
 const { load } = require("cheerio");
 const _ = require("lodash");
 
-module.exports = async (message, path, xpath, att) => {
+module.exports = async (message, path, xpath, att, birthdayEmbed) => {
   var options = {
     url: path,
     method: "GET",
@@ -44,6 +44,12 @@ module.exports = async (message, path, xpath, att) => {
     }
 
     console.log(`||>|URL: ${urls[x]}`);
-    message.channel.send(urls[x])
+    if (birthdayEmbed) {
+      birthdayEmbed.setImage(urls[x]);
+      message.channel.send(birthdayEmbed);
+      // await message.channel.send("@everyone");
+    } else {
+      message.channel.send(urls[x]);
+    }
   });
 };
