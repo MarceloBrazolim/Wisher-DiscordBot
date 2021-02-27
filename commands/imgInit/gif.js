@@ -9,4 +9,5 @@ module.exports = async (message, args) => {
   } else {
     await message.channel.send("Mas você nem me falou o que procurar!");
   }
+  return;
 };

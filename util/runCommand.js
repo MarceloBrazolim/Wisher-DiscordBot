@@ -95,4 +95,5 @@ module.exports = async (message, command, args, client) => {
       await hello(message);
       break;
   }
+  return;
 };

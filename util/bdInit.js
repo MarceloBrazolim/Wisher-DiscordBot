@@ -5,7 +5,7 @@ const sendHappyBd = require("./sendHappyBd");
 module.exports = async (message, args) => {
   switch (args[0]) {
     case "set":
-      await setBirthday(message , args);
+      await setBirthday(message, args);
       break;
     case "check":
       await checkBirthday(message);
@@ -15,4 +15,5 @@ module.exports = async (message, args) => {
       await sendHappyBd(message);
       break;
   }
+  return;
 };

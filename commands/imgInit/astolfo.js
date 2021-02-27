@@ -5,4 +5,5 @@ module.exports = async (message) => {
   const path = "https://tenor.com/search/astolfo-gifs";
   const att = "src";
   await getImage(message, path, xpath, att, { option: "msg" });
+  return;
 };

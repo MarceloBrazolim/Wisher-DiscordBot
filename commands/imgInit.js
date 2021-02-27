@@ -34,4 +34,5 @@ module.exports = async (message, command, args) => {
       message.channel.send("uhg 😒");
     }
   }
+  return;
 };

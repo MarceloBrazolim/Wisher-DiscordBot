@@ -6,5 +6,7 @@ module.exports = async (message, command, args, client) => {
     await runCommand(message, command, args, client);
   } catch {
     console.error();
+  } finally {
+    return;
   }
 };

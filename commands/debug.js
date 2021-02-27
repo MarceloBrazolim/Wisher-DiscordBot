@@ -41,4 +41,5 @@ module.exports = async (message, args) => {
     default:
       console.log(`D|>|Default: ${args}`);
   }
+  return;
 };

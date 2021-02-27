@@ -22,4 +22,5 @@ module.exports = async (message, user) => {
       user.lastMessageChannelID +
       "```"
   );
+  return;
 };

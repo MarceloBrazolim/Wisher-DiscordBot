@@ -62,4 +62,5 @@ module.exports = async (message, args) => {
       await message.channel.send(confirmNo);
       break;
   }
+  return;
 };

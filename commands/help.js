@@ -13,7 +13,11 @@ module.exports = async (message, args, client) => {
       "Exibe esta lista que você está lendo."
     )
     .addField(
-      "`" + prefix + "birthdday <set/check>\n" + " - set <mention> <mês/dia>\n" + " - check <mention/data>`",
+      "`" +
+        prefix +
+        "birthdday <set/check>\n" +
+        " - set <mention> <mês/dia>\n" +
+        " - check <mention/data>`",
       // Define um lembrete personalizado(rmd) ou uma data de aniversario(bd) 🥳!
       "Gerencia lembretes de aniversario! 🥳!"
     )
@@ -92,4 +96,5 @@ module.exports = async (message, args, client) => {
     }
   }
   message.channel.send(helpEmbed);
+  return;
 };
