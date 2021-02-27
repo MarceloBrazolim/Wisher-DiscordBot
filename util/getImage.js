@@ -46,8 +46,8 @@ module.exports = async (message, path, xpath, att, birthdayEmbed) => {
     console.log(`||>|URL: ${urls[x]}`);
     if (birthdayEmbed) {
       birthdayEmbed.setImage(urls[x]);
-      message.channel.send(birthdayEmbed);
       // await message.channel.send("@everyone");
+      message.channel.send(birthdayEmbed);
     } else {
       message.channel.send(urls[x]);
     }
