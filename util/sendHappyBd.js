@@ -21,9 +21,8 @@ module.exports = async (message) => {
       "Muitas felicidades e muitos anos de vida pra você,\ntenha um ótimo dia e um excelente aniversário!",
       true
     )
-    .addField("🇭 🇦 🇵 🇵 🇾 🥳 🎉 👏\n🇧 🇮 🇷 🇹 🇭 🇩 🇦 🇾");
+    .addField("🇭 🇦 🇵 🇵 🇾 🥳 🎉 👏", "🇧 🇮 🇷 🇹 🇭 🇩 🇦 🇾");
   await message.channel.send(birthdayEmbed);
   await getImage(message, path, xpath, att);
-
   return;
 };
