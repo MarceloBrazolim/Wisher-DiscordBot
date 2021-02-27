@@ -14,13 +14,13 @@ module.exports = async (message, command, args) => {
   switch (command) {
     case "img":
     case "image":
-      await img(message, args);
+      await img(message, args, command);
       break;
     case "gif":
-      await gif(message, args);
+      await gif(message, args, command);
       break;
     case "astolfo":
-      await astolfo(message);
+      await astolfo(message, command);
       break;
   }
 
