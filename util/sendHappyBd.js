@@ -14,7 +14,7 @@ module.exports = async (message) => {
     .setColor("#831fde")
     .setTitle("Hoje é seu aniversário!")
     // .setAuthor(user.username, user.displayAvatarURL({ dynamic: true }))
-    .setDescription(`@${user.username}`)
+    .setDescription(`<@!${user.id}>`)
     .setThumbnail(user.displayAvatarURL({ dynamic: true }))
     .addField(
       "Obrigada por fazer parte do nosso server!",
