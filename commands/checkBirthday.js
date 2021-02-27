@@ -12,7 +12,7 @@ module.exports = async (message) => {
 
   await mongo().then(async (mongoose) => {
     try {
-      const results = await BDStorage.find({
+      const results = await BDStorage.findOne({
         _id: user.id,
       });
       if (!results) {
@@ -25,7 +25,7 @@ module.exports = async (message) => {
         .setDescription(
           `**${user.username}**#${
             user.discriminator
-          } faz aniversário em **${moment(new Date(results[0].bdate)).format(
+          } faz aniversário em **${moment(new Date(results.bdate)).format(
             "D [de] MMMM"
           )}**`
         );
