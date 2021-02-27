@@ -2,7 +2,7 @@ const request = require("request");
 const { load } = require("cheerio");
 const _ = require("lodash");
 
-module.exports = async (message, path, xpath, att, birthdayEmbed) => {
+module.exports = async (message, path, xpath, att, command, birthdayEmbed) => {
   var options = {
     url: path,
     method: "GET",
