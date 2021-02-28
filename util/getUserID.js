@@ -1,7 +1,7 @@
 module.exports = async (message) => {
   const user = message.mentions.users.first();
   if (!user) {
-    console.log("X|>|Err: No mention");
+    console.log("x|>|Err: No mention");
     message.channel.send("Você tem que mencionar alguém, bobinho..");
     return;
   }

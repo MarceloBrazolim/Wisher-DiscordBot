@@ -14,7 +14,7 @@ module.exports = async (message, path, xpath, att, command, birthdayEmbed) => {
 
   request(options, function (error, response, body) {
     if (error) {
-      console.error(error);
+      console.error(`X|<|${error}`);
       return;
     }
 

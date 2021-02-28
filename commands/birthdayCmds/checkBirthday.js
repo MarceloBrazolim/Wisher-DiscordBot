@@ -11,7 +11,6 @@ module.exports = async (message) => {
   moment.locale("pt-br");
 
   await mongo().then(async (mongoose) => {
-    // console.log(BDStorage);
     try {
       const results = await BDStorage.findOne({
         _id: user.id,

@@ -10,7 +10,7 @@ const getCommand = require("./util/getCommand");
 client.once("ready", async () => {
   client.user
     .setActivity(`${config.prefix}help`, { type: "LISTENING" })
-    .catch(console.error);
+    .catch(console.error(`X|<|Could not set activity!`));
 
   console.log(`\n=>_$./Wisher Bot App v${version}`);
   // Method for mongoDB setup on "main.js".
