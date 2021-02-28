@@ -45,12 +45,16 @@ module.exports = async (message, args) => {
   );
   const answerMap = answer.map((msg) => msg.content).join(", ");
   switch (answerMap) {
+    case `${prefix}hai`:
     case `${prefix}yes`:
     case `${prefix}sim`:
+    case `${prefix}sí`:
+    case `${prefix}si`:
     case `${prefix}s`:
+    case `${prefix}y`:
       console.log(`D|>|Await: Yes`);
       // Inserts into DB
-      await update(dateIntern, user.id);
+      await update(dateIntern, user.id, user.username, user.discriminator);
       await message.react("👍");
       await message.channel.send(confirmYes);
       break;
@@ -58,6 +62,7 @@ module.exports = async (message, args) => {
     case `${prefix}no`:
     case `${prefix}nao`:
     case `${prefix}não`:
+    case `${prefix}iee`:
       console.log(`D|>|Await: No`);
       await message.channel.send(confirmNo);
       break;
