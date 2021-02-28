@@ -11,7 +11,7 @@ module.exports = async (message) => {
       // console.log(results);
       if (!results) {
         await message.channel.send("Não achei registros na minha lista.. 🧐");
-        throw "banana2";
+        throw "No registry";
       }
 
       const listEmbed = new Discord.MessageEmbed()
