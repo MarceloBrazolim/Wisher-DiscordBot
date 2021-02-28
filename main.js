@@ -26,7 +26,6 @@ client.once("ready", async () => {
 });
 
 client.on("message", async (message) => {
-  console.log(message.channel);
   if (
     !message.content.startsWith(config.prefix) ||
     message.author.bot ||
