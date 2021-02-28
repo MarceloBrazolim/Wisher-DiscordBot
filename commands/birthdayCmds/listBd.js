@@ -25,11 +25,11 @@ module.exports = async (message, client) => {
       for (result of results) {
         user[x] = client.users.cache.get(result._id);
         console.log(
-          `${x}: { ${result},\n${x}: { ${user}, ${user.username}#${user.discriminator} } }\n`
+          `${x}: { ${result},\n${x}: { ${user}, ${user[x].username}#${user[x].discriminator} } }\n`
         );
         x += 1;
         listEmbed.addField(
-          `${user.username}#${user.discriminator}`,
+          `${user[x].username}#${user[x].discriminator}`,
           `faz aniversário em **${moment(new Date(result.bdate)).format(
             "D [de] MMMM"
           )}**`
