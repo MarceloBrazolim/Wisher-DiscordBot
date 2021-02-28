@@ -13,11 +13,11 @@ const reminder = mongoose.Schema(
       required: true,
     },
     // Member name
-    memberUsername: {
+    memberUser: {
       type: String,
       required: true,
     },
-    memberDiscriminator: {
+    memberDisc: {
       type: Number,
       required: true,
     },

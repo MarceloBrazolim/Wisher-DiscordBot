@@ -11,6 +11,8 @@ module.exports = async (date, u, username, discr) => {
         },
         {
           bdate: date,
+          memberUser: username,
+          memberDisc: discr,
         },
         {
           upsert: true,

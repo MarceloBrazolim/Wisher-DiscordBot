@@ -3,7 +3,8 @@ const mongo = require("../../mongo");
 const BDStorage = require("../../schemes/main-schema");
 const moment = require("moment");
 
-module.exports = async (message, client) => {
+module.exports = async (message) => {
+  moment.locale("pt-br");
   await mongo().then(async (mongoose) => {
     try {
       const results = await BDStorage.find();
@@ -18,19 +19,9 @@ module.exports = async (message, client) => {
         .setColor("#831fde")
         .setTitle("Aniversariantes");
 
-      console.log(results);
-
-      let x = 0;
-      let user = [];
-      // let user = [];
       for (result of results) {
-        user = client.users.cache.get(result._id);
-        console.log(
-          `${x}: { ${result},\n${x}: { ${user}, ${user.username}#${user.discriminator} } }\n`
-        );
-        x += 1;
         listEmbed.addField(
-          `${user.username}#${user.discriminator}`,
+          `${result.memberUser}#${result.memberDisc}`,
           `faz aniversário em **${moment(new Date(result.bdate)).format(
             "D [de] MMMM"
           )}**`
