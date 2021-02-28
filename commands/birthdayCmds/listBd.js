@@ -21,15 +21,15 @@ module.exports = async (message, client) => {
       console.log(results);
 
       let x = 0;
-      var user = [];
+      // let user = [];
       for (result of results) {
-        user[x] = client.users.cache.get(result._id);
+        let user = client.users.cache.get(result._id);
         console.log(
-          `${x}: { ${result},\n${x}: { ${user}, ${user[x].username}#${user[x].discriminator} } }\n`
+          `${x}: { ${result},\n${x}: { ${user}, ${user.username}#${user.discriminator} } }\n`
         );
         x += 1;
         listEmbed.addField(
-          `${user[x].username}#${user[x].discriminator}`,
+          `${user.username}#${user.discriminator}`,
           `faz aniversário em **${moment(new Date(result.bdate)).format(
             "D [de] MMMM"
           )}**`
