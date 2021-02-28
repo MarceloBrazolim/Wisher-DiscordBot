@@ -21,8 +21,9 @@ module.exports = async (message) => {
       console.log(results);
       for (result of results) {
         console.log(result);
+        var user = client.users.cache.get(result._id);
         listEmbed.addField(
-          `**<@!${result._id}>**`,
+          `${user.tag}`,
           `faz aniversário em **${moment(new Date(result.bdate)).format(
             "D [de] MMMM"
           )}**`
