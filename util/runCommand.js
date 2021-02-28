@@ -21,7 +21,7 @@ const info = require("../commands/info");
 const bdInit = require("../commands/bdInit");
 const help = require("../commands/help");
 
-const sendHappyBd = require("./sendHappyBd");
+const sendHappyBd = require("../commands/birthdayCmds/sendHappyBd");
 
 // Side
 const imgInit = require("../commands/imgInit");

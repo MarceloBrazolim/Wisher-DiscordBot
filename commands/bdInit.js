@@ -1,7 +1,7 @@
-const setBirthday = require("../commands/setBirthday");
+const setBirthday = require("./birthdayCmds/setBirthday");
 const checkBirthday = require("./birthdayCmds/checkBirthday");
-const sendHappyBd = require("./sendHappyBd");
-const listBd = require("./listBd");
+const sendHappyBd = require("./birthdayCmds/sendHappyBd");
+const listBd = require("./birthdayCmds/listBd");
 
 module.exports = async (message, args) => {
   switch (args[0]) {

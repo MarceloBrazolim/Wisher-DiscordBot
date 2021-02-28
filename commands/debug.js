@@ -1,5 +1,5 @@
 const moment = require("moment");
-const sendHappyBd = require("../util/sendHappyBd");
+const sendHappyBd = require("./birthdayCmds/sendHappyBd");
 
 // Kudo https://github.com/iSherlott
 // function formatDate(data) {

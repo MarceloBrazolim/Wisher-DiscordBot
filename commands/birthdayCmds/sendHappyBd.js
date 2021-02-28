@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
-const getImage = require("./getImage");
-const getUserID = require("./getUserID");
+const getImage = require("../../util/getImage");
+const getUserID = require("../../util/getUserID");
 
 module.exports = async (message) => {
   // Send gif
