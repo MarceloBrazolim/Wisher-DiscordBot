@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
-const mongo = require("../mongo");
-const BDStorage = require("../schemes/main-schema");
-const getUserID = require("../util/getUserID");
+const mongo = require("../../mongo");
+const BDStorage = require("../../schemes/main-schema");
+const getUserID = require("../../util/getUserID");
 const moment = require("moment");
 
 module.exports = async (message) => {

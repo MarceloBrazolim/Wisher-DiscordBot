@@ -18,7 +18,7 @@ const avatar = require("../commands/avatar");
 const info = require("../commands/info");
 
 // Main
-const bdInit = require("../util/bdInit");
+const bdInit = require("../commands/bdInit");
 const help = require("../commands/help");
 
 const sendHappyBd = require("./sendHappyBd");
