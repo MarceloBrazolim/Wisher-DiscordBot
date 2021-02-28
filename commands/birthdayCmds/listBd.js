@@ -19,10 +19,12 @@ module.exports = async (message, client) => {
         .setTitle("Aniversariantes");
 
       console.log(results);
-      let user;
-      console.log(result);
+
+      let x = 0;
       for (result of results) {
-        user = client.users.cache.get(result._id);
+        console.log(`${x}: ${result}`);
+        x += 1;
+        let user = client.users.cache.get(result._id);
         listEmbed.addField(
           `${user.username}${user.discriminator}`,
           `faz aniversário em **${moment(new Date(result.bdate)).format(
