@@ -22,7 +22,7 @@ module.exports = async (message, args) => {
   var confirmationEmbed = new Discord.MessageEmbed()
     .setColor("#831fde")
     .setTitle("Blz! A data de aniversário está certa?")
-    .addField(`**${date}**`, `${prefix}sim / ${prefix}nao`);
+    .addField(`**${date}**`, `${prefix}sim | ${prefix}nao`);
 
   const confirmNo = new Discord.MessageEmbed()
     .setColor("#831fde")
