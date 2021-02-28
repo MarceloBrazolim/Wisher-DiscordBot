@@ -26,7 +26,13 @@ client.once("ready", async () => {
 });
 
 client.on("message", async (message) => {
-  if (!message.content.startsWith(config.prefix) || message.author.bot || message.channel.type === "dm") return;
+  console.log(message.channel);
+  if (
+    !message.content.startsWith(config.prefix) ||
+    message.author.bot ||
+    message.channel.type === "dm"
+  )
+    return;
 
   var uMessage = encodeURI(message);
   var arg = uMessage.slice(config.prefix.length).split("'");
