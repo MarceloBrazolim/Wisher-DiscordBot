@@ -8,8 +8,6 @@ module.exports = async (message) => {
   await mongo().then(async (mongoose) => {
     try {
       const results = await BDStorage.find();
-      // const results = [];
-      // console.log(results);
       if (!results) {
         await message.channel.send("Não achei registros na minha lista.. 🧐");
         throw "No registry";
