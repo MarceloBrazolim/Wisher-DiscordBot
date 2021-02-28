@@ -26,6 +26,7 @@ module.exports = async (message, path, xpath, att, command, birthdayEmbed) => {
       .map((v, i) => links.eq(i).attr(att));
 
     if (!urls[0]) {
+      console.log("||>|No results");
       message.channel.send("Ops.. Não achei o que procurava.. 😔");
       return;
     }

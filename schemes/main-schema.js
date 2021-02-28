@@ -2,14 +2,23 @@
 const mongoose = require("mongoose");
 const reminder = mongoose.Schema(
   {
-    //member ID
+    // Member ID
     _id: {
       type: String,
       required: true,
     },
-    //Birthday Date
+    // Birthday Date
     bdate: {
       type: Date,
+      required: true,
+    },
+    // Member name
+    memberUsername: {
+      type: String,
+      required: true,
+    },
+    memberDiscriminator: {
+      type: Number,
       required: true,
     },
   },

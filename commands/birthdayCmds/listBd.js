@@ -21,9 +21,10 @@ module.exports = async (message, client) => {
       console.log(results);
 
       let x = 0;
+      let user = [];
       // let user = [];
       for (result of results) {
-        let user = client.users.cache.get(result._id);
+        user = client.users.cache.get(result._id);
         console.log(
           `${x}: { ${result},\n${x}: { ${user}, ${user.username}#${user.discriminator} } }\n`
         );
