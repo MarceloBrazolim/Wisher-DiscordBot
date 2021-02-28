@@ -2,22 +2,26 @@
 const mongo = require("../mongo");
 const BDStorage = require("../schemes/main-schema");
 
-module.exports = async (date, u) => {
+module.exports = async (date, u, username, discr) => {
   await mongo().then(async (mongoose) => {
     try {
-      await BDStorage
-        .findOneAndUpdate(
-          {
-            _id: u,
-          },
-          {
-            bdate: date,
-          },
-          {
-            upsert: true,
-          }
-        )
-        .exec();
+      await BDStorage.findOneAndUpdate(
+        {
+          _id: u,
+        },
+        {
+          bdate: date,
+        },
+        {
+          memberUsername: username,
+        },
+        {
+          memberDiscriminator: discr,
+        },
+        {
+          upsert: true,
+        }
+      ).exec();
     } finally {
       await mongoose.connection.close();
     }
