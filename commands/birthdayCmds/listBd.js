@@ -6,13 +6,12 @@ const moment = require("moment");
 module.exports = async (message) => {
   await mongo().then(async (mongoose) => {
     try {
-      const results = await BDStorage.find({
-        _id: String,
-        bdate: Date,
-      });
+      const results = await BDStorage.find();
+      // const results = [];
+      // console.log(results);
       if (!results) {
         await message.channel.send("Não achei registros na minha lista.. 🧐");
-        return;
+        throw "banana2";
       }
 
       const listEmbed = new Discord.MessageEmbed()
@@ -24,13 +23,15 @@ module.exports = async (message) => {
         console.log(result);
         listEmbed.addField(
           `**<@!${result._id}>**`,
-          `faz aniversário em **${moment(new Date(result[0].bdate)).format(
+          `faz aniversário em **${moment(new Date(result.bdate)).format(
             "D [de] MMMM"
           )}**`
         );
       }
 
       message.channel.send(listEmbed);
+    } catch (e) {
+      console.log(`X|>|${e}`);
     } finally {
       await mongoose.connection.close();
       return;
