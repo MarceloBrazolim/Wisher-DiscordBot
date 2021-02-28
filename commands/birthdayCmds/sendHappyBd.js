@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 const getImage = require("../../util/getImage");
 const getUserID = require("../../util/getUserID");
 
-module.exports = async (message) => {
+module.exports = async (message, command) => {
   // Send gif
   const xpath = ".GifList .column .GifListItem .Gif img";
   const path = "https://tenor.com/search/celebration-gifs";
@@ -23,6 +23,6 @@ module.exports = async (message) => {
     )
     .addField("🇭 🇦 🇵 🇵 🇾 🥳 🎉 👏", "🇧 🇮 🇷 🇹 🇭 🇩 🇦 🇾")
     .setTimestamp();
-  await getImage(message, path, xpath, att, birthdayEmbed);
+  await getImage(message, path, xpath, att, command, birthdayEmbed);
   return;
 };
