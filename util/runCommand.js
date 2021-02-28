@@ -36,14 +36,14 @@ module.exports = async (message, command, args, client) => {
       break;
     case "bd":
     case "birthday":
-      await bdInit(message, args);
+      await bdInit(message, args, command);
       break;
 
     case "bdEmbed":
     case "happyBd":
     case "happy":
     case "h":
-      await sendHappyBd(message);
+      await sendHappyBd(message, command);
       break;
 
     // Side
