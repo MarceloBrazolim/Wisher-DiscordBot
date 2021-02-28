@@ -45,13 +45,19 @@ module.exports = async (message, path, xpath, att, command, birthdayEmbed) => {
 
     console.log(`||>|URL: ${urls[x]}`);
     switch (command) {
+      case "bdEmbed":
+      case "happyBd":
+      case "happy":
+      case "h":
       case "bd":
       case "birthday":
         birthdayEmbed.setImage(urls[x]);
         // await message.channel.send("@everyone");
         message.channel.send(birthdayEmbed);
+        break;
       default:
         message.channel.send(urls[x]);
+        break;
     }
   });
 };
