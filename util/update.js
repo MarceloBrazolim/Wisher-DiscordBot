@@ -13,12 +13,6 @@ module.exports = async (date, u, username, discr) => {
           bdate: date,
         },
         {
-          memberUsername: username,
-        },
-        {
-          memberDiscriminator: discr,
-        },
-        {
           upsert: true,
         }
       ).exec();
