@@ -6,8 +6,9 @@ const BDStorage = require("../../schemes/main-schema");
 module.exports = async (message) => {
   await mongo().then(async (mongoose) => {
     try {
-      const results = await BDStorage.findOne({
-        _id: user.id,
+      const results = await BDStorage.find({
+        _id: String,
+        bdate: Date,
       });
       if (!results) {
         await message.channel.send("Não achei registros na minha lista.. 🧐");
