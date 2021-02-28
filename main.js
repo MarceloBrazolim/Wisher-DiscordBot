@@ -8,22 +8,24 @@ const { version } = require("./package.json");
 const getCommand = require("./util/getCommand");
 
 client.once("ready", async () => {
-  client.user
-    .setActivity(`${config.prefix}help`, { type: "LISTENING" })
-    .catch(console.error(`X|<|Could not set activity!`));
+  try {
+    client.user.setActivity(`${config.prefix}help`, { type: "LISTENING" });
+  } catch {
+    console.error(`X|<|Could not set activity!`);
+  }
 
   console.log(`\n=>_$./Wisher Bot App v${version}`);
   // Method for mongoDB setup on "main.js".
   try {
-  await mongo().then((mongoose) => {
-    try {
-      console.log(`||>|Connected to MongoDB!`);
-    } finally {
-      mongoose.connection.close();
-    }
-  });
+    await mongo().then((mongoose) => {
+      try {
+        console.log(`||>|Connected to MongoDB!`);
+      } finally {
+        mongoose.connection.close();
+      }
+    });
   } catch {
-    console.error("X|<|Could not connect to MongoDB!")
+    console.error("X|<|Could not connect to MongoDB!");
   }
 
   console.log("||>|Wisher is Online!");

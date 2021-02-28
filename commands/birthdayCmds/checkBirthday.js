@@ -19,9 +19,9 @@ module.exports = async (message) => {
         await message.channel.send("Não achei registros na minha lista.. 🧐");
         return;
       }
-      const listEmbed = new Discord.MessageEmbed()
+      const checkEmbed = new Discord.MessageEmbed()
         .setColor("#831fde")
-        .setTitle("Aniversariante:")
+        .setTitle("Aniversariante")
         .setDescription(
           `**${user.username}**#${
             user.discriminator
@@ -30,7 +30,7 @@ module.exports = async (message) => {
           )}**`
         );
 
-      message.channel.send(listEmbed);
+      message.channel.send(checkEmbed);
     } finally {
       await mongoose.connection.close();
       return;
