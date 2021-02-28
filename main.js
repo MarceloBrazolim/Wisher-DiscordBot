@@ -14,6 +14,7 @@ client.once("ready", async () => {
 
   console.log(`\n=>_$./Wisher Bot App v${version}`);
   // Method for mongoDB setup on "main.js".
+  try {
   await mongo().then((mongoose) => {
     try {
       console.log(`||>|Connected to MongoDB!`);
@@ -21,6 +22,9 @@ client.once("ready", async () => {
       mongoose.connection.close();
     }
   });
+  } catch {
+    console.error("X|<|Could not connect to MongoDB!")
+  }
 
   console.log("||>|Wisher is Online!");
 });
