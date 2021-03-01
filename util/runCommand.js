@@ -36,7 +36,7 @@ module.exports = async (message, command, args, client) => {
       break;
     case "bd":
     case "birthday":
-      await bdInit(message, args, command);
+      await bdInit(message, args, command, client);
       break;
 
     // Side

@@ -6,7 +6,7 @@ const getUserID = require("../../util/getUserID");
 const getImage = require("../../util/getImage");
 const isDateToday = require("../../util/isDateToday");
 
-module.exports = async (message) => {
+module.exports = async (message, command, client) => {
   await mongo().then(async (mongoose) => {
     try {
       const results = await BDStorage.find();
@@ -22,13 +22,14 @@ module.exports = async (message) => {
         const att = "src";
 
         const user = await getUserID(message, command);
+        let user = client.users.cache.get(mention);
 
         // Embed
         const todayBdEmbed = new Discord.MessageEmbed()
           .setColor("#831fde")
           .setTitle("Hoje é seu aniversário!")
           // .setAuthor(user.username, user.displayAvatarURL({ dynamic: true }))
-          .setDescription(`<@!${user.id}>`)
+          .setDescription(`<@!${result._id}>`)
           .setThumbnail(user.displayAvatarURL({ dynamic: true }))
           .addField(
             "Obrigada por fazer parte do nosso server!",

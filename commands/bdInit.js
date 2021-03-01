@@ -4,7 +4,7 @@ const sendHappyBd = require("./birthdayCmds/sendHappyBd");
 const listBd = require("./birthdayCmds/listBd");
 const checkBdDates = require("./birthdayCmds/checkBdDates");
 
-module.exports = async (message, args, command) => {
+module.exports = async (message, args, command, client) => {
   switch (args[0]) {
     case "set":
       await setBirthday(message, args);
@@ -24,7 +24,7 @@ module.exports = async (message, args, command) => {
     case "today":
     case "bdToday":
     case "birthdayToday":
-      await checkBdDates(message);
+      await checkBdDates(message, command, client);
       break;
   }
   return;
