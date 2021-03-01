@@ -36,7 +36,7 @@ module.exports = async (message) => {
     )
     .addField("🇭 🇦 🇵 🇵 🇾 🥳 🎉 👏", "🇧 🇮 🇷 🇹 🇭 🇩 🇦 🇾")
     .setTimestamp();
-  await getImage(message, path, xpath, att, command, birthdayEmbed);
+  await getImage(message, path, xpath, att, command, todayBdEmbed);
 
       for (let date of results) {
         if (await isDateToday(date.bdate)) {
