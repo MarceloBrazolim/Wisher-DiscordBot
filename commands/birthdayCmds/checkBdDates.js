@@ -1,4 +1,4 @@
-// const Discord = require("discord.js");
+const Discord = require("discord.js");
 const mongo = require("../../mongo");
 const BDStorage = require("../../schemes/main-schema");
 // const moment = require("moment");
@@ -13,8 +13,13 @@ module.exports = async (message) => {
         return;
       }
 
+      var todayBdEmbed = new Discord.MessageEmbed()
+        .setAuthor()
+        .setDescription();
+
       for (let date of results) {
-        isDateToday(date.bdate);
+        if (await isDateToday(date.bdate)) {
+        }
       }
       return;
     } finally {
