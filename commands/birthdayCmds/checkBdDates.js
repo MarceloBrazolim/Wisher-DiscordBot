@@ -15,28 +15,30 @@ module.exports = async (message) => {
         return;
       }
 
-      // Send gif
-      const xpath = ".GifList .column .GifListItem .Gif img";
-      const path = "https://tenor.com/search/celebration-gifs";
-      const att = "src";
+      for (let result of results) {
+        // Send gif
+        const xpath = ".GifList .column .GifListItem .Gif img";
+        const path = "https://tenor.com/search/celebration-gifs";
+        const att = "src";
 
-      const user = await getUserID(message, command);
+        const user = await getUserID(message, command);
 
-      // Embed
-      const todayBdEmbed = new Discord.MessageEmbed()
-        .setColor("#831fde")
-        .setTitle("Hoje é seu aniversário!")
-        // .setAuthor(user.username, user.displayAvatarURL({ dynamic: true }))
-        .setDescription(`<@!${user.id}>`)
-        .setThumbnail(user.displayAvatarURL({ dynamic: true }))
-        .addField(
-          "Obrigada por fazer parte do nosso server!",
-          "Muitas felicidades e muitos anos de vida pra você,\ntenha um ótimo dia e um excelente aniversário!",
-          true
-        )
-        .addField("🇭 🇦 🇵 🇵 🇾 🥳 🎉 👏", "🇧 🇮 🇷 🇹 🇭 🇩 🇦 🇾")
-        .setTimestamp();
-      await getImage(message, path, xpath, att, command, todayBdEmbed);
+        // Embed
+        const todayBdEmbed = new Discord.MessageEmbed()
+          .setColor("#831fde")
+          .setTitle("Hoje é seu aniversário!")
+          // .setAuthor(user.username, user.displayAvatarURL({ dynamic: true }))
+          .setDescription(`<@!${user.id}>`)
+          .setThumbnail(user.displayAvatarURL({ dynamic: true }))
+          .addField(
+            "Obrigada por fazer parte do nosso server!",
+            "Muitas felicidades e muitos anos de vida pra você,\ntenha um ótimo dia e um excelente aniversário!",
+            true
+          )
+          .addField("🇭 🇦 🇵 🇵 🇾 🥳 🎉 👏", "🇧 🇮 🇷 🇹 🇭 🇩 🇦 🇾")
+          .setTimestamp();
+        await getImage(message, path, xpath, att, command, todayBdEmbed);
+      }
 
       for (let date of results) {
         if (await isDateToday(date.bdate)) {
