@@ -4,7 +4,7 @@ const BDStorage = require("../../schemes/main-schema");
 // const moment = require("moment");
 const isDateToday = require("../../util/isDateToday");
 
-module.exports = async (message, dates) => {
+module.exports = async (message) => {
   await mongo().then(async (mongoose) => {
     try {
       const results = await BDStorage.find();
