@@ -2,7 +2,7 @@ const request = require("request");
 const { load } = require("cheerio");
 const _ = require("lodash");
 
-module.exports = async (message, path, xpath, att, command, birthdayEmbed) => {
+module.exports = async (message, path, xpath, att, command, embed) => {
   var options = {
     url: path,
     method: "GET",
@@ -46,15 +46,11 @@ module.exports = async (message, path, xpath, att, command, birthdayEmbed) => {
 
     console.log(`||>|URL: ${urls[x]}`);
     switch (command) {
-      case "bdEmbed":
-      case "happyBd":
-      case "happy":
-      case "h":
       case "bd":
       case "birthday":
-        birthdayEmbed.setImage(urls[x]);
+        embed.setImage(urls[x]);
         // await message.channel.send("@everyone");
-        message.channel.send(birthdayEmbed);
+        message.channel.send(embed);
         break;
       default:
         message.channel.send(urls[x]);
