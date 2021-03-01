@@ -21,8 +21,7 @@ module.exports = async (message, command, client) => {
         const path = "https://tenor.com/search/celebration-gifs";
         const att = "src";
 
-        const user = await getUserID(message, command);
-        let user = client.users.cache.get(mention);
+        let user = client.users.cache.get(result._id);
 
         // Embed
         const todayBdEmbed = new Discord.MessageEmbed()
