@@ -52,14 +52,17 @@ module.exports = async (message, command, client) => {
         birthdayEmbed
           .setTitle("FELIZ ANIVERSÁRIO À TODOS VOCÊS!!!")
           .addField(
-            "Obrigada por fazer parte do nosso server!",
-            "Muitas felicidades e muitos anos de vida pra você,\ntenha um ótimo dia e um excelente aniversário!",
+            "Obrigada por fazerem parte do nosso server!",
+            "Muitas felicidades e muitos anos de vida pra vocês,\ntenham um ótimo dia e um excelente aniversário!",
             true
           )
           .addField(
             "🇭 🇦 🇵 🇵 🇾 🥳 🎉 👏",
             "🇧 🇮 🇷 🇹 🇭 🇩 🇦 🇾\n🎈 🪅 🎉 🎊 🎈 🪅 🎊 🎉"
           );
+        for (let result of results) {
+          birthdayEmbed.addField(``, ``);
+        }
       }
       await getImage(message, path, xpath, att, command, birthdayEmbed);
       return;
