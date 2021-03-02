@@ -49,7 +49,7 @@ module.exports = async (message, path, xpath, att, command, embed) => {
       case "bd":
       case "birthday":
         embed.setImage(urls[x]);
-        // await message.channel.send("@everyone");
+        await message.channel.send("@everyone");
         message.channel.send(embed);
         break;
       default:
