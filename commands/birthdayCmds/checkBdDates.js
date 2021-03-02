@@ -2,9 +2,7 @@ const Discord = require("discord.js");
 const mongo = require("../../mongo");
 const BDStorage = require("../../schemes/main-schema");
 const moment = require("moment");
-// const getUserID = require("../../util/getUserID");
 const getImage = require("../../util/getImage");
-// const isDateToday = require("../../util/isDateToday");
 
 module.exports = async (message, command, client) => {
   moment.locale("pt-br");
