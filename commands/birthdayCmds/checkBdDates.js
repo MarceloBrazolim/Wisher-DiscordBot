@@ -4,22 +4,26 @@ const BDStorage = require("../../schemes/main-schema");
 const moment = require("moment");
 // const getUserID = require("../../util/getUserID");
 const getImage = require("../../util/getImage");
-const isDateToday = require("../../util/isDateToday");
+// const isDateToday = require("../../util/isDateToday");
 
 module.exports = async (message, command, client) => {
   moment.locale("pt-br");
   await mongo().then(async (mongoose) => {
     try {
       const results = await BDStorage.find({
-        bdate: moment().month(new Date().getMonth()).date(new Date().getDate().format("MM DD")),
+        bdate: moment()
+          .month(new Date().getMonth())
+          .date(new Date().getDate())
+          .format("MM DD"),
       });
+      console.log(results);
       if (!results) {
         await message.channel.send("Não achei registros na minha lista.. 🧐");
         return;
       }
       console.log(results);
 
-      if (results[0] && !results[1]) {
+      if (!results[1]) {
         // Send gif
         const xpath = ".GifList .column .GifListItem .Gif img";
         const path = "https://tenor.com/search/celebration-gifs";
