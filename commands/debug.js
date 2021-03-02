@@ -37,6 +37,7 @@ module.exports = async (message, args) => {
     case "bdEmbed":
     case "happyBd":
     case "happy":
+    case "h":
       await sendHappyBd(message);
       break;
     case "embed":
