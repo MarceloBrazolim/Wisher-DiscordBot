@@ -19,7 +19,7 @@ module.exports = async (message, command, client) => {
       }
       console.log(results);
 
-      if (!results[1]) {
+      if (results[0] && !results[1]) {
         // Send gif
         const xpath = ".GifList .column .GifListItem .Gif img";
         const path = "https://tenor.com/search/celebration-gifs";
@@ -42,38 +42,38 @@ module.exports = async (message, command, client) => {
         return;
       }
 
-      for (let result of results) {
-        if (!isDateToday(result.bdate)) continue;
+      // for (let result of results) {
+      //   if (!isDateToday(result.bdate)) continue;
 
-        // Send gif
-        const xpath = ".GifList .column .GifListItem .Gif img";
-        const path = "https://tenor.com/search/celebration-gifs";
-        const att = "src";
+      //   // Send gif
+      //   const xpath = ".GifList .column .GifListItem .Gif img";
+      //   const path = "https://tenor.com/search/celebration-gifs";
+      //   const att = "src";
 
-        let user = client.users.cache.get(result._id);
+      //   let user = client.users.cache.get(result._id);
 
-        // Embed
-        const todayBdEmbed = new Discord.MessageEmbed()
-          .setColor("#831fde")
-          .setTitle("Hoje é seu aniversário!")
-          // .setAuthor(user.username, user.displayAvatarURL({ dynamic: true }))
-          .setDescription(`<@!${result._id}>`)
-          .setThumbnail(user.displayAvatarURL({ dynamic: true }))
-          .addField(
-            "Obrigada por fazer parte do nosso server!",
-            "Muitas felicidades e muitos anos de vida pra você,\ntenha um ótimo dia e um excelente aniversário!",
-            true
-          )
-          .addField("🇭 🇦 🇵 🇵 🇾 🥳 🎉 👏", "🇧 🇮 🇷 🇹 🇭 🇩 🇦 🇾")
-          .setTimestamp();
-        await getImage(message, path, xpath, att, command, todayBdEmbed);
-      }
-
-      // for (let date of results) {
-      //   if (await isDateToday(date.bdate)) {
-      //   }
+      //   // Embed
+      //   const todayBdEmbed = new Discord.MessageEmbed()
+      //     .setColor("#831fde")
+      //     .setTitle("Hoje é seu aniversário!")
+      //     // .setAuthor(user.username, user.displayAvatarURL({ dynamic: true }))
+      //     .setDescription(`<@!${result._id}>`)
+      //     .setThumbnail(user.displayAvatarURL({ dynamic: true }))
+      //     .addField(
+      //       "Obrigada por fazer parte do nosso server!",
+      //       "Muitas felicidades e muitos anos de vida pra você,\ntenha um ótimo dia e um excelente aniversário!",
+      //       true
+      //     )
+      //     .addField("🇭 🇦 🇵 🇵 🇾 🥳 🎉 👏", "🇧 🇮 🇷 🇹 🇭 🇩 🇦 🇾")
+      //     .setTimestamp();
+      //   await getImage(message, path, xpath, att, command, todayBdEmbed);
       // }
-      return;
+
+      // // for (let date of results) {
+      // //   if (await isDateToday(date.bdate)) {
+      // //   }
+      // // }
+      // return;
     } finally {
       await mongoose.connection.close();
       return;
