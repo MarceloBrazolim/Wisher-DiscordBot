@@ -58,21 +58,20 @@ module.exports = async (message, command, client) => {
             name: "Obrigada por fazerem parte do nosso server!",
             value:
               "Muitas felicidades e muitos anos de vida pra vocês,\ntenham um ótimo dia e um excelente aniversário!",
-            inline: false,
           },
           {
             name: "🇭 🇦 🇵 🇵 🇾 🥳 🎉 👏",
             value: "🇧 🇮 🇷 🇹 🇭 🇩 🇦 🇾\n🎈 🪅 🎉 🎊 🎈 🪅 🎊 🎉",
-            inline: false,
           },
           { name: "\u200B", value: "\u200B" }
         );
+        // console.log(birthdayEmbed);
         for (let result of results) {
-          birthdayEmbed.addField(`${result.memberUser}`, `${memberDisc}`);
+          birthdayEmbed.addField(`${result.memberUser}`, `#${memberDisc}`);
         }
+        console.log(birthdayEmbed);
       }
       await getImage(message, path, xpath, att, command, birthdayEmbed);
-      return;
     } finally {
       await mongoose.connection.close();
       return;
