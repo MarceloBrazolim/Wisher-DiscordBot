@@ -40,10 +40,13 @@ module.exports = async (message, args) => {
       await sendHappyBd(message);
       break;
     case "embed":
-      const todayBdEmbed = new Discord.MessageEmbed()
+      args.shift();
+      const debugEmbed = new Discord.MessageEmbed()
         .setColor("#831fde")
-        .setDescription(`<@!${result._id}>`)
-        .addField(args, args, true)
+        .setTitle(`Título: ${args}`)
+        .setDescription(`Descrição: ${args}`)
+        .addField(`Campo 1: ${args}`, `Campo 2: ${args}`, true);
+      await message.channel.send(debugEmbed);
     default:
       console.log(`D|>|Default: ${args}`);
   }
