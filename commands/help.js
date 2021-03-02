@@ -16,9 +16,11 @@ module.exports = async (message, args, client) => {
       "`" +
         prefix +
         "birthdday <set/check>\n" +
-        " - set <mention> <mês/dia>\n" +
-        " - check <mention/data>`",
-      // Define um lembrete personalizado(rmd) ou uma data de aniversario(bd) 🥳!
+        "    - set <mention> <mês/dia>\n" +
+        "    - check <mention/data>" +
+        "    - list" +
+        "    - today" +
+        "`",
       "Gerencia lembretes de aniversario! 🥳!"
     )
     .addField(
@@ -40,19 +42,19 @@ module.exports = async (message, args, client) => {
         { name: "\u200B", value: "\u200B" },
         {
           name: "`[misc] " + prefix + "macaco `",
-          value: "🦎",
+          value: "largals 🦎",
         },
         {
           name: "`[misc] " + prefix + "lagarto`",
-          value: "🐒",
+          value: "camaquinhu 🐒",
         },
         {
           name: "`[misc] " + prefix + "coinmaster`",
-          value: "👀",
+          value: "VILA? 👀",
         },
         {
           name: "`[misc] " + prefix + "hello`",
-          value: "📑",
+          value: " hello, 📑?",
         }
       );
     }
