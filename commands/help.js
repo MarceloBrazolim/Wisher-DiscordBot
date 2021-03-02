@@ -8,30 +8,38 @@ module.exports = async (message, args, client) => {
     .setColor("#831fde")
     .setTitle("Lista de comandos disponíveis")
     .setAuthor("Wisher", ID.displayAvatarURL({ dynamic: true }))
-    .addField(
-      "`" + prefix + "help <misc/adm/dev>`",
-      "Exibe esta lista que você está lendo."
-    )
-    .addField(
-      "`" +
-        prefix +
-        "birthdday <set/check>\n" +
-        "    - set <mention> <mês/dia>\n" +
-        "    - check <mention/data>" +
-        "    - list" +
-        "    - today" +
-        "`",
-      "Gerencia lembretes de aniversario! 🥳!"
-    )
-    .addField(
-      "`" + prefix + "img <args>`",
-      "Mostra uma imagem aleatória com o que você quiser."
-    )
-    .addField(
-      "`" + prefix + "gif <args>`",
-      "É praticamente a mesma coisa do " + prefix + "img... só que .gif"
-    )
-    .addField("`" + prefix + "astolfo`", "hehehehehe~ 😍");
+    .addFields(
+      {
+        name: "`" + prefix + "help <misc/adm/dev>`",
+        value: "Exibe esta lista que você está lendo.",
+      },
+
+      {
+        name:
+          "`" +
+          prefix +
+          "birthdday <set/check>\n" +
+          "    - set <mention> <mês/dia>\n" +
+          "    - check <mention/data>" +
+          "    - list" +
+          "    - today" +
+          "`",
+        value: "Gerencia lembretes de aniversario! 🥳!",
+      },
+
+      {
+        name: "`" + prefix + "img <args>`",
+        value: "Mostra uma imagem aleatória com o que você quiser.",
+      },
+
+      {
+        name: "`" + prefix + "gif <args>`",
+        value:
+          "É praticamente a mesma coisa do " + prefix + "img... só que .gif",
+      },
+
+      { name: "`" + prefix + "astolfo`", value: "hehehehehe~ 😍" }
+    );
 
   for (let i in args) {
     if (misc) break;
