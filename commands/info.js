@@ -1,8 +1,5 @@
-const getUserID = require("../util/getUserID");
-
-module.exports = async (message) => {
-  const user = getUserID(message);
-  console.log(user);
+module.exports = async (message, user) => {
+  console.log(user.discriminator);
   await message.author.send(
     "```\nid: " +
       user.id +
@@ -26,5 +23,4 @@ module.exports = async (message) => {
       user.lastMessageChannelID +
       "```"
   );
-  return;
 };

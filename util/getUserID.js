@@ -1,4 +1,4 @@
-module.exports = async (message) => {
+module.exports = async (message, command) => {
   const user = message.mentions.users.first();
   if (!user) {
     console.log("x|>|Err: No mention");
@@ -6,5 +6,36 @@ module.exports = async (message) => {
     return;
   }
   console.log(`||>|Mentioned: { ${user.username}#${user.discriminator} }`);
-  return user;
+  switch (command) {
+    case "info":
+      await message.author.send(
+        "```\nid: " +
+          user.id +
+          "\nsystem: " +
+          user.system +
+          "\nlocale: " +
+          user.locale +
+          "\nflags: UserFlags { bitfield: " +
+          user.flags +
+          " }\nusername: " +
+          user.username +
+          "\nbot: " +
+          user.bot +
+          "\ndiscriminator: " +
+          user.discriminator +
+          "\navatar: " +
+          user.avatar +
+          "\nlastMessageID: " +
+          user.lastMessageID +
+          "\nlastMessageChannelID: " +
+          user.lastMessageChannelID +
+          "```"
+      );
+      break;
+    case "avatar":
+      await message.author.send(user.displayAvatarURL({ dynamic: true }));
+      break;
+    default:
+      return user;
+  }
 };

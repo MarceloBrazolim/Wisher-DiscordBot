@@ -1,7 +1,4 @@
-const getUserID = require("../util/getUserID");
-
-module.exports = async (message) => {
-  const user = getUserID(message);
+module.exports = async (message, user) => {
   await message.author.send(user.displayAvatarURL({ dynamic: true }));
   return;
 };

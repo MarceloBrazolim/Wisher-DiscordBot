@@ -14,8 +14,8 @@ const debug = require("../commands/debug");
 const { version } = require("../package.json");
 
 // Adm
-const avatar = require("../commands/avatar");
-const info = require("../commands/info");
+// const avatar = require("../commands/avatar");
+// const info = require("../commands/info");
 
 // Main
 const bdInit = require("../commands/bdInit");
@@ -48,11 +48,11 @@ module.exports = async (message, command, args, client) => {
     // Adm
     case "avatar":
       if (!(await isAdm(message))) break;
-      await avatar(message);
+      await getUserID(message, command);
       break;
     case "info":
       if (!(await isAdm(message))) break;
-      await info(message);
+      await getUserID(message, command);
       break;
 
     // Dev
