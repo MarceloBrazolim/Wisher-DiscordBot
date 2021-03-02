@@ -50,9 +50,7 @@ module.exports = async (message, command, client) => {
       } else {
         // Embed
         birthdayEmbed
-          .setColor("#831fde")
           .setTitle("FELIZ ANIVERSÁRIO À TODOS VOCÊS!!!")
-          .setAuthor("Wisher", ID.displayAvatarURL({ dynamic: true }))
           .addField(
             "Obrigada por fazer parte do nosso server!",
             "Muitas felicidades e muitos anos de vida pra você,\ntenha um ótimo dia e um excelente aniversário!",
