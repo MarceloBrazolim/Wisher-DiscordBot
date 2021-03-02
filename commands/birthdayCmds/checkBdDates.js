@@ -38,30 +38,37 @@ module.exports = async (message, command, client) => {
           .setTitle("HOJE É SEU ANIVERSÁRIO!!!")
           .setDescription(`<@!${results[0]._id}>`)
           .setThumbnail(user.displayAvatarURL({ dynamic: true }))
-          .addField(
-            "Obrigada por fazer parte do nosso server!",
-            "Muitas felicidades e muitos anos de vida pra você,\ntenha um ótimo dia e um excelente aniversário!",
-            true
-          )
-          .addField(
-            "🇭 🇦 🇵 🇵 🇾 🥳 🎉 👏",
-            "🇧 🇮 🇷 🇹 🇭 🇩 🇦 🇾\n🎈 🪅 🎉 🎊 🎈 🪅 🎊 🎉"
+          .addFields(
+            {
+              name: "Obrigada por fazer parte do nosso server!",
+              value:
+                "Muitas felicidades e muitos anos de vida pra você,\ntenha um ótimo dia e um excelente aniversário!",
+              inline: false,
+            },
+            {
+              name: "🇭 🇦 🇵 🇵 🇾 🥳 🎉 👏",
+              value: "🇧 🇮 🇷 🇹 🇭 🇩 🇦 🇾\n🎈 🪅 🎉 🎊 🎈 🪅 🎊 🎉",
+              inline: false,
+            }
           );
       } else {
         // Embed
-        birthdayEmbed
-          .setTitle("FELIZ ANIVERSÁRIO À TODOS VOCÊS!!!")
-          .addField(
-            "Obrigada por fazerem parte do nosso server!",
-            "Muitas felicidades e muitos anos de vida pra vocês,\ntenham um ótimo dia e um excelente aniversário!",
-            true
-          )
-          .addField(
-            "🇭 🇦 🇵 🇵 🇾 🥳 🎉 👏",
-            "🇧 🇮 🇷 🇹 🇭 🇩 🇦 🇾\n🎈 🪅 🎉 🎊 🎈 🪅 🎊 🎉"
-          );
+        birthdayEmbed.setTitle("FELIZ ANIVERSÁRIO À TODOS VOCÊS!!!").addFields(
+          {
+            name: "Obrigada por fazerem parte do nosso server!",
+            value:
+              "Muitas felicidades e muitos anos de vida pra vocês,\ntenham um ótimo dia e um excelente aniversário!",
+            inline: false,
+          },
+          {
+            name: "🇭 🇦 🇵 🇵 🇾 🥳 🎉 👏",
+            value: "🇧 🇮 🇷 🇹 🇭 🇩 🇦 🇾\n🎈 🪅 🎉 🎊 🎈 🪅 🎊 🎉",
+            inline: false,
+          },
+          { name: "\u200B", value: "\u200B" }
+        );
         for (let result of results) {
-          birthdayEmbed.addField(``, ``);
+          birthdayEmbed.addField(`${result.memberUser}`, `${memberDisc}`);
         }
       }
       await getImage(message, path, xpath, att, command, birthdayEmbed);
