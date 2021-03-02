@@ -1,15 +1,18 @@
 const Discord = require("discord.js");
 const mongo = require("../../mongo");
 const BDStorage = require("../../schemes/main-schema");
-// const moment = require("moment");
+const moment = require("moment");
 // const getUserID = require("../../util/getUserID");
 const getImage = require("../../util/getImage");
 const isDateToday = require("../../util/isDateToday");
 
 module.exports = async (message, command, client) => {
+  moment.locale("pt-br");
   await mongo().then(async (mongoose) => {
     try {
-      const results = await BDStorage.find();
+      const results = await BDStorage.find({
+        bdate: moment().month(new Date().getMonth()).date(new Date().getDate().format("MM DD")),
+      });
       if (!results) {
         await message.channel.send("Não achei registros na minha lista.. 🧐");
         return;
