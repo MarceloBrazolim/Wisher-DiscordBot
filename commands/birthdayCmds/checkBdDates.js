@@ -6,6 +6,8 @@ const getImage = require("../../util/getImage");
 
 module.exports = async (message, command, client) => {
   moment.locale("pt-br");
+  var ID = client.users.cache.get("805035898990755850");
+
   await mongo().then(async (mongoose) => {
     try {
       const results = await BDStorage.find({
@@ -30,6 +32,7 @@ module.exports = async (message, command, client) => {
         const birthdayEmbed = new Discord.MessageEmbed()
           .setColor("#831fde")
           .setTitle("Hoje é seu aniversário!")
+          .setAuthor(`<@!${ID}>`, ID.displayAvatarURL({ dynamic: true }))
           .setDescription(`<@!${results[0]._id}>`)
           .setThumbnail(user.displayAvatarURL({ dynamic: true }))
           .addField(
@@ -51,7 +54,7 @@ module.exports = async (message, command, client) => {
         const todayBdEmbed = new Discord.MessageEmbed()
           .setColor("#831fde")
           .setTitle("FELIZ ANIVERSÁRIO À TODOS VOCÊS!!!")
-          .setDescription(`<@!${result._id}>`)
+          .setAuthor("Wisher", ID.displayAvatarURL({ dynamic: true }))
           .addField(
             "Obrigada por fazer parte do nosso server!",
             "Muitas felicidades e muitos anos de vida pra você,\ntenha um ótimo dia e um excelente aniversário!",
