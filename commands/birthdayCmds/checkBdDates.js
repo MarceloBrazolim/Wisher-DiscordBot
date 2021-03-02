@@ -40,10 +40,10 @@ module.exports = async (message, command, client) => {
         await getImage(message, path, xpath, att, command, todayBdEmbed);
       }
 
-      for (let date of results) {
-        if (await isDateToday(date.bdate)) {
-        }
-      }
+      // for (let date of results) {
+      //   if (await isDateToday(date.bdate)) {
+      //   }
+      // }
       return;
     } finally {
       await mongoose.connection.close();
