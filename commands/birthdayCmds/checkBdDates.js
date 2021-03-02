@@ -51,7 +51,7 @@ module.exports = async (message, command, client) => {
           // Embed
           const todayBdEmbed = new Discord.MessageEmbed()
             .setColor("#831fde")
-            .setTitle("Hoje é seu aniversário!")
+            .setTitle("FELIZ ANIVERSÁRIO À TODOS VOCÊS!!!")
             .setDescription(`<@!${result._id}>`)
             .addField(
               "Obrigada por fazer parte do nosso server!",
