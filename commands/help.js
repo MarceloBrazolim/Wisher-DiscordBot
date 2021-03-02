@@ -20,8 +20,8 @@ module.exports = async (message, args, client) => {
           prefix +
           "birthdday <set/check>\n" +
           "    - set <mention> <mês/dia>\n" +
-          "    - check <mention/data>" +
-          "    - list" +
+          "    - check <mention/data>\n" +
+          "    - list\n" +
           "    - today" +
           "`",
         value: "Gerencia lembretes de aniversario! 🥳!",
