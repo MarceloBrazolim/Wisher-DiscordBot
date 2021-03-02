@@ -19,7 +19,6 @@ module.exports = async (message, command, client) => {
         await message.channel.send("Não achei registros na minha lista.. 🧐");
         return;
       }
-      console.log(results);
 
       if (!results[1]) {
         // Send gif
