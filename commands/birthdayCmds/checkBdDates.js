@@ -67,7 +67,11 @@ module.exports = async (message, command, client) => {
         );
         // console.log(birthdayEmbed);
         for (let result of results) {
-          birthdayEmbed.addField(`${result.memberUser}`, `#${memberDisc}`);
+          console.log(result);
+          birthdayEmbed.addField(
+            `${result.memberUser}`,
+            `#${result.memberDisc}`
+          );
         }
         console.log(birthdayEmbed);
       }
