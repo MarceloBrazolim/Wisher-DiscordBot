@@ -14,7 +14,7 @@ module.exports = async (message, args) => {
     await message.channel.send("Você tem que falar uma data, ne! 🙄");
     return;
   }
-  var dateIntern = dateRaw.format("MM DD");
+  var dateIntern = dateRaw.format("MM[-]DD");
   var date = dateRaw.format("D [de] MMMM");
   console.log(`D|>|Date: ${date}`);
 
