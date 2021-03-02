@@ -20,7 +20,7 @@ module.exports = async (message, args, client) => {
           prefix +
           "birthdday <set/check>\n" +
           "    - set <mention> <mês/dia>\n" +
-          "    - check <mention/data>\n" +
+          "    - check <mention>\n" +
           "    - list\n" +
           "    - today\n" +
           "`",
