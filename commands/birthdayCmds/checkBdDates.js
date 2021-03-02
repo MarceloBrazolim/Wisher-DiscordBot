@@ -21,18 +21,21 @@ module.exports = async (message, command, client) => {
         await message.channel.send("Não achei registros na minha lista.. 🧐");
         return;
       }
+      // Send gif
+      const xpath = ".GifList .column .GifListItem .Gif img";
+      const path = "https://tenor.com/search/celebration-gifs";
+      const att = "src";
+
+      const birthdayEmbed = new Discord.MessageEmbed()
+        .setColor("#831fde")
+        .setAuthor("Wisher", ID.displayAvatarURL({ dynamic: true }))
+        .setTimestamp();
 
       if (!results[1]) {
-        // Send gif
-        const xpath = ".GifList .column .GifListItem .Gif img";
-        const path = "https://tenor.com/search/celebration-gifs";
-        const att = "src";
         // Embed
         const user = client.users.cache.get(results[0]._id);
-        const birthdayEmbed = new Discord.MessageEmbed()
-          .setColor("#831fde")
-          .setTitle("Hoje é seu aniversário!")
-          .setAuthor(`<@!${ID}>`, ID.displayAvatarURL({ dynamic: true }))
+        birthdayEmbed
+          .setTitle("HOJE É SEU ANIVERSÁRIO!!!")
           .setDescription(`<@!${results[0]._id}>`)
           .setThumbnail(user.displayAvatarURL({ dynamic: true }))
           .addField(
@@ -40,18 +43,13 @@ module.exports = async (message, command, client) => {
             "Muitas felicidades e muitos anos de vida pra você,\ntenha um ótimo dia e um excelente aniversário!",
             true
           )
-          .addField("🇭 🇦 🇵 🇵 🇾 🥳 🎉 👏", "🇧 🇮 🇷 🇹 🇭 🇩 🇦 🇾")
-          .setTimestamp();
-        await getImage(message, path, xpath, att, command, birthdayEmbed);
-        return;
+          .addField(
+            "🇭 🇦 🇵 🇵 🇾 🥳 🎉 👏",
+            "🇧 🇮 🇷 🇹 🇭 🇩 🇦 🇾\n🎈 🪅 🎉 🎊 🎈 🪅 🎊 🎉"
+          );
       } else {
-        // Send gif
-        const xpath = ".GifList .column .GifListItem .Gif img";
-        const path = "https://tenor.com/search/celebration-gifs";
-        const att = "src";
-
         // Embed
-        const todayBdEmbed = new Discord.MessageEmbed()
+        birthdayEmbed
           .setColor("#831fde")
           .setTitle("FELIZ ANIVERSÁRIO À TODOS VOCÊS!!!")
           .setAuthor("Wisher", ID.displayAvatarURL({ dynamic: true }))
@@ -62,13 +60,11 @@ module.exports = async (message, command, client) => {
           )
           .addField(
             "🇭 🇦 🇵 🇵 🇾 🥳 🎉 👏",
-            "🇧 🇮 🇷 🇹 🇭 🇩 🇦 🇾\n🎈 🪅 🎉 🎊 🪅 🎈 🎊 🎉"
-          )
-          .setTimestamp();
-        for (let result of results) {
-        }
-        await getImage(message, path, xpath, att, command, todayBdEmbed);
+            "🇧 🇮 🇷 🇹 🇭 🇩 🇦 🇾\n🎈 🪅 🎉 🎊 🎈 🪅 🎊 🎉"
+          );
       }
+      await getImage(message, path, xpath, att, command, birthdayEmbed);
+      return;
 
       // for (let result of results) {
       //   if (!isDateToday(result.bdate)) continue;
