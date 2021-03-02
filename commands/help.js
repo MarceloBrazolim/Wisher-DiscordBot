@@ -22,7 +22,7 @@ module.exports = async (message, args, client) => {
           "    - set <mention> <mês/dia>\n" +
           "    - check <mention/data>\n" +
           "    - list\n" +
-          "    - today" +
+          "    - today\n" +
           "`",
         value: "Gerencia lembretes de aniversario! 🥳!",
       },
