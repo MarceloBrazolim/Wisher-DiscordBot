@@ -13,7 +13,7 @@ module.exports = async (message, command) => {
   const birthdayEmbed = new Discord.MessageEmbed()
     .setColor("#831fde")
     .setTitle("Hoje é seu aniversário!")
-    // .setAuthor(user.username, user.displayAvatarURL({ dynamic: true }))
+    .setAuthor(user.username, user.displayAvatarURL({ dynamic: true }))
     .setDescription(`<@!${user.id}>`)
     .setThumbnail(user.displayAvatarURL({ dynamic: true }))
     .addField(
