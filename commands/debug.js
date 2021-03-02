@@ -1,3 +1,4 @@
+const Discord = require("discord.js");
 const moment = require("moment");
 const sendHappyBd = require("./birthdayCmds/sendHappyBd");
 
@@ -38,6 +39,11 @@ module.exports = async (message, args) => {
     case "happy":
       await sendHappyBd(message);
       break;
+    case "embed":
+      const todayBdEmbed = new Discord.MessageEmbed()
+        .setColor("#831fde")
+        .setDescription(`<@!${result._id}>`)
+        .addField(args, args, true)
     default:
       console.log(`D|>|Default: ${args}`);
   }
