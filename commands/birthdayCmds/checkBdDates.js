@@ -42,26 +42,29 @@ module.exports = async (message, command, client) => {
         await getImage(message, path, xpath, att, command, birthdayEmbed);
         return;
       } else {
-        for (let result of results) {
-          // Send gif
-          const xpath = ".GifList .column .GifListItem .Gif img";
-          const path = "https://tenor.com/search/celebration-gifs";
-          const att = "src";
+        // Send gif
+        const xpath = ".GifList .column .GifListItem .Gif img";
+        const path = "https://tenor.com/search/celebration-gifs";
+        const att = "src";
 
-          // Embed
-          const todayBdEmbed = new Discord.MessageEmbed()
-            .setColor("#831fde")
-            .setTitle("FELIZ ANIVERSÁRIO À TODOS VOCÊS!!!")
-            .setDescription(`<@!${result._id}>`)
-            .addField(
-              "Obrigada por fazer parte do nosso server!",
-              "Muitas felicidades e muitos anos de vida pra você,\ntenha um ótimo dia e um excelente aniversário!",
-              true
-            )
-            .addField("🇭 🇦 🇵 🇵 🇾 🥳 🎉 👏", "🇧 🇮 🇷 🇹 🇭 🇩 🇦 🇾")
-            .setTimestamp();
-          await getImage(message, path, xpath, att, command, todayBdEmbed);
+        // Embed
+        const todayBdEmbed = new Discord.MessageEmbed()
+          .setColor("#831fde")
+          .setTitle("FELIZ ANIVERSÁRIO À TODOS VOCÊS!!!")
+          .setDescription(`<@!${result._id}>`)
+          .addField(
+            "Obrigada por fazer parte do nosso server!",
+            "Muitas felicidades e muitos anos de vida pra você,\ntenha um ótimo dia e um excelente aniversário!",
+            true
+          )
+          .addField(
+            "🇭 🇦 🇵 🇵 🇾 🥳 🎉 👏",
+            "🇧 🇮 🇷 🇹 🇭 🇩 🇦 🇾\n🎈 🪅 🎉 🎊 🪅 🎈 🎊 🎉"
+          )
+          .setTimestamp();
+        for (let result of results) {
         }
+        await getImage(message, path, xpath, att, command, todayBdEmbed);
       }
 
       // for (let result of results) {
