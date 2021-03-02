@@ -21,8 +21,6 @@ const info = require("../commands/info");
 const bdInit = require("../commands/bdInit");
 const help = require("../commands/help");
 
-const sendHappyBd = require("../commands/birthdayCmds/sendHappyBd");
-
 // Side
 const imgInit = require("../commands/imgInit");
 
@@ -50,11 +48,11 @@ module.exports = async (message, command, args, client) => {
     // Adm
     case "avatar":
       if (!(await isAdm(message))) break;
-      await avatar(message, getUserID(message));
+      await avatar(message);
       break;
     case "info":
       if (!(await isAdm(message))) break;
-      await info(message, getUserID(message));
+      await info(message);
       break;
 
     // Dev
