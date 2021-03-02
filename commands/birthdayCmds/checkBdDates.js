@@ -16,9 +16,8 @@ module.exports = async (message, command, client) => {
           .date(new Date().getDate())
           .format("MM DD"),
       });
-      console.log(results);
-      if (!results) {
-        await message.channel.send("Não achei registros na minha lista.. 🧐");
+      if (!results[0]) {
+        await message.channel.send("Ninguém faz aniversário hoje :v");
         return;
       }
       // Send gif
@@ -62,20 +61,19 @@ module.exports = async (message, command, client) => {
           {
             name: "🇭 🇦 🇵 🇵 🇾 🥳 🎉 👏",
             value: "🇧 🇮 🇷 🇹 🇭 🇩 🇦 🇾\n🎈 🪅 🎉 🎊 🎈 🪅 🎊 🎉",
-          },
-          { name: "\u200B", value: "\u200B" }
+          }
+          // { name: "\u200B", value: "\u200B" }
         );
         // console.log(birthdayEmbed);
         for (let result of results) {
-          console.log(result);
           birthdayEmbed.addField(
             `${result.memberUser}`,
             `#${result.memberDisc}`
           );
         }
-        console.log(birthdayEmbed);
       }
       await getImage(message, path, xpath, att, command, birthdayEmbed);
+      await message.delete();
     } finally {
       await mongoose.connection.close();
       return;
