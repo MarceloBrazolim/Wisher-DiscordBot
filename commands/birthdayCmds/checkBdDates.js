@@ -41,6 +41,13 @@ module.exports = async (message, command, client) => {
           .setTimestamp();
         await getImage(message, path, xpath, att, command, birthdayEmbed);
         return;
+      } else {
+        for (let result of results) {
+          // Send gif
+          const xpath = ".GifList .column .GifListItem .Gif img";
+          const path = "https://tenor.com/search/celebration-gifs";
+          const att = "src";
+        }
       }
 
       // for (let result of results) {
