@@ -9,7 +9,7 @@ const reminder = mongoose.Schema(
     },
     // Birthday Date
     bdate: {
-      type: Date,
+      type: String,
       required: true,
     },
     // Member name
