@@ -74,7 +74,6 @@ module.exports = async (message, command, client) => {
         }
       }
       await getImage(message, path, xpath, att, command, birthdayEmbed);
-      await message.delete();
     } finally {
       await mongoose.connection.close();
       return;
