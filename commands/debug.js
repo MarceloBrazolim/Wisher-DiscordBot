@@ -14,7 +14,7 @@ module.exports = async (message, args) => {
       moment.locale("pt-br");
       var result = moment(new Date(args[1]));
       console.log(`D|>|Date: ${result}`);
-      message.channel.send(result.format());
+      await message.channel.send(result.format());
       break;
     case "await":
       await message.channel.send("Escutando..");
@@ -23,13 +23,13 @@ module.exports = async (message, args) => {
       });
       const msgMap = msgs.map((msg) => msg.content).join(", ");
       console.log(`D|>|Await: ${msgMap}`);
-      message.channel.send(`Terminei de escutar: ${msgMap}`);
+      await message.channel.send(`Terminei de escutar: ${msgMap}`);
       break;
     case "mention":
       const target = message.mentions.users.first();
       if (!target) {
         console.error("X|>|Err: No mention");
-        message.channel.send("Você tem que mencionar alguém, bobinho..");
+        await message.channel.send("Você tem que mencionar alguém, bobinho..");
       } else {
         console.log(`D|>|Mention: ${target}`);
       }
