@@ -1,10 +1,3 @@
-// Misc
-const ping = require("../commands/ping");
-const macaco = require("../commands/macaco");
-const lagarto = require("../commands/lagarto");
-const coinmaster = require("../commands/coinmaster");
-const hello = require("../commands/hello");
-
 // Util
 const isAdm = require("./isAdm");
 const getUserID = require("./getUserID");
@@ -48,9 +41,6 @@ module.exports = async (message, command, args, client) => {
 
     // Adm
     case "avatar":
-      if (!(await isAdm(message))) break;
-      await getUserID(message, command);
-      break;
     case "info":
       if (!(await isAdm(message))) break;
       await getUserID(message, command);
@@ -64,27 +54,30 @@ module.exports = async (message, command, args, client) => {
       break;
     case "version":
     case "versao":
+    case "versão":
       await message.channel.send(`Wisher Bot App v${version}`);
       break;
 
     // Misc
     case "ping":
-      await ping(message);
+      await message.channel.send("Pong! 🏓");
       break;
     case "macaco":
     case "mamaco":
-      await macaco(message);
+      await message.channel.send("largato 🦎");
       break;
     case "lagarto":
     case "largarto":
     case "largato":
-      await lagarto(message);
+      await message.channel.send("mamaco 🐒");
       break;
     case "coinmaster":
-      await coinmaster(message);
+      await message.channel.send("VOCE ATACOU A MINHA VILA? 👀");
       break;
     case "hello":
-      await hello(message);
+      await message.channel.send(
+        "HELLO. WOULD YOU LIKE TO SIGN MY PETITION? 📑"
+      );
       break;
   }
   return;
