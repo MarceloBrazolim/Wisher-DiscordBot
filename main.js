@@ -39,8 +39,7 @@ client.on("message", async (message) => {
   )
     return;
 
-  var uMessage = encodeURI(message);
-  var arg = uMessage.slice(config.prefix.length).split("'");
+  var arg = encodeURI(message).slice(config.prefix.length).split("'");
   const args = arg
     .filter(() => (arg = "'"))
     .join("")
