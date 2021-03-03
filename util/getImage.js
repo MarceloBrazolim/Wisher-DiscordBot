@@ -49,8 +49,8 @@ module.exports = async (message, path, xpath, att, command, embed) => {
       case "bd":
       case "birthday":
         embed.setImage(urls[x]);
-        message.channel.send("@everyone");
         message.channel.send(embed);
+        message.channel.send("@everyone");
         break;
       default:
         message.channel.send(urls[x]);
