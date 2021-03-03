@@ -3,6 +3,9 @@ const isAdm = require("../util/isAdm");
 const { prefix } = require("../config.json");
 
 module.exports = async (message, args, client) => {
+  for (let i in args) {
+    args[i] = args[i].toLowerCase();
+  }
   var ID = client.users.cache.get("805035898990755850");
   var helpEmbed = new Discord.MessageEmbed()
     .setColor("#831fde")
