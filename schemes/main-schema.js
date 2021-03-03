@@ -18,7 +18,7 @@ const reminder = mongoose.Schema(
       required: true,
     },
     memberDisc: {
-      type: Number,
+      type: String,
       required: true,
     },
   },
