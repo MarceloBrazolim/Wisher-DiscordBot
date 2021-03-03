@@ -7,7 +7,7 @@ module.exports = async (message, command, args, client) => {
     // console.error(`X|^|Err on runCommand.js`);
     return;
   } catch (e) {
-    console.error(e);
+    console.error(`X|>|${e}`);
     return;
   }
 };
