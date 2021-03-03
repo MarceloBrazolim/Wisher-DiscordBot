@@ -66,9 +66,10 @@ module.exports = async (message, command, client) => {
         );
         // console.log(birthdayEmbed);
         for (let result of results) {
+          let tmpUser = client.users.cache.get(result._id);
           birthdayEmbed.addField(
-            `${result.memberUser}`,
-            `#${result.memberDisc}`
+            `${tmpUser.username}`,
+            `#${tmpUser.discriminator}`
           );
         }
       }
