@@ -4,12 +4,10 @@ const update = require("../../util/update");
 const getUserID = require("../../util/getUserID");
 const { prefix } = require("../../config.json");
 
-module.exports = async (message, args) => {
-  const user = await getUserID(message);
-
+module.exports = async (message, args, user) => {
   // Format date
   moment.locale("pt-br");
-  var dateRaw = moment(new Date(args[2]));
+  var dateRaw = moment(new Date(args[2].toLowerCase()));
   if (isNaN(dateRaw)) {
     await message.channel.send("Você tem que falar uma data, ne! 🙄");
     return;
@@ -32,9 +30,7 @@ module.exports = async (message, args) => {
   const confirmYes = new Discord.MessageEmbed()
     .setColor("#831fde")
     .setTitle("Irei me lembrar!! 👌")
-    .setDescription(
-      `O aniversário de **${user.tag}** será em **${date}**!`
-    );
+    .setDescription(`O aniversário de <@!${user.id}> será em **${date}**!`);
 
   // First embed
   await message.channel.send(confirmationEmbed);
@@ -43,7 +39,7 @@ module.exports = async (message, args) => {
     (msg) => msg.content.includes(prefix),
     { max: 1, time: 30000 }
   );
-  const answerMap = answer.map((msg) => msg.content).join(", ");
+  const answerMap = answer.map((msg) => msg.content).join("").toLowerCase();
   switch (answerMap) {
     case `${prefix}hai`:
     case `${prefix}yes`:
