@@ -4,10 +4,16 @@ const img = require("./imgInit/img");
 
 module.exports = async (message, command, args) => {
   // Forbidden terms
+  const argsLower = [];
   for (let x in args) {
-    if (args[x] == "daddy" || args[x] == "mommy") {
-      message.channel.send("n vou procurar por isso.. 😑");
-      return;
+    argsLower[x] = args[x].toLowerCase();
+  }
+  for (let x in argsLower) {
+    switch (argsLower[x]) {
+      case "daddy":
+      case "mommy":
+        await message.channel.send("n vou procurar por isso.. 😑");
+        return;
     }
   }
 
@@ -23,16 +29,15 @@ module.exports = async (message, command, args) => {
       await astolfo(message, command);
       break;
   }
-
-  for (let x in args) {
-    if (
-      args[x] == "criança" ||
-      args[x] == "kid" ||
-      args[x] == "children" ||
-      args[x] == "baby"
-    ) {
-      message.channel.send("uhg 😒");
+  for (let x in argsLower) {
+    switch (argsLower[x]) {
+      case "criança":
+      case "kid":
+      case "children":
+      case "baby":
+        await message.channel.send("uhg 😒");
     }
   }
+
   return;
 };
