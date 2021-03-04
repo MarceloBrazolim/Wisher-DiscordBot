@@ -3,7 +3,7 @@ const isAdm = require("./isAdm");
 const getUserID = require("./getUserID");
 
 // Dev
-const debug = require("../commands/debug");
+const debugg = require("../commands/debugg");
 const { version } = require("../package.json");
 
 // Adm
@@ -47,10 +47,10 @@ module.exports = async (message, command, args, client) => {
       break;
 
     // Dev
-    case "debug":
+    case "debugg":
     case "d":
       if (!(await isAdm(message))) break;
-      await debug(message, args);
+      await debugg(message, args);
       break;
     case "version":
     case "versao":
