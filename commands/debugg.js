@@ -48,6 +48,10 @@ module.exports = async (message, args) => {
         .setDescription(`Descrição: ${args}`)
         .addField(`Campo 1: ${args}`, `Campo 2: ${args}`, true);
       await message.channel.send(debugEmbed);
+    case "message":
+    case "msg":
+      console.log(message);
+      break;
     default:
       console.log(`D|>|Default: ${args}`);
   }
