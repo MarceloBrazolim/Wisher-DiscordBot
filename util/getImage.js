@@ -1,3 +1,4 @@
+const Discord = require("discord.js");
 const request = require("request");
 const { load } = require("cheerio");
 const _ = require("lodash");
@@ -54,7 +55,8 @@ module.exports = async (message, path, xpath, att, command, embed) => {
         message.channel.send("@everyone", { embed });
         break;
       default:
-        message.channel.send(urls[x]);
+        const urlEmbed = new Discord.MessageEmbed().setImage(urls[x]);
+        message.channel.send(urlEmbed);
         break;
     }
   });
