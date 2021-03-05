@@ -39,7 +39,10 @@ module.exports = async (message, args, user) => {
     (msg) => msg.content.includes(prefix),
     { max: 1, time: 30000 }
   );
-  const answerMap = answer.map((msg) => msg.content).join("").toLowerCase();
+  const answerMap = answer
+    .map((msg) => msg.content)
+    .join("")
+    .toLowerCase();
   switch (answerMap) {
     case `${prefix}hai`:
     case `${prefix}yes`:
@@ -49,7 +52,8 @@ module.exports = async (message, args, user) => {
     case `${prefix}s`:
     case `${prefix}y`:
       // Inserts into DB
-      await update(message.channel.guild.id, dateIntern, user.id, user.username, user.discriminator);
+      const userInfo = user.username + "#" + user.discriminator;
+      await update(message.channel.guild.id, dateIntern, user.id, userInfo);
       message.react("👍");
       await message.channel.send(confirmYes);
       break;
