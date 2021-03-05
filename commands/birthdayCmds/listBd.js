@@ -7,7 +7,9 @@ module.exports = async (message) => {
   moment.locale("pt-br");
   await mongo().then(async (mongoose) => {
     try {
-      const results = await BDStorage.find();
+      const results = await BDStorage.find({
+        gID: message.channel.guild.id,
+      });
       if (!results) {
         await message.channel.send("Não achei registros na minha lista.. 🧐");
         throw "No registry";
