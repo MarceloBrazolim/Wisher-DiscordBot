@@ -1,7 +1,6 @@
 const Discord = require("discord.js");
 const moment = require("moment");
 const update = require("../../util/update");
-const getUserID = require("../../util/getUserID");
 const { prefix } = require("../../config.json");
 
 module.exports = async (message, args, user) => {
@@ -19,7 +18,8 @@ module.exports = async (message, args, user) => {
   // Embeds
   var confirmationEmbed = new Discord.MessageEmbed()
     .setColor("#831fde")
-    .setTitle("Blz! A data de aniversário está certa?")
+    .setTitle("Blz! Só pra confirmar..")
+    .setDescription(`A data de aniversário de <@!${user.id}> está certa?`)
     .addField(`**${date}**`, `${prefix}sim | ${prefix}nao`);
 
   const confirmNo = new Discord.MessageEmbed()
