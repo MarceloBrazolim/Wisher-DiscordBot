@@ -2,7 +2,7 @@
 const mongo = require("../mongo");
 const BDStorage = require("../schemes/main-schema");
 
-module.exports = async (guildID, date, u, username, discr) => {
+module.exports = async (guildID, date, u, user) => {
   await mongo().then(async (mongoose) => {
     try {
       await BDStorage.findOneAndUpdate(
