@@ -17,11 +17,6 @@ const reminder = mongoose.Schema(
       type: String,
       required: true,
     },
-    // Member name
-    uInfo: {
-      type: String,
-      required: true,
-    },
   },
   { versionKey: false }
 );
