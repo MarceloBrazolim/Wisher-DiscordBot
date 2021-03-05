@@ -18,11 +18,7 @@ const reminder = mongoose.Schema(
       required: true,
     },
     // Member name
-    memberUser: {
-      type: String,
-      required: true,
-    },
-    memberDisc: {
+    uInfo: {
       type: String,
       required: true,
     },
