@@ -7,6 +7,7 @@ module.exports = async (message) => {
   moment.locale("pt-br");
   await mongo().then(async (mongoose) => {
     try {
+      // const guildID = message.channel.guild.id;
       const results = await BDStorage.find({
         gID: message.channel.guild.id,
       });
