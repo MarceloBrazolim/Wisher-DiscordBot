@@ -50,7 +50,7 @@ module.exports = async (message, args) => {
       await message.channel.send(debugEmbed);
     case "message":
     case "msg":
-      console.log(message.channel.guild.id);
+      console.log(message);
       break;
     default:
       console.log(`D|>|Default: ${args}`);
