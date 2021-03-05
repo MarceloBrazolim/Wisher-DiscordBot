@@ -8,7 +8,7 @@ const isAdm = require("../util/isAdm");
 const getUserID = require("../util/getUserID");
 
 module.exports = async (message, args, command, client) => {
-  args[0] = args[0].toLowerCase();
+  if (args[0]) args[0] = args[0].toLowerCase();
   switch (args[0]) {
     case "set":
       let uid = await getUserID(message);
@@ -20,7 +20,7 @@ module.exports = async (message, args, command, client) => {
       break;
     case "list":
     case "l":
-      await listBd(message);
+      await listBd(message, client);
       break;
     case "check":
       await checkBirthday(message);
