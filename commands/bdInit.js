@@ -12,7 +12,6 @@ module.exports = async (message, args, command, client) => {
   switch (args[0]) {
     case "set":
       let uid = await getUserID(message);
-      console.log(`${message.author.id}\n${uid.id}`);
       if (message.author.id != uid.id) {
         if (!(await isAdm(message))) break;
       }
@@ -34,7 +33,6 @@ module.exports = async (message, args, command, client) => {
     case "delete":
     case "del":
       let u = await getUserID(message);
-      console.log(`${message.author.id}\n${u.id}`);
       if (message.author.id != u.id) {
         if (!(await isAdm(message))) break;
       }
