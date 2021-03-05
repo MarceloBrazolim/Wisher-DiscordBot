@@ -11,6 +11,7 @@ module.exports = async (message, command, client) => {
   await mongo().then(async (mongoose) => {
     try {
       const results = await BDStorage.find({
+        gID: message.channel.guild.id,
         bdate: moment()
           .month(new Date().getMonth())
           .date(new Date().getDate())
