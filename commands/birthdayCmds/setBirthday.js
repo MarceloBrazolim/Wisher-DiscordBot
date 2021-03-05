@@ -49,8 +49,8 @@ module.exports = async (message, args, user) => {
     case `${prefix}s`:
     case `${prefix}y`:
       // Inserts into DB
-      await update(dateIntern, user.id, user.username, user.discriminator);
-      await message.react("👍");
+      await update(message.channel.guild.id, dateIntern, user.id, user.username, user.discriminator);
+      message.react("👍");
       await message.channel.send(confirmYes);
       break;
     case `${prefix}n`:
