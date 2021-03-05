@@ -6,7 +6,11 @@ const BDStorage = require("../schemes/main-schema");
 module.exports = async (u, message) => {
   await mongo().then(async (mongoose) => {
     try {
-      await BDStorage.deleteOne({ _id: u });
+      const del = await BDStorage.deleteOne({
+        mID: u,
+        gID: message.channel.guild.id,
+      });
+      console.log(`D|>|Deleted ${del.n} entries from ${u}.`);
 
       const debugEmbed = new Discord.MessageEmbed()
         .setColor("#831fde")
@@ -14,7 +18,7 @@ module.exports = async (u, message) => {
       await message.channel.send(debugEmbed);
       console.log(`O|>|Deleted: ${u}`);
     } catch (e) {
-      console.error(`X|<|Error delete.js: ${e}`);
+      console.error(`X|<|${e} at delete.js`);
       const debugEmbed = new Discord.MessageEmbed()
         .setColor("#831fde")
         .setDescription(`Houve um erro ao deletar os dados de <@!${u}>...`);
