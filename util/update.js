@@ -7,13 +7,12 @@ module.exports = async (guildID, date, u, user) => {
     try {
       await BDStorage.findOneAndUpdate(
         {
-          gID: guildID,
+          mID: u,
         },
         {
-          _id: u,
+          gID: guildID,
           bdate: date,
-          memberUser: username,
-          memberDisc: discr,
+          uInfo: user
         },
         {
           upsert: true,
