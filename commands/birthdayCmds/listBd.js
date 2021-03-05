@@ -3,7 +3,7 @@ const mongo = require("../../mongo");
 const BDStorage = require("../../schemes/main-schema");
 const moment = require("moment");
 
-module.exports = async (message) => {
+module.exports = async (message, client) => {
   moment.locale("pt-br");
   await mongo().then(async (mongoose) => {
     try {
@@ -11,7 +11,7 @@ module.exports = async (message) => {
       const results = await BDStorage.find({
         gID: message.channel.guild.id,
       });
-      if (!results) {
+      if (!results[0]) {
         await message.channel.send("Não achei registros na minha lista.. 🧐");
         throw "No registry";
       }
@@ -20,18 +20,19 @@ module.exports = async (message) => {
         .setColor("#831fde")
         .setTitle("Aniversariantes");
 
-      for (result of results) {
+      for (let result of results) {
+        let tmpUser = client.users.cache.get(result.mID);
         listEmbed.addField(
-          `${result.memberUser}#${result.memberDisc}`,
+          `${tmpUser.username}#${tmpUser.discriminator}`,
           `faz aniversário em **${moment(new Date(result.bdate)).format(
             "D [de] MMMM"
           )}**`
         );
       }
 
-      message.channel.send(listEmbed);
+      await message.channel.send(listEmbed);
     } catch (e) {
-      console.log(`X|>|${e}`);
+      console.log(`X|>|${e} at listBd.js`);
     } finally {
       await mongoose.connection.close();
       return;
