@@ -13,9 +13,10 @@ module.exports = async (message) => {
   await mongo().then(async (mongoose) => {
     try {
       const results = await BDStorage.findOne({
-        _id: user.id,
+        mID: user.id,
+        gID: message.channel.guild.id,
       });
-      if (!results) {
+      if (!results[0]) {
         await message.channel.send("Não achei registros na minha lista.. 🧐");
         return;
       }
