@@ -69,6 +69,10 @@ module.exports = async (message, path, xpath, att, command, args, embed) => {
             case "futanari":
               ur = "||" + urls[x] + "||";
               break;
+            default:
+              const urEmbed = new Discord.MessageEmbed().setImage(ur);
+              message.channel.send(urEmbed);
+              break;
           }
         }
         message.channel.send(ur);
