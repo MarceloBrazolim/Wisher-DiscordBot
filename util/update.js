@@ -12,12 +12,14 @@ module.exports = async (guildID, date, u, user) => {
         {
           gID: guildID,
           bdate: date,
-          uInfo: user
+          uInfo: user,
         },
         {
           upsert: true,
         }
       ).exec();
+    } catch (e) {
+      console.error(`X|<|${e} at update.js`);
     } finally {
       await mongoose.connection.close();
     }
