@@ -5,7 +5,7 @@ module.exports = async (message, args, command) => {
     const xpath = ".GifList .column .GifListItem .Gif img";
     const path = "https://tenor.com/search/" + args + "-gifs"; // gif search engine
     const att = "src";
-    await getImage(message, path, xpath, att, command);
+    await getImage(message, path, xpath, att, command, args);
   } else {
     await message.channel.send("Mas você nem me falou o que procurar!");
   }

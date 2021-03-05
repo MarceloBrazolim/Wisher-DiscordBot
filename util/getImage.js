@@ -3,7 +3,7 @@ const request = require("request");
 const { load } = require("cheerio");
 const _ = require("lodash");
 
-module.exports = async (message, path, xpath, att, command, embed) => {
+module.exports = async (message, path, xpath, att, command, args, embed) => {
   var options = {
     url: path,
     method: "GET",
@@ -55,8 +55,23 @@ module.exports = async (message, path, xpath, att, command, embed) => {
         message.channel.send("@everyone", { embed });
         break;
       default:
-        const urlEmbed = new Discord.MessageEmbed().setImage(urls[x]);
-        message.channel.send(urlEmbed);
+        var ur = urls[x];
+        for (let h in args) {
+          switch (args[h]) {
+            case "nsfw":
+            case "porn":
+            case "hentai":
+            case "rule34":
+            case "sex":
+            case "sexo":
+            case "penis":
+            case "penis2":
+            case "futanari":
+              ur = "||" + urls[x] + "||";
+              break;
+          }
+        }
+        message.channel.send(ur);
         break;
     }
   });
