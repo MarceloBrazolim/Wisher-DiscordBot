@@ -8,7 +8,7 @@ const reminder = mongoose.Schema(
       required: true,
     },
     // Member ID
-    _id: {
+    mID: {
       type: String,
       required: true,
     },
