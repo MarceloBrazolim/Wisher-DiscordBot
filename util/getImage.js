@@ -87,8 +87,7 @@ module.exports = async (message, path, xpath, att, command, args, embed) => {
           await message.channel.send(ur);
           break;
         } else {
-          const urEmbed = new Discord.MessageEmbed().setImage(urls[x]);
-          await message.channel.send(urEmbed);
+          await message.channel.send(urls[x]);
           break;
         }
     }
