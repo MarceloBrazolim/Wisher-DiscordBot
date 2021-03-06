@@ -33,7 +33,7 @@ module.exports = async (message, command, client) => {
 
       if (!results[1]) {
         // Embed
-        const user = client.users.cache.get(results[0].mID);
+        const user = client.users.cache.get(results[0]._id);
         birthdayEmbed
           .setTitle("HOJE É SEU ANIVERSÁRIO!!!")
           .setDescription(`<@!${user.id}>`)
@@ -67,7 +67,7 @@ module.exports = async (message, command, client) => {
         );
         // console.log(birthdayEmbed);
         for (let result of results) {
-          let tmpUser = client.users.cache.get(result.mID);
+          let tmpUser = client.users.cache.get(result._id);
           birthdayEmbed.addField(
             `${tmpUser.username}`,
             `#${tmpUser.discriminator}`
