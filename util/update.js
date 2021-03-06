@@ -7,7 +7,7 @@ module.exports = async (guildID, date, u) => {
     try {
       await BDStorage.findOneAndUpdate(
         {
-          mID: u,
+          _id: u,
         },
         {
           $push: { gID: guildID },
