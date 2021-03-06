@@ -15,7 +15,7 @@ module.exports = async (message) => {
     try {
       const results = await BDStorage.findOne({
         gID: message.channel.guild.id,
-        mID: user.id,
+        _id: user.id,
       });
       if (!results) {
         await message.channel.send("Não achei registros na minha lista.. 🧐");
