@@ -47,12 +47,12 @@ client.once("ready", async () => {
 
 // Triggers everytime bot joins a guild
 client.on("guildCreate", async function (guild) {
-  console.log(`||>|Bot Joined guild: ${guild.id}`);
-  await addWhenJoin(guild.id);
+  console.log(`||>|Bot Joined guild: ${guild.name}: "${guild.id}"`);
+  await addWhenJoin(guild.id, guild.name);
 });
 // Trigger whenever a guild is deleted/left
 client.on("guildDelete", async function (guild) {
-  console.log(`||>|Bot left guild: ${guild.id}`);
+  console.log(`||>|Bot left guild: "${guild.name}": "${guild.id}"`);
   await delWhenLeave(guild.id);
 });
 
