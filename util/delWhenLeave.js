@@ -5,19 +5,10 @@ const guildsSchema = require("../schemes/guilds-schema");
 module.exports = async (guildID) => {
   await mongo().then(async () => {
     try {
-      await guildsSchema.findOneAndUpdate(
+      await guildsSchema.deleteOne(
         {
-          _id: "8008",
+          _id: guildID,
         },
-        {
-          $pull: { guilds: { $in: guildID } },
-          count: { $subtract: 1 },
-        },
-        {
-          upsert: true,
-          safe: true,
-          multi: true,
-        }
       );
     } catch (err) {
       console.error(`X|<|${err} at delWhenLeave.js`);
