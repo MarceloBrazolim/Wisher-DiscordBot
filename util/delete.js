@@ -4,7 +4,7 @@ const mongo = require("../mongo");
 const BDStorage = require("../schemes/main-schema");
 
 module.exports = async (u, message) => {
-  await mongo().then(async (mongoose) => {
+  await mongo().then(async () => {
     try {
       const del = await BDStorage.deleteOne({
         mID: u,
@@ -17,14 +17,12 @@ module.exports = async (u, message) => {
         .setDescription(`Registros para <@!${u}> deletados 👍`);
       await message.channel.send(debugEmbed);
       console.log(`O|>|Deleted: ${u}`);
-    } catch (e) {
-      console.error(`X|<|${e} at delete.js`);
+    } catch (err) {
+      console.error(`X|<|${err} at delete.js`);
       const debugEmbed = new Discord.MessageEmbed()
         .setColor("#831fde")
         .setDescription(`Houve um erro ao deletar os dados de <@!${u}>...`);
       await message.channel.send(debugEmbed);
-    } finally {
-      await mongoose.connection.close();
     }
   });
 };
