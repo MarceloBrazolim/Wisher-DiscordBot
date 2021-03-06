@@ -4,7 +4,7 @@ const reminder = mongoose.Schema(
   {
     // Guild/Server ID
     gID: {
-      type: String,
+      type: Array,
       required: true,
     },
     // Member ID
