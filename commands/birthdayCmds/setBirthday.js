@@ -13,7 +13,7 @@ module.exports = async (message, args, user) => {
   }
   var dateIntern = dateRaw.format("MM DD");
   var date = dateRaw.format("D [de] MMMM");
-  console.log(`D|>|Date: ${date}`);
+  // console.log(`D|>|Date: ${date}`);
 
   // Embeds
   var confirmationEmbed = new Discord.MessageEmbed()
