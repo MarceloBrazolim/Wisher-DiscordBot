@@ -21,7 +21,7 @@ module.exports = async (message, args, client) => {
         "\n" +
         "**`" +
         prefix +
-        "birthday <set/check>`**\n" +
+        "birthday <set/check/list/today>`**\n" +
         "-> **`set <mention> <mês/dia>`**" +
         " Registra a pessoa pra receber feliz aniversário!\n" +
         "-> **`check <mention>`**" +
