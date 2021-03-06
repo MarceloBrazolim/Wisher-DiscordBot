@@ -6,7 +6,6 @@ const moment = require("moment");
 
 module.exports = async (message) => {
   const user = await getUserID(message);
-  console.log(user);
   if (!user) return;
 
   moment.locale("pt-br")
