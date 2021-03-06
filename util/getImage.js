@@ -13,7 +13,7 @@ module.exports = async (message, path, xpath, att, command, args, embed) => {
     },
   };
 
-  request(options, function (error, response, body) {
+  request(options, async function (error, response, body) {
     if (error) {
       console.error(`X|<|${error}`);
       return;
@@ -28,7 +28,7 @@ module.exports = async (message, path, xpath, att, command, args, embed) => {
 
     if (!urls[0]) {
       console.log("||>|No results");
-      message.channel.send("Ops.. Não achei o que procurava.. 😔");
+      await message.channel.send("Ops.. Não achei o que procurava.. 😔");
       return;
     }
 
@@ -39,7 +39,7 @@ module.exports = async (message, path, xpath, att, command, args, embed) => {
       console.log(`D|>|X+1: ${urls[x]}`);
       x += 1;
       if (x == 25 && !urls[x].startsWith("http")) {
-        message.channel.send(
+        await message.channel.send(
           "Acho que estou com problemas. Por favor chame meu criador."
         );
       }
@@ -52,7 +52,7 @@ module.exports = async (message, path, xpath, att, command, args, embed) => {
       case "debugg":
       case "d":
         embed.setImage(urls[x]);
-        message.channel.send("@everyone", { embed });
+        await message.channel.send("@everyone", { embed });
         break;
       default:
         for (let h in args) {
@@ -84,11 +84,11 @@ module.exports = async (message, path, xpath, att, command, args, embed) => {
           }
         }
         if (ur) {
-          message.channel.send(ur);
+          await message.channel.send(ur);
           break;
         } else {
           const urEmbed = new Discord.MessageEmbed().setImage(urls[x]);
-          message.channel.send(urEmbed);
+          await message.channel.send(urEmbed);
           break;
         }
     }
