@@ -1,5 +1,5 @@
 {
-    "token": "ODA1MDM1ODk4OTkwNzU1ODUw.YBVCGw.Z7SNrpI68MZKP5LFo-YZkDrVpRc",
-    "prefix": ";",
-    "mongoPath": "mongodb+srv://Wisher:mXCF29gbfGy0js8f@penis2.3eir7.mongodb.net/wisherBDData?retryWrites=true&w=majority"
+  "token": "ODA1MDM1ODk4OTkwNzU1ODUw.YBVCGw.Z7SNrpI68MZKP5LFo-YZkDrVpRc",
+  "prefix": ";",
+  "mongoPath": "mongodb+srv://Wisher:mXCF29gbfGy0js8f@penis2.3eir7.mongodb.net/wisherBDData?retryWrites=true&w=majority"
 }
