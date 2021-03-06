@@ -3,18 +3,18 @@ const client = new Discord.Client();
 const mongo = require("./mongo");
 
 const config = require("./config.json");
-const { version } = require("./package.json");
+const { name, version } = require("./package.json");
 
 const getCommand = require("./util/getCommand");
 
 client.once("ready", async () => {
   try {
     client.user.setActivity(`${config.prefix}help`, { type: "LISTENING" });
-  } catch {
-    console.error(`X|<|Could not set activity!`);
+  } catch (err) {
+    console.error(`X|<|${err} at main.js`);
   }
 
-  console.log(`\n=>_$./Wisher Bot App v${version}`);
+  console.log(`\n=>_$./${name} v${version}`);
   // Method for mongoDB setup on "main.js".
   try {
     await mongo().then(() => {
@@ -24,7 +24,20 @@ client.once("ready", async () => {
     console.error("X|<|Could not connect to MongoDB!");
   }
 
-  console.log("||>|Wisher is Online!");
+  console.log(`||>|${client.user.tag} is Online!`);
+
+  client
+    .generateInvite({
+      permissions: [
+        "SEND_MESSAGES",
+        "ADD_REACTIONS",
+        "EMBED_LINKS",
+        "VIEW_CHANNEL",
+        "MENTION_EVERYONE",
+      ],
+    })
+    .then((link) => console.log(`||>|Bot invite link: ${link}`))
+    .catch(console.error);
 });
 
 client.on("message", async (message) => {
