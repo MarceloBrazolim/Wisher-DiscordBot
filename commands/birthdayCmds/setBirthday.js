@@ -52,7 +52,6 @@ module.exports = async (message, args, user) => {
     case `${prefix}s`:
     case `${prefix}y`:
       // Inserts into DB
-      const userInfo = user.username + "#" + user.discriminator;
       await update(message.channel.guild.id, dateIntern, user.id);
       message.react("👍");
       await message.channel.send(confirmYes);
