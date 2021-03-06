@@ -7,12 +7,8 @@ const guilds = mongoose.Schema(
       required: true,
     },
     // Guild/Server ID
-    guild: {
-      type: Array,
-      required: true,
-    },
-    count: {
-      type: Number,
+    name: {
+      type: String,
       required: true,
     },
   },
