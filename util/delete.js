@@ -6,11 +6,19 @@ const BDStorage = require("../schemes/main-schema");
 module.exports = async (u, message) => {
   await mongo().then(async () => {
     try {
-      const del = await BDStorage.deleteOne({
-        mID: u,
-        gID: message.channel.guild.id,
-      });
-      console.log(`D|>|Deleted ${del.n} entries from ${u}.`);
+      const del = await BDStorage.updateOne(
+        {
+          _id: u,
+        },
+        {
+          $pull: { gID: message.channel.guild.id },
+        },
+        {
+          safe: true,
+          multi: true,
+        }
+      );
+      console.log(`D|>|Deleted ${del.n} entry from ${u}.`);
 
       const debugEmbed = new Discord.MessageEmbed()
         .setColor("#831fde")
