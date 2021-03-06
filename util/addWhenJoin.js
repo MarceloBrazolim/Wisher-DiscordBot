@@ -2,21 +2,18 @@
 const mongo = require("../mongo");
 const guildsSchema = require("../schemes/guilds-schema");
 
-module.exports = async (guildID) => {
+module.exports = async (guildID, guildName) => {
   await mongo().then(async () => {
     try {
       await guildsSchema.findOneAndUpdate(
         {
-          _id: "8008",
+          _id: guildID,
         },
         {
-          $push: { guild: { $in: guildID } },
-          count: { $sum: 1 },
+          name: guildName,
         },
         {
           upsert: true,
-          safe: true,
-          multi: true,
         }
       );
     } catch (err) {
