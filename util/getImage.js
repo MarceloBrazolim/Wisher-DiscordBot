@@ -55,9 +55,21 @@ module.exports = async (message, path, xpath, att, command, args, embed) => {
         message.channel.send("@everyone", { embed });
         break;
       default:
-        var ur = urls[x];
         for (let h in args) {
           switch (args[h]) {
+            // GORE
+            case "gore":
+            // NSFW
+            case "lolicon":
+            case "loli":
+            case "shotacon":
+            case "shota":
+            case "netorare":
+            case "milf":
+            case "estupro":
+            case "rape":
+            case "bdsm":
+            case "incesto":
             case "nsfw":
             case "porn":
             case "hentai":
@@ -67,16 +79,18 @@ module.exports = async (message, path, xpath, att, command, args, embed) => {
             case "penis":
             case "penis2":
             case "futanari":
-              ur = "||" + urls[x] + "||";
-              break;
-            default:
-              const urEmbed = new Discord.MessageEmbed().setImage(ur);
-              message.channel.send(urEmbed);
+              var ur = "||" + urls[x] + "||";
               break;
           }
         }
-        message.channel.send(ur);
-        break;
+        if (ur) {
+          message.channel.send(ur);
+          break;
+        } else {
+          const urEmbed = new Discord.MessageEmbed().setImage(urls[x]);
+          message.channel.send(urEmbed);
+          break;
+        }
     }
   });
 };
