@@ -11,38 +11,43 @@ module.exports = async (message, args, client) => {
     .setColor("#831fde")
     .setTitle("Lista de comandos disponíveis")
     .setAuthor("Wisher", ID.displayAvatarURL({ dynamic: true }))
-    .addFields(
-      {
-        name: "`" + prefix + "help <misc/adm/dev>`",
-        value: "Exibe esta lista que você está lendo.",
-      },
-
-      {
-        name:
-          "`" +
-          prefix +
-          "birthdday <set/check>\n" +
-          "    - set <mention> <mês/dia>\n" +
-          "    - check <mention>\n" +
-          "    - list\n" +
-          "    - today\n" +
-          "`",
-        value: "Gerencia lembretes de aniversario! 🥳!",
-      },
-
-      {
-        name: "`" + prefix + "img <args>`",
-        value: "Mostra uma imagem aleatória com o que você quiser.",
-      },
-
-      {
-        name: "`" + prefix + "gif <args>`",
-        value:
-          "É praticamente a mesma coisa do " + prefix + "img... só que .gif",
-      },
-
-      { name: "`" + prefix + "astolfo`", value: "hehehehehe~ 😍" }
-    );
+    .addFields({
+      name: "Comandos Gerais",
+      value:
+        "**`" +
+        prefix +
+        "help <misc/adm/dev>`**\n" +
+        "Exibe esta lista que você está lendo.\n" +
+        "\n" +
+        "**`" +
+        prefix +
+        "birthday <set/check>`**\n" +
+        "-> **`set <mention> <mês/dia>`**" +
+        " Registra a pessoa pra receber feliz aniversário!\n" +
+        "-> **`check <mention>`**" +
+        " Checa a data de aniversário de um membro registrado.\n" +
+        "-> **`list`**" +
+        " Lista a data de aniversário de todo mundo do servidor!\n" +
+        "-> **`today`**" +
+        " Checa se alguem faz aniversário hoje.\n" +
+        "\n" +
+        "**`" +
+        prefix +
+        "img <args>`**\n" +
+        "Mostra uma imagem aleatória com o que você quiser." +
+        "\n" +
+        "**`" +
+        prefix +
+        "gif <args>`**\n" +
+        "É praticamente a mesma coisa do " +
+        prefix +
+        "img... só que .gif\n" +
+        "\n" +
+        "**`" +
+        prefix +
+        "astolfo`**\n" +
+        "hehehehehe~ 😍",
+    });
 
   for (let i in args) {
     if (misc) break;
@@ -52,20 +57,24 @@ module.exports = async (message, args, client) => {
       helpEmbed.addFields(
         { name: "\u200B", value: "\u200B" },
         {
-          name: "`[misc] " + prefix + "macaco `",
-          value: "largals 🦎",
-        },
-        {
-          name: "`[misc] " + prefix + "lagarto`",
-          value: "camaquinhu 🐒",
-        },
-        {
-          name: "`[misc] " + prefix + "coinmaster`",
-          value: "VILA? 👀",
-        },
-        {
-          name: "`[misc] " + prefix + "hello`",
-          value: " hello, 📑?",
+          name: "Comandos Genéricos",
+          value:
+            "**`" +
+            prefix +
+            "macaco`**\n" +
+            "largals 🦎\n" +
+            "**`" +
+            prefix +
+            "lagarto`**\n" +
+            "camaquinhu 🐒\n" +
+            "**`" +
+            prefix +
+            "coinmaster`**\n" +
+            "VILA? 👀\n" +
+            "**`" +
+            prefix +
+            "hello`**\n" +
+            "hello, 📑?\n",
         }
       );
     }
@@ -81,12 +90,16 @@ module.exports = async (message, args, client) => {
       helpEmbed.addFields(
         { name: "\u200B", value: "\u200B" },
         {
-          name: "`[adm] " + prefix + "info <mention>`",
-          value: "Mando informaçoes técnicas do usuário mencionado por DM",
-        },
-        {
-          name: "`[adm] " + prefix + "avatar <mention>`",
-          value: "Mando a imagem de perfil do usuário mencionado por DM",
+          name: "Comandos de ADM",
+          value:
+            "**`" +
+            prefix +
+            "info <mention>`**\n" +
+            "Mando informaçoes técnicas do usuário mencionado por DM\n" +
+            "**`" +
+            prefix +
+            "avatar <mention>`**\n" +
+            "Mando a imagem de perfil do usuário mencionado por DM\n",
         }
       );
     }
@@ -103,8 +116,16 @@ module.exports = async (message, args, client) => {
         helpEmbed.addFields({ name: "\u200B", value: "\u200B" });
       }
       helpEmbed.addFields({
-        name: "`[dev] " + prefix + "debugg <args>`",
-        value: "Ferramenta de teste do desenvolvedor.",
+        name: "Comandos do Desenvolvedor",
+        value:
+          "**`" +
+          prefix +
+          "debugg <args>`**\n" +
+          "Ferramenta de teste do desenvolvedor." +
+          "**`" +
+          prefix +
+          "version`**\n" +
+          "Mostra qual a versão da aplicação",
       });
     }
   }
