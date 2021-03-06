@@ -8,7 +8,7 @@ module.exports = async (message, command, client) => {
   moment.locale("pt-br");
   var ID = client.users.cache.get("805035898990755850");
 
-  await mongo().then(async (mongoose) => {
+  await mongo().then(async () => {
     try {
       const results = await BDStorage.find({
         gID: message.channel.guild.id,
@@ -77,9 +77,8 @@ module.exports = async (message, command, client) => {
       await getImage(message, path, xpath, att, command, {
         embed: birthdayEmbed,
       });
-    } finally {
-      await mongoose.connection.close();
-      return;
+    } catch (err) {
+      console.error(`X|>|${err}`);
     }
   });
 };
