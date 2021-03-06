@@ -46,7 +46,7 @@ module.exports = async (message, args, client) => {
         "**`" +
         prefix +
         "astolfo`**\n" +
-        "hehehehehe~ 😍",
+        "Hehehehehe~ 😍",
     });
 
   for (let i in args) {
@@ -121,11 +121,11 @@ module.exports = async (message, args, client) => {
           "**`" +
           prefix +
           "debugg <args>`**\n" +
-          "Ferramenta de teste do desenvolvedor." +
+          "Ferramenta de teste do desenvolvedor.\n" +
           "**`" +
           prefix +
           "version`**\n" +
-          "Mostra qual a versão da aplicação",
+          "Mostra qual a versão da aplicação.\n",
       });
     }
   }
