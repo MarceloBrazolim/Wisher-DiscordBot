@@ -78,7 +78,7 @@ module.exports = async (message, command, client) => {
         embed: birthdayEmbed,
       });
     } catch (err) {
-      console.error(`X|>|${err}`);
+      console.error(`X|>|${err} at checkBdDates.js`);
     }
   });
 };
