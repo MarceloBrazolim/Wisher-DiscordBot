@@ -2,14 +2,14 @@
 const mongoose = require("mongoose");
 const reminder = mongoose.Schema(
   {
+    // Member ID
+    _id: {
+      type: String,
+      required: true,
+    },
     // Guild/Server ID
     gID: {
       type: Array,
-      required: true,
-    },
-    // Member ID
-    mID: {
-      type: String,
       required: true,
     },
     // Birthday Date
