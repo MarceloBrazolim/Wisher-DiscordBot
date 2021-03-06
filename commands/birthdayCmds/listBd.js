@@ -18,11 +18,10 @@ module.exports = async (message) => {
 
       let userList = "";
       for (let result of results) {
-        userList += `- <@!${result.mID}> faz aniversário em **${moment(
+        userList += `- <@!${result._id}> faz aniversário em **${moment(
           new Date(result.bdate)
         ).format("D [de] MMMM")}**\n`;
       }
-      console.log(userList);
       const listEmbed = new Discord.MessageEmbed()
         .setColor("#831fde")
         .setTitle("Aniversariantes")
