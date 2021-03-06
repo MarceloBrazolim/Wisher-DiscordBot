@@ -6,6 +6,10 @@ const guilds = mongoose.Schema(
       type: String,
       required: true,
     },
+    ownerID: {
+      type: String,
+      required: true,
+    },
     // Guild/Server ID
     name: {
       type: String,
