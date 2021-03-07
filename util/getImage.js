@@ -57,6 +57,10 @@ module.exports = async (message, path, xpath, att, command, args, embed) => {
       default:
         for (let h in args) {
           switch (args[h]) {
+            // MISC
+            case "gif":
+            case "img":
+            case "image":
             // GORE
             case "gore":
             // NSFW
