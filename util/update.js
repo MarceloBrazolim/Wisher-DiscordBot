@@ -10,7 +10,7 @@ module.exports = async (guildID, date, u) => {
           _id: u,
         },
         {
-          $push: { gID: guildID },
+          $addToSet: { gID: guildID },
           bdate: date,
         },
         {
