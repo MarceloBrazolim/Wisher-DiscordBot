@@ -21,7 +21,7 @@ module.exports = async (message, args, user) => {
     .setDescription(
       `**Blz! Só pra confirmar..**\nA data de aniversário de <@!${user.id}> está certa?`
     )
-    .addField(`**${date}**`, "`" + prefix + "sim | " + prefix + "nao`");
+    .addField(`${date}`, "`" + prefix + "sim | " + prefix + "nao`");
 
   const confirmNo = new Discord.MessageEmbed()
     .setColor("#831fde")
