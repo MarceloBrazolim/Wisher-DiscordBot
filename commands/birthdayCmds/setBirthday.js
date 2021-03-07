@@ -18,19 +18,25 @@ module.exports = async (message, args, user) => {
   // Embeds
   var confirmationEmbed = new Discord.MessageEmbed()
     .setColor("#831fde")
-    .setTitle("Blz! Só pra confirmar..")
-    .setDescription(`A data de aniversário de <@!${user.id}> está certa?`)
-    .addField(`**${date}**`, `${prefix}sim | ${prefix}nao`);
+    .setDescription(
+      `**Blz! Só pra confirmar..**\nA data de aniversário de <@!${user.id}> está certa?`
+    )
+    .addField(`**${date}**`, "`" + prefix + "sim | " + prefix + "nao`");
 
   const confirmNo = new Discord.MessageEmbed()
     .setColor("#831fde")
-    .setTitle("Se está com problemas, a sintaxe correta é:")
-    .setDescription(`**${prefix}bd set** <**mention**> <**mes**/**dia**>`);
+    .setDescription(
+      "Se está com problemas, a sintaxe correta é:\n`" +
+        prefix +
+        "bd set <mention> <mes/dia>`"
+    );
 
   const confirmYes = new Discord.MessageEmbed()
     .setColor("#831fde")
-    .setTitle("Irei me lembrar!! 👌")
-    .setDescription(`O aniversário de <@!${user.id}> será em **${date}**!`);
+    .addField(
+      "Irei me lembrar!! 👌",
+      `O aniversário de <@!${user.id}> será em **${date}**!`
+    );
 
   // First embed
   await message.channel.send(confirmationEmbed);
