@@ -9,7 +9,7 @@ module.exports = async (message, args, client) => {
   var ID = client.users.cache.get("805035898990755850");
   var helpEmbed = new Discord.MessageEmbed()
     .setColor("#831fde")
-    .setTitle("Lista de comandos disponíveis")
+    .setTitle("Lista de comandos disponíveis:")
     .setAuthor("Wisher", ID.displayAvatarURL({ dynamic: true }))
     .addFields({
       name: "Comandos Gerais",
