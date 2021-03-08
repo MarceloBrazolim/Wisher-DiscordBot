@@ -56,6 +56,12 @@ client.on("guildDelete", async function (guild) {
   await delWhenLeave(guild.id);
 });
 
+client.on("disconnect", async function (event) {
+  await mongo().then((mongoose) => {
+    mongoose.connection.close();
+  });
+});
+
 client.on("message", async (message) => {
   if (
     !message.content.startsWith(config.prefix) ||
