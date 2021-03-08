@@ -30,6 +30,15 @@ module.exports = async (message, command, args, client) => {
     case "aniversario":
       await bdInit(message, args, command, client);
       break;
+    case "link":
+      currentGuild = message.channel.guild.id;
+      guildToLink = args[0];
+      if (isNaN(guildToLink)) {
+        await message.channel.send("o ID do servidor não é válido..")
+        return;
+      }
+      await linkGuilds(currentGuild, guildToLink);
+      break;
 
     // Side
     case "img":
