@@ -4,6 +4,7 @@ const client = new Discord.Client();
 const mongo = require("./mongo");
 const addWhenJoin = require("./util/addWhenJoin");
 const delWhenLeave = require("./util/delWhenLeave");
+const deleteGuild = require("./util/deleteGuild");
 
 const config = require("./config.json");
 const { name, version } = require("./package.json");
@@ -54,6 +55,7 @@ client.on("guildCreate", async function (guild) {
 client.on("guildDelete", async function (guild) {
   console.log(`||>|Bot left guild: "${guild.name}"`);
   await delWhenLeave(guild.id);
+  await deleteGuild(guild.id);
 });
 
 // client.on("disconnect", async function (event) {
