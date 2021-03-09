@@ -12,6 +12,7 @@ const { version } = require("../package.json");
 
 // Main
 const bdInit = require("../commands/bdInit");
+const deleteGuild = require("./deleteGuild");
 const help = require("../commands/help");
 
 // Side
@@ -30,14 +31,9 @@ module.exports = async (message, command, args, client) => {
     case "aniversario":
       await bdInit(message, args, command, client);
       break;
-    case "link":
-      currentGuild = message.channel.guild.id;
-      guildToLink = args[0];
-      if (isNaN(guildToLink)) {
-        await message.channel.send("o ID do servidor não é válido..")
-        return;
-      }
-      await linkGuilds(currentGuild, guildToLink);
+    case "unregisterAll":
+      if (!(await isAdm(message))) break;
+      await deleteGuild(message.channel.guild.id);
       break;
 
     // Side
