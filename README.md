@@ -12,8 +12,9 @@ Just create a file called "config.json" alongside "main.js" with the following i
 
 ## TODO:
 
-- [ ] __Document__ (optional...)
+- [ ] __Document__ (optional...),
 - [ ] Fix any bugs (ongoing endlessly),
+- [ ] Add function to show when and whose is the next special date,
 - [x] Create management functions and interaction,
 - [x] Create ~~check~~/~~trigger~~ function for main feature,
 - [x] (v1.5.4) Test and validade the application,
