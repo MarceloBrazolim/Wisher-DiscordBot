@@ -23,8 +23,8 @@ module.exports = async (message, args, client) => {
         prefix +
         "birthday <set/check/list/today>`**\n" +
         "-> **`set <mention> <mês-dia>`**" +
-        " `Ex.: " + prefix + "bd set @Hiro Fujisame#8611 7-25 (25 de julho)`\n" +
         " Registra a pessoa pra receber feliz aniversário!\n" +
+        "   -Ex.: " + prefix + "`bd set @Hiro Fujisame#8611 7-25 (25 de julho)`\n" +
         "-> **`check <mention>`**" +
         " Checa a data de aniversário de um membro registrado.\n" +
         "-> **`list`**" +
