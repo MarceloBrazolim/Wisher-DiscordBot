@@ -76,6 +76,7 @@ module.exports = async (message, path, xpath, att, command, args, embed) => {
             case "incesto":
             case "nsfw":
             case "porn":
+            case "porno":
             case "hentai":
             case "rule34":
             case "sex":
