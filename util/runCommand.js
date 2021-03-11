@@ -84,9 +84,9 @@ module.exports = async (message, command, args, client) => {
         "HELLO. WOULD YOU LIKE TO SIGN MY PETITION? 📑"
       );
       break;
-    case "bundinha":
-      await message.channel.send("Se dá depois das 6 da matina?");
-      break;
+    // case "bundinha":
+    //   await message.channel.send("Se dá depois das 6 da matina?");
+    //   break;
   }
   return;
 };
