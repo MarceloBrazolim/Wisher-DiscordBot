@@ -6,11 +6,10 @@ module.exports = async (message, args, client) => {
   for (let i in args) {
     args[i] = args[i].toLowerCase();
   }
-  var ID = client.users.cache.get("805035898990755850");
   var helpEmbed = new Discord.MessageEmbed()
     .setColor("#831fde")
     .setTitle("Lista de comandos disponíveis:")
-    .setAuthor("Wisher", ID.displayAvatarURL({ dynamic: true }))
+    .setAuthor(client.user.username, client.user.displayAvatarURL({ dynamic: true }))
     .addFields({
       name: "Comandos Gerais",
       value:
