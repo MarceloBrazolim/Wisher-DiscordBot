@@ -6,7 +6,6 @@ const getImage = require("../../util/getImage");
 
 module.exports = async (message, command, client) => {
   moment.locale("pt-br");
-  var ID = client.users.cache.get("805035898990755850");
 
   await mongo().then(async () => {
     // try {
@@ -28,7 +27,7 @@ module.exports = async (message, command, client) => {
 
     const birthdayEmbed = new Discord.MessageEmbed()
       .setColor("#831fde")
-      .setAuthor("Wisher", ID.displayAvatarURL({ dynamic: true }))
+      .setAuthor("Wisher", client.user.displayAvatarURL({ dynamic: true }))
       .setTimestamp();
 
     if (!results[1]) {
