@@ -84,26 +84,21 @@ module.exports = async (message, path, xpath, att, command, args, embed) => {
           argsLower[x] = args[x].toLowerCase();
         }
 
-        for (let h in argsLower) {
-          if (argsLower.includes(censorList.listToSpoiler[h])) {
+        for (let key of censorList.listToSpoiler) {
+          if (argsLower.includes(key)) {
             urls[x] = "||" + urls[x] + "||";
             break;
           }
         }
 
-        var ugh = false;
-        for (let h in argsLower) {
-          if (argsLower.includes(censorList.listToUhg[h])) {
-            ugh = true;
+        for (let key of censorList.listToUhg) {
+          if (argsLower.includes(key)) {
+            await message.react("😒");
             break;
           }
         }
 
-        if (ugh == true) {
-          await message.channel.send(`uhg 😒\n${urls[x]}`);
-        } else {
-          await message.channel.send(urls[x]);
-        }
+        await message.channel.send(urls[x]);
 
         // switch (argsLower[h]) {
         //   // MISC - expl.: Too random
