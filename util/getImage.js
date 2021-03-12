@@ -67,16 +67,19 @@ module.exports = async (message, path, xpath, att, command, args, embed) => {
           }
         }
 
+        var ugh = false;
         for (let h in argsLower) {
           if (argsLower.includes(censorList.listToUhg[h])) {
-            var ugh = true;
+            ugh = true;
             break;
           }
         }
 
         if (ugh == true) {
-          await message.channel.send("uhg 😒", ur);
-        } else await message.channel.send(ur);
+          await message.channel.send("uhg 😒 " + ur);
+        } else {
+          await message.channel.send(ur);
+        }
 
         // switch (argsLower[h]) {
         //   // MISC - expl.: Too random
