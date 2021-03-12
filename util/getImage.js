@@ -1,7 +1,32 @@
 const request = require("request");
 const { load } = require("cheerio");
 const _ = require("lodash");
-const censorList = require("../censorList.json");
+
+const censorList = {
+  listToSpoiler: [
+    "gif",
+    "img",
+    "image",
+    "gore",
+    "loli",
+    "shota",
+    "netorare",
+    "milf",
+    "estupro",
+    "rape",
+    "bdsm",
+    "incesto",
+    "nsfw",
+    "porn",
+    "hentai",
+    "rule3",
+    "sex",
+    "penis",
+    "futa",
+  ],
+
+  listToUhg: ["criança", "kid", "children", "baby"],
+};
 
 module.exports = async (message, path, xpath, att, command, args, embed) => {
   var options = {
