@@ -76,7 +76,7 @@ module.exports = async (message, path, xpath, att, command, args, embed) => {
         }
 
         if (ugh == true) {
-          await message.channel.send("uhg 😒 " + ur);
+          await message.channel.send(`uhg 😒\n${ur}`);
         } else {
           await message.channel.send(ur);
         }
@@ -118,7 +118,7 @@ module.exports = async (message, path, xpath, att, command, args, embed) => {
         //   case "kid":
         //   case "children":
         //   case "baby":
-        //     await message.channel.send("uhg 😒", ur);
+        //     await message.channel.send(`uhg 😒\n${ur}`);
         //     break;
         //   default:
         //     await message.channel.send(ur);
