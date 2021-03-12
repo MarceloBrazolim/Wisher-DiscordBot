@@ -1,4 +1,3 @@
-const Discord = require("discord.js");
 const request = require("request");
 const { load } = require("cheerio");
 const _ = require("lodash");
