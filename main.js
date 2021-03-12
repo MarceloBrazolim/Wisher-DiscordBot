@@ -72,7 +72,7 @@ client.on("message", async (message) => {
   )
     return;
 
-  var arg = encodeURI(message).slice(config.prefix.length).split("'");
+  var arg = encodeURI(message).slice(config.prefix.length).trim().split("'");
   const args = arg
     .filter(() => (arg = "'"))
     .join("")
