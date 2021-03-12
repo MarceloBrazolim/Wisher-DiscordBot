@@ -33,7 +33,6 @@ module.exports = async (message, path, xpath, att, command, args, embed) => {
     }
 
     urls = _.shuffle(urls);
-    var ur = urls[x];
     var x = 0;
     while (!urls[x].startsWith("http")) {
       console.log(`D|>|X+1: ${urls[x]}`);
@@ -60,9 +59,10 @@ module.exports = async (message, path, xpath, att, command, args, embed) => {
           argsLower[x] = args[x].toLowerCase();
         }
 
+        var ur = ""
         for (let h in argsLower) {
           if (argsLower.includes(censorList.listToSpoiler[h])) {
-            ur = "||" + ur + "||";
+            ur = "||" + urls[x] + "||";
             break;
           }
         }
@@ -76,9 +76,9 @@ module.exports = async (message, path, xpath, att, command, args, embed) => {
         }
 
         if (ugh == true) {
-          await message.channel.send(`uhg 😒\n${ur}`);
+          await message.channel.send(`uhg 😒\n${urls[x]}`);
         } else {
-          await message.channel.send(`${ur}`);
+          await message.channel.send(urls[x]);
         }
 
         // switch (argsLower[h]) {
