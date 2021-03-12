@@ -59,10 +59,9 @@ module.exports = async (message, path, xpath, att, command, args, embed) => {
           argsLower[x] = args[x].toLowerCase();
         }
 
-        var ur = ""
         for (let h in argsLower) {
           if (argsLower.includes(censorList.listToSpoiler[h])) {
-            ur = "||" + urls[x] + "||";
+            urls[x] = "||" + urls[x] + "||";
             break;
           }
         }
