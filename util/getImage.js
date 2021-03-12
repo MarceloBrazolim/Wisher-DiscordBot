@@ -2,6 +2,7 @@ const Discord = require("discord.js");
 const request = require("request");
 const { load } = require("cheerio");
 const _ = require("lodash");
+const censorList = require("../censorList.json");
 
 module.exports = async (message, path, xpath, att, command, args, embed) => {
   var options = {
@@ -33,7 +34,7 @@ module.exports = async (message, path, xpath, att, command, args, embed) => {
     }
 
     urls = _.shuffle(urls);
-
+    var ur = urls[x];
     var x = 0;
     while (!urls[x].startsWith("http")) {
       console.log(`D|>|X+1: ${urls[x]}`);
@@ -55,46 +56,73 @@ module.exports = async (message, path, xpath, att, command, args, embed) => {
         await message.channel.send("@everyone", { embed });
         break;
       default:
-        for (let h in args) {
-          switch (args[h]) {
-            // MISC
-            case "gif":
-            case "img":
-            case "image":
-            // GORE
-            case "gore":
-            // NSFW
-            case "lolicon":
-            case "loli":
-            case "shotacon":
-            case "shota":
-            case "netorare":
-            case "milf":
-            case "estupro":
-            case "rape":
-            case "bdsm":
-            case "incesto":
-            case "nsfw":
-            case "porn":
-            case "porno":
-            case "hentai":
-            case "rule34":
-            case "sex":
-            case "sexo":
-            case "penis":
-            case "penis2":
-            case "futanari":
-              var ur = "||" + urls[x] + "||";
-              break;
+        var argsLower = [];
+        for (let x in args) {
+          argsLower[x] = args[x].toLowerCase();
+        }
+
+        for (let h in argsLower) {
+          if (argsLower.includes(censorList.listToSpoiler[h])) {
+            ur = "||" + ur + "||";
+            break;
           }
         }
-        if (ur) {
-          await message.channel.send(ur);
-          break;
-        } else {
-          await message.channel.send(urls[x]);
-          break;
+
+        for (let h in argsLower) {
+          if (argsLower.includes(censorList.listToUhg[h])) {
+            var ugh = true;
+            break;
+          }
         }
+
+        if (ugh == true) {
+          await message.channel.send("uhg 😒", ur);
+        } else await message.channel.send(ur);
+
+        // switch (argsLower[h]) {
+        //   // MISC - expl.: Too random
+        //   // Censored for safety
+        //   case "gif":
+        //   case "img":
+        //   case "image":
+        //   // GORE
+        //   case "gore":
+        //   // NSFW
+        //   case "lolicon":
+        //   case "loli":
+        //   case "shotacon":
+        //   case "shota":
+        //   case "netorare":
+        //   case "milf":
+        //   case "estupro":
+        //   case "rape":
+        //   case "bdsm":
+        //   case "incesto":
+        //   case "nsfw":
+        //   case "porn":
+        //   case "porno":
+        //   case "hentai":
+        //   case "rule34":
+        //   case "sex":
+        //   case "sexo":
+        //   case "penis":
+        //   case "penis2":
+        //   case "futanari":
+        //     ur = "||" + urls[x] + "||";
+        //     break;
+        // }
+        // switch (argsLower[h]) {
+        //   case "criança":
+        //   case "kid":
+        //   case "children":
+        //   case "baby":
+        //     await message.channel.send("uhg 😒", ur);
+        //     break;
+        //   default:
+        //     await message.channel.send(ur);
+        //     break;
+        // }
+        break;
     }
   });
 };
