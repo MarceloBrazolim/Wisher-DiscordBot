@@ -2,31 +2,7 @@ const request = require("request");
 const { load } = require("cheerio");
 const _ = require("lodash");
 
-const censorList = {
-  listToSpoiler: [
-    "gif",
-    "img",
-    "image",
-    "gore",
-    "loli",
-    "shota",
-    "netorare",
-    "milf",
-    "estupro",
-    "rape",
-    "bdsm",
-    "incesto",
-    "nsfw",
-    "porn",
-    "hentai",
-    "rule3",
-    "sex",
-    "penis",
-    "futa",
-  ],
-
-  listToUhg: ["criança", "kid", "children", "baby"],
-};
+const censorList = require("../censorList.json");
 
 module.exports = async (message, path, xpath, att, command, args, embed) => {
   var options = {
@@ -99,50 +75,6 @@ module.exports = async (message, path, xpath, att, command, args, embed) => {
         }
 
         await message.channel.send(urls[x]);
-
-        // switch (argsLower[h]) {
-        //   // MISC - expl.: Too random
-        //   // Censored for safety
-        //   case "gif":
-        //   case "img":
-        //   case "image":
-        //   // GORE
-        //   case "gore":
-        //   // NSFW
-        //   case "lolicon":
-        //   case "loli":
-        //   case "shotacon":
-        //   case "shota":
-        //   case "netorare":
-        //   case "milf":
-        //   case "estupro":
-        //   case "rape":
-        //   case "bdsm":
-        //   case "incesto":
-        //   case "nsfw":
-        //   case "porn":
-        //   case "porno":
-        //   case "hentai":
-        //   case "rule34":
-        //   case "sex":
-        //   case "sexo":
-        //   case "penis":
-        //   case "penis2":
-        //   case "futanari":
-        //     ur = "||" + urls[x] + "||";
-        //     break;
-        // }
-        // switch (argsLower[h]) {
-        //   case "criança":
-        //   case "kid":
-        //   case "children":
-        //   case "baby":
-        //     await message.channel.send(`uhg 😒\n${ur}`);
-        //     break;
-        //   default:
-        //     await message.channel.send(ur);
-        //     break;
-        // }
         break;
     }
   });
