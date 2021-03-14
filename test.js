@@ -14,8 +14,11 @@ for (let date of sortedDates) {
   let isFuture = moment(new Date()).isBefore(
     new Date(date).setFullYear(todayYear)
   );
-  console.log(
-    moment(new Date(date).setFullYear(todayYear)).format("DD[/]MM[/]YYYY [-]"),
-    isFuture
-  );
+  let userBD = moment(new Date(date).setFullYear(todayYear)).format(
+      "DD[/]MM[/]YYYY [-]"
+    )
+
+  console.log(userBD, isFuture);
+
+  if (isFuture) break;
 }
