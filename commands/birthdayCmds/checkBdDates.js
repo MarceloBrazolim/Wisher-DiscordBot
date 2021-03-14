@@ -47,7 +47,7 @@ module.exports = async (message, command, client) => {
 
         if (isFuture) {
           replyEmbed.setDescription(
-            `O próximo aniversário vai ser em **${userBD}**!`
+            `O próximo aniversário vai ser de <@!${date._id}> no dia **${userBD}**!`
           );
           break;
         }
