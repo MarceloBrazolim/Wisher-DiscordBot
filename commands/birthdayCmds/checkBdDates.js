@@ -31,7 +31,7 @@ module.exports = async (message, command, client) => {
           new moment(new Date(a.bdate)).format("MMDD") -
           new moment(new Date(b.bdate)).format("MMDD")
       );
-      console.log("sortedDates: " + sortedDates);
+      // console.log("sortedDates: " + sortedDates);
 
       const todayYear = new Date().getFullYear();
 
@@ -43,7 +43,7 @@ module.exports = async (message, command, client) => {
           "DD[/]MMMM[/]YYYY"
         );
 
-        console.log(userBD, isFuture);
+        // console.log(userBD, isFuture);
 
         if (isFuture) {
           replyEmbed.setDescription(
