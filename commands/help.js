@@ -29,7 +29,7 @@ module.exports = async (message, args, client) => {
         "-> **`list`**" +
         " Lista a data de aniversário de todo mundo do servidor!\n" +
         "-> **`today`**" +
-        " Checa se alguem faz aniversário hoje.\n" +
+        " Checa se alguem faz aniversário hoje e mostra qual a próxima data de aniversário.\n" +
         "\n" +
         "**`" +
         prefix +
