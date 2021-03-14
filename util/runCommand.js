@@ -60,6 +60,7 @@ module.exports = async (message, command, args, client) => {
     case "version":
     case "versao":
     case "versão":
+    case "ver":
       await message.channel.send(`Wisher Bot App v${version}`);
       break;
 
