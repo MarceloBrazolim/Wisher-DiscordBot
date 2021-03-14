@@ -11,9 +11,11 @@ console.log(sortedDates);
 const todayYear = new Date().getFullYear();
 
 for (let date of sortedDates) {
-  let test = moment(new Date()).isBefore(new Date(date).setFullYear(todayYear));
+  let isFuture = moment(new Date()).isBefore(
+    new Date(date).setFullYear(todayYear)
+  );
   console.log(
     moment(new Date(date).setFullYear(todayYear)).format("DD[/]MM[/]YYYY [-]"),
-    test
+    isFuture
   );
 }
