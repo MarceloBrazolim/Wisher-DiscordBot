@@ -14,6 +14,7 @@ Just create a file called "config.json" alongside "main.js" with the following i
 
 - [ ] __Document__ (optional...),
 - [ ] Fix any bugs (ongoing endlessly),
+- [ ] Add option for the user to opt to not be included in the data-base
 - [ ] Add function to show when and whose is the next special date,
 - [x] Create management functions and interaction,
 - [x] Create ~~check~~/~~trigger~~ function for main feature,
