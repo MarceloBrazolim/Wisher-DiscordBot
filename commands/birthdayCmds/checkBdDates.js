@@ -16,10 +16,47 @@ module.exports = async (message, command, client) => {
         .date(new Date().getDate())
         .format("MM DD"),
     });
+
     if (!results[0]) {
-      await message.channel.send("Ninguém faz aniversário hoje :v");
+      const list = await BDStorage.find({
+        gID: message.channel.guild.id,
+      });
+
+      let replyEmbed = new Discord.MessageEmbed()
+        .setColor("#831fde")
+        .setTitle("Ninguém faz aniversário hoje :v");
+
+      const sortedDates = list.sort(
+        (a, b) =>
+          new moment(new Date(a.bdate)).format("MMDD") -
+          new moment(new Date(b.bdate)).format("MMDD")
+      );
+      console.log("sortedDates: " + sortedDates);
+
+      const todayYear = new Date().getFullYear();
+
+      for (let date of sortedDates) {
+        let isFuture = moment(new Date()).isBefore(
+          new Date(date.bdate).setFullYear(todayYear)
+        );
+        let userBD = moment(new Date(date.bdate).setFullYear(todayYear)).format(
+          "DD[/]MMMM[/]YYYY"
+        );
+
+        console.log(userBD, isFuture);
+
+        if (isFuture) {
+          replyEmbed.setDescription(
+            `O próximo aniversário vai ser em **${userBD}**!`
+          );
+          break;
+        }
+      }
+
+      await message.channel.send(replyEmbed);
       return;
     }
+
     // Send gif
     const xpath = ".GifList .column .GifListItem .Gif img";
     const path = "https://tenor.com/search/celebration-gifs";

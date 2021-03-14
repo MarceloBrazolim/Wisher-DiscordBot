@@ -85,4 +85,5 @@ client.on("message", async (message) => {
   await getCommand(message, command, args, client);
 });
 
-client.login(config.token);
+// client.login(config.wisher); // Wisher
+client.login(config.debugger); // Debugger
