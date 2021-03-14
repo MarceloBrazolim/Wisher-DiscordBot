@@ -28,6 +28,7 @@ module.exports = async (message, args, command, client) => {
     case "today":
     case "bdtoday":
     case "birthdaytoday":
+    case "next":
       await checkBdDates(message, command, client);
       break;
     case "delete":
