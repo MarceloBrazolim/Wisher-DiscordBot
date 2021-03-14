@@ -40,7 +40,7 @@ module.exports = async (message, command, client) => {
           new Date(date.bdate).setFullYear(todayYear)
         );
         let userBD = moment(new Date(date.bdate).setFullYear(todayYear)).format(
-          "DD[/]MMMM[/]YYYY"
+          "DD[/]MMM[/]YYYY"
         );
 
         // console.log(userBD, isFuture);
