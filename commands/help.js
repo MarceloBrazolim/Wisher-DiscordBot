@@ -20,7 +20,7 @@ module.exports = async (message, args, client) => {
         "\n" +
         "**`" +
         prefix +
-        "birthday <set/check/list/today>`**\n" +
+        "birthday <set/check/list/next>`**\n" +
         "-> **`set <mention> <mês-dia>`**" +
         " Registra a pessoa pra receber feliz aniversário!\n" +
         "   -Ex.: `" + prefix + "bd set @" + client.user.tag + " 3-6 (6 de março)`\n" +
@@ -28,7 +28,7 @@ module.exports = async (message, args, client) => {
         " Checa a data de aniversário de um membro registrado.\n" +
         "-> **`list`**" +
         " Lista a data de aniversário de todo mundo do servidor!\n" +
-        "-> **`today`**" +
+        "-> **`next`**" +
         " Checa se alguem faz aniversário hoje e mostra qual a próxima data de aniversário.\n" +
         "\n" +
         "**`" +
