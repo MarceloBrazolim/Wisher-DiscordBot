@@ -1,6 +1,6 @@
 const request = require("request");
 const { load } = require("cheerio");
-const _ = require("lodash");
+const { shuffle } = require("lodash");
 
 const censorList = require("../censorList.json");
 
@@ -33,7 +33,7 @@ module.exports = async (message, path, xpath, att, command, args, embed) => {
       return;
     }
 
-    urls = _.shuffle(urls);
+    urls = shuffle(urls);
     var x = 0;
     while (!urls[x].startsWith("http")) {
       console.log(`D|>|X+1: ${urls[x]}`);
