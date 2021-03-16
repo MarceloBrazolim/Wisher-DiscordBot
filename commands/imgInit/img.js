@@ -22,14 +22,19 @@ const google = new Scraper({
 const { shuffle } = require("lodash");
 
 module.exports = async (message, args, command) => {
-  if (!args[0])
-  return message.channel.send("Mas você nem me falou o que procurar!");
-  
+  if (!args[0]) {
+    message.channel.send("Mas você nem me falou o que procurar!");
+    return;
+  }
+
   const query = args.join("+");
-  
+
   const result = shuffle(await google.scrape(query, 40));
   // const result = shuffle(await google.scrape(query + "&safe=active", 40));
-  if (result[0].url === undefined) return message.channel.send("Ops.. Não achei o que procurava.. 😔");
+  if (result[0].url === undefined) {
+    message.channel.send("Ops.. Não achei o que procurava.. 😔");
+    return;
+  }
   console.log(`||>|Url: ${result[0].url}`);
   await message.channel.send(result[0].url);
 
