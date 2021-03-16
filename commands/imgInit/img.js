@@ -31,7 +31,7 @@ module.exports = async (message, args, command) => {
 
   const result = shuffle(await google.scrape(query, 40));
   // const result = shuffle(await google.scrape(query + "&safe=active", 40));
-  if (result[0].url === undefined) {
+  if (result[0] === undefined) {
     message.channel.send("Ops.. Não achei o que procurava.. 😔");
     return;
   }
