@@ -1,6 +1,14 @@
 const astolfo = require("./imgInit/astolfo");
-const gif = require("./imgInit/gif");
 const img = require("./imgInit/img");
+// const gif = require("./imgInit/gif");
+
+const Scraper = require("images-scraper");
+const google = new Scraper({
+  puppeteer: {
+    headless: true,
+  },
+  safe: true,
+});
 
 module.exports = async (message, command, args) => {
   // Forbidden terms
@@ -20,15 +28,19 @@ module.exports = async (message, command, args) => {
   switch (command) {
     case "img":
     case "image":
-      await img(message, args, command);
+      var result = await img(message, args, google);
       break;
-    case "gif":
-      await gif(message, args, command);
-      break;
+
+    // case "gif":
+    //   await gif(message, args, command);
+    //   break;
+
     case "astolfo":
-      await astolfo(message, command);
+      var result = await astolfo(message, google);
       break;
   }
+  await message.channel.send(result.url);
+
   // for (let x in argsLower) {
   //   switch (argsLower[x]) {
   //     case "criança":
