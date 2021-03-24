@@ -28,7 +28,7 @@ module.exports = async (message, command, args) => {
   switch (command) {
     case "img":
     case "image":
-      var result = await img(message, args, google);
+      var result = await img(message, args.join("+"), google);
       break;
 
     // case "gif":
