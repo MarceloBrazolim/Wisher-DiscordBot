@@ -43,7 +43,7 @@ module.exports = async (message, command, args) => {
       break;
 
     case "gif":
-      await gif(message, args, command);
+      await gif(message, args.join("+").replace(/&/gi, " "), command);
       break;
 
     case "astolfo":
