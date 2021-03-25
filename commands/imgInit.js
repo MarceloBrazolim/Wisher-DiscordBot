@@ -2,13 +2,13 @@ const astolfo = require("./imgInit/astolfo");
 const img = require("./imgInit/img");
 const gif = require("./imgInit/gif");
 
-const Scraper = require("images-scraper");
-const google = new Scraper({
-  puppeteer: {
-    headless: true,
-  },
-  safe: true,
-});
+// const Scraper = require("images-scraper");
+// const google = new Scraper({
+//   puppeteer: {
+//     headless: true,
+//   },
+//   safe: true,
+// });
 
 module.exports = async (message, command, args) => {
   // Forbidden terms
