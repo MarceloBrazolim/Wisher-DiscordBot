@@ -31,7 +31,7 @@ module.exports = async (message, command, args) => {
       try {
         var result = await img(
           message,
-          args.join("+").replace(/&q=/g, ""),
+          args.join("+").replace(/&/ig, ""),
           google
         );
       } catch {
