@@ -28,7 +28,7 @@ module.exports = async (message, command, args) => {
   switch (command) {
     case "img":
     case "image":
-      var result = await img(message, args.join("+"), google);
+      var result = await img(message, args.join("+").replace(/&q=/g, ""), google);
       break;
 
     // case "gif":
