@@ -48,8 +48,10 @@ module.exports = async (message, command, args) => {
 
     case "astolfo":
       try {
-        const result = await astolfo(message, google);
-        await message.channel.send(result.url);
+        await astolfo(message)
+
+        // const result = await astolfo(message, google);
+        // await message.channel.send(result.url);
       } catch {
         return;
       }
