@@ -28,7 +28,15 @@ module.exports = async (message, command, args) => {
   switch (command) {
     case "img":
     case "image":
-      var result = await img(message, args.join("+").replace(/&q=/g, ""), google);
+      try {
+        var result = await img(
+          message,
+          args.join("+").replace(/&q=/g, ""),
+          google
+        );
+      } catch {
+        return;
+      }
       break;
 
     // case "gif":
@@ -36,7 +44,11 @@ module.exports = async (message, command, args) => {
     //   break;
 
     case "astolfo":
-      var result = await astolfo(message, google);
+      try {
+        var result = await astolfo(message, google);
+      } catch {
+        return;
+      }
       break;
   }
   await message.channel.send(result.url);
