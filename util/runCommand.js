@@ -44,6 +44,7 @@ module.exports = async (message, command, args, client) => {
     case "astolfo":
       if (!(await isNSFW(message))) {
         await message.channel.send("Só posso executar esse comando num canal NSFW :/")
+		break
       }
       await imgInit(message, command, args);
       break;
