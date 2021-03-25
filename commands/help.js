@@ -21,38 +21,38 @@ module.exports = async (message, args, client) => {
         "\n" +
         "**`" +
         prefix +
-        "birthday <set/check/list/next>`**\n" +
+        "birthday <set/check/list/next>`:**\n" +
         "-> **`set <mention> <mês-dia>`**" +
         " Registra a pessoa pra receber feliz aniversário!\n" +
-        "   -Ex.: `" + prefix + "bd set @" + client.user.tag + " 3-6 (6 de março)`\n" +
+        "   -Ex.: " + prefix + "bd set @" + client.user.tag + " 3-6 (6 de março)\n" +
 
-        "-> **`check <mention>`**" +
+        "-> **`check <mention>`:**" +
         " Checa a data de aniversário de um membro registrado.\n" +
 
-        "-> **`list`**" +
+        "-> **`list`:**" +
         " Lista a data de aniversário de todo mundo do servidor!\n" +
 
-        "-> **`next`**" +
+        "-> **`next`:**" +
         " Checa se alguem faz aniversário hoje e mostra qual a próxima data de aniversário.\n" +
         
         "\n" +
         "**`" +
         prefix +
-        "img <args>`**\n" +
+        "img <args>`:**\n" +
         "Mostra uma imagem ou gif aleatória com o que você quiser!" +
-
-        // "\n" +
-        // "**`" +
-        // prefix +
-        // "gif <args>`**\n" +
-        // "É praticamente a mesma coisa do " +
-        // prefix +
-        // "img... só que .gif\n" +
 
         "\n" +
         "**`" +
         prefix +
-        "astolfo`**\n" +
+        "gif <args>`:**\n" +
+        "É praticamente a mesma coisa do " +
+        prefix +
+        "img... só que .gif :)\n" +
+
+        "\n" +
+        "**`" +
+        prefix +
+        "astolfo`:**\n" +
         "Hehehehehe~ 😍",
     });
 
@@ -68,22 +68,22 @@ module.exports = async (message, args, client) => {
           value:
             "**`" +
             prefix +
-            "macaco`**\n" +
+            "macaco`:**\n" +
             "largals 🦎\n" +
 
             "**`" +
             prefix +
-            "lagarto`**\n" +
+            "lagarto`:**\n" +
             "camaquinhu 🐒\n" +
             
             "**`" +
             prefix +
-            "coinmaster`**\n" +
+            "coinmaster`:**\n" +
             "VILA? 👀\n" +
             
             "**`" +
             prefix +
-            "hello`**\n" +
+            "hello`:**\n" +
             "hello, 📑?\n",
         }
       );
@@ -104,12 +104,12 @@ module.exports = async (message, args, client) => {
           value:
             "**`" +
             prefix +
-            "info <mention>`**\n" +
+            "info <mention>`:**\n" +
             "Mando informaçoes técnicas do usuário mencionado por DM\n" +
             
             "**`" +
             prefix +
-            "avatar <mention>`**\n" +
+            "avatar <mention>`:**\n" +
             "Mando a imagem de perfil do usuário mencionado por DM\n",
         }
       );
@@ -131,12 +131,12 @@ module.exports = async (message, args, client) => {
         value:
           "**`" +
           prefix +
-          "debugg <args>`**\n" +
+          "debugg <args>`:**\n" +
           "Ferramenta de teste do desenvolvedor.\n" +
           
           "**`" +
           prefix +
-          "version`**\n" +
+          "version`:**\n" +
           "Mostra qual a versão da aplicação.\n",
       });
     }
@@ -157,7 +157,7 @@ module.exports = async (message, args, client) => {
         value:
           "**`" +
           prefix +
-          "unregisterAll`**\n" +
+          "unregisterAll`:**\n" +
           "Remove todos os registros de membros do servidor atual da minha lista de aniversariantes.\n"
       });
     }
