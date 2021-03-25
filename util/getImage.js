@@ -16,7 +16,7 @@ module.exports = async (message, path, xpath, att, command, args, embed) => {
 
   request(options, async function (error, response, body) {
     if (error) {
-      console.error(`X|<|${error}`);
+      console.error(`X|<|${error} at getImage.js.request()`);
       return;
     }
 
@@ -60,12 +60,12 @@ module.exports = async (message, path, xpath, att, command, args, embed) => {
           argsLower[x] = args[x].toLowerCase();
         }
 
-        for (let key of censorList.listToSpoiler) {
-          if (argsLower.includes(key)) {
-            urls[x] = "||" + urls[x] + "||";
-            break;
-          }
-        }
+        // for (let key of censorList.listToSpoiler) {
+        //   if (argsLower.includes(key)) {
+        //     urls[x] = "||" + urls[x] + "||";
+        //     break;
+        //   }
+        // }
 
         for (let key of censorList.listToUhg) {
           if (argsLower.includes(key)) {
