@@ -141,6 +141,28 @@ module.exports = async (message, args, client) => {
       });
     }
   }
+
+  for (let i in args) {
+    if (secret) break;
+    if (args[i] == "secret" || args[i] == "danger") {
+      var secret = true;
+      var checkPerm = await isAdm(message);
+      if (!checkPerm) return;
+
+      if (!misc && !adm) {
+        helpEmbed.addFields({ name: "\u200B", value: "\u200B" });
+      }
+      helpEmbed.addFields({
+        name: "Comando Perigoso (SÓ PRA ADM)",
+        value:
+          "**`" +
+          prefix +
+          "unregisterAll`**\n" +
+          "Remove todos os registros de membros do servidor atual da minha lista de aniversariantes.\n"
+      });
+    }
+  }
+
   message.channel.send(helpEmbed);
   return;
 };
