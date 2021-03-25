@@ -29,12 +29,14 @@ module.exports = async (message, command, args) => {
     case "img":
     case "image":
       try {
-        const result = await img(
-          message,
-          args.join("+").replace(/&/gi, " "),
-          google
-        );
-        await message.channel.send(result.url);
+        await img(message, args.join("+").replace(/&/gi, " "));
+
+        // const result = await img(
+        //   message,
+        //   args.join("+").replace(/&/gi, " "),
+        //   google
+        // );
+        // await message.channel.send(result.url);
       } catch {
         return;
       }
