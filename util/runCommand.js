@@ -1,5 +1,6 @@
 // Util
 const isAdm = require("./isAdm");
+const isNSFW = require("./isNSFW");
 const getUserID = require("./getUserID");
 
 // Dev
@@ -41,6 +42,9 @@ module.exports = async (message, command, args, client) => {
     case "image":
     case "gif":
     case "astolfo":
+      if (!(await isNSFW(message))) {
+        await message.channel.send("Só posso executar esse comando num canal NSFW :/")
+      }
       await imgInit(message, command, args);
       break;
 
