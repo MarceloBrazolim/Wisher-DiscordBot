@@ -39,9 +39,9 @@ module.exports = async (message, command, args) => {
       }
       break;
 
-    // case "gif":
-    //   await gif(message, args, command);
-    //   break;
+    case "gif":
+      await gif(message, args, command);
+      break;
 
     case "astolfo":
       try {
