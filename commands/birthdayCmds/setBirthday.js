@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 const moment = require("moment");
 const update = require("../../util/update");
 const { prefix } = require("../../config.json");
-// const { debugg } = require("../../config.json");
+const { debugg } = require("../../config.json");
 
 module.exports = async (message, args, user) => {
   try {
@@ -69,7 +69,7 @@ module.exports = async (message, args, user) => {
           prefix +
           "bd set <mention> <mes-dia>`"
       );
-    console.error(`X|<|${err} at addWhenJoin.js`);
+    if (debugg) console.log(`X|<|${err} at setBirthday.js`);
     await message.channel.send(confirmNo);
   }
   return;
