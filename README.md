@@ -1,10 +1,10 @@
-# Wisher-DiscordBot
+# Wisher - Bot for Discord
 
 ## Setup/Installation
 Just create a file called "config.json" alongside "main.js" with the following information:
 ```json
 {
-    "token": "YOUR_BOT_ACCES_KEY_HERE",
+    "wisher": "YOUR_BOT_ACCES_KEY_HERE",
     "prefix": "YOUR_PREFIX_HERE",
     "mongoPath": "YOUR_DATABASE_PATH_HERE"
 }
@@ -14,8 +14,10 @@ Just create a file called "config.json" alongside "main.js" with the following i
 
 - [ ] __Document__ (optional...),
 - [ ] Fix any bugs (ongoing endlessly),
-- [ ] Add option for the user to opt to not be included in the data-base
-- [ ] Change web scraper from dogpile to google (ongoing (tricky))
+- [ ] Add option for the user to opt to not be included in the data-base,
+- [ ] Host the bot,
+- [x] Optimize img and gif commands (web scraper),
+- [x] Change web scraper from ~~dogpile~~ one that doesn't work to ~~google~~ one that works (ongoing (tricky)),
 - [x] Add function to show when and whose is the next special date,
 - [x] Create management functions and interaction,
 - [x] Create ~~check~~/~~trigger~~ function for main feature,
