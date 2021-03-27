@@ -15,7 +15,7 @@ client.once("ready", async () => {
   try {
     client.user.setActivity(`${config.prefix}help`, { type: "LISTENING" });
   } catch (err) {
-    console.error(`X|<|${err} at main.js`);
+    console.error(`X|<|${err} at main.js.Activity`);
   }
 
   console.log(`\n=>_$./${name} v${version}`);
@@ -24,36 +24,38 @@ client.once("ready", async () => {
     await mongo().then(() => {
       console.log(`||>|Connected to MongoDB!`);
     });
-  } catch {
-    console.error("X|<|Could not connect to MongoDB!");
+  } catch (err) {
+    console.error(`X|<|Could not connect to MongoDB!\n${err}`);
   }
 
   console.log(`||>|${client.user.tag} is Online!`);
-
-  client
-    .generateInvite({
-      permissions: [
-        "SEND_MESSAGES",
-        "ADD_REACTIONS",
-        "EMBED_LINKS",
-        "VIEW_CHANNEL",
-        "MENTION_EVERYONE",
-      ],
-    })
-    .then((link) => {
-      console.log(`||>|Bot invite link: ${link}`);
-    })
-    .catch(console.error);
+  try {
+    client
+      .generateInvite({
+        permissions: [
+          "SEND_MESSAGES",
+          "ADD_REACTIONS",
+          "EMBED_LINKS",
+          "VIEW_CHANNEL",
+          "MENTION_EVERYONE",
+        ],
+      })
+      .then((link) => {
+        console.log(`||>|Bot invite link: ${link}`);
+      });
+  } catch (err) {
+    console.error(`X|<|${err} at main.js.generateInvite`);
+  }
 });
 
 // Triggers everytime bot joins a guild
 client.on("guildCreate", async function (guild) {
-  console.log(`||>|Bot Joined guild: "${guild.name}"`);
+  if (config.debugg) console.log(`||>|Bot Joined guild: "${guild.name}"`);
   await addWhenJoin(guild.id, guild.name, guild.ownerID);
 });
 // Trigger whenever a guild is deleted/left
 client.on("guildDelete", async function (guild) {
-  console.log(`||>|Bot left guild: "${guild.name}"`);
+  if (config.debugg) console.log(`||>|Bot left guild: "${guild.name}"`);
   await delWhenLeave(guild.id);
   await deleteGuild(guild.id);
 });
@@ -78,9 +80,11 @@ client.on("message", async (message) => {
     .join("")
     .split("%20");
   const command = args.shift().toLowerCase();
-  console.log(
-    `||_:\n||=|${message.author.username}#${message.author.discriminator}:\n||<|Command: { ${config.prefix}${command}: ${args} }`
-  );
+  if (config.debugg) {
+    console.log(
+      `||_:\n||=|${message.author.tag}:\n||<|Command: { ${config.prefix}${command}: ${args} }`
+    );
+  }
 
   await getCommand(message, command, args, client);
 });
