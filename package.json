@@ -1,5 +1,5 @@
 {
-  "name": "wisher-discordbot",
+  "name": "wisher",
   "version": "1.10.1",
   "description": "",
   "main": "main.js",
@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/MarceloMarchezini/Wisher-DiscordBot.git"
   },
-  "author": "Marcelo aka. Hiro F.",
+  "author": "Marcelo Brazolim",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/MarceloMarchezini/Wisher-DiscordBot/issues"
