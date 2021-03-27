@@ -1,4 +1,5 @@
 const getImage = require("../../util/getImage");
+// const { debugg } = require("../../config.json");
 
 module.exports = async (message, args) => {
   if (args[0]) {
@@ -26,7 +27,7 @@ module.exports = async (message, args) => {
 //     message.channel.send("Ops.. Não achei o que procurava.. 😔");
 //     throw "No results found";
 //   }
-//   console.log(`||>|Url: ${result[0].url}`);
+//   if (debugg) console.log(`||>|Url: ${result[0].url}`);
 
 //   return result[0];
 // };

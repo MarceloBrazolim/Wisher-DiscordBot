@@ -1,6 +1,7 @@
 const Discord = require("discord.js");
 const moment = require("moment");
 const sendHappyBd = require("./birthdayCmds/sendHappyBd");
+const { debugg } = require("../config.json");
 
 // Kudo https://github.com/iSherlott
 // function formatDate(data) {
@@ -13,7 +14,7 @@ module.exports = async (message, args) => {
     case "date":
       moment.locale("pt-br");
       var result = moment(new Date(args[1]));
-      console.log(`D|>|Date: ${result}`);
+      if (debugg) console.log(`D|>|Date: ${result}`);
       await message.channel.send(result.format());
       break;
     case "await":
@@ -22,7 +23,7 @@ module.exports = async (message, args) => {
         time: 10000,
       });
       const msgMap = msgs.map((msg) => msg.content).join(", ");
-      console.log(`D|>|Await: ${msgMap}`);
+      if (debugg) console.log(`D|>|Await: ${msgMap}`);
       await message.channel.send(`Terminei de escutar: ${msgMap}`);
       break;
     case "mention":
@@ -31,7 +32,7 @@ module.exports = async (message, args) => {
         console.error("X|>|Err: No mention");
         await message.channel.send("Você tem que mencionar alguém, bobinho..");
       } else {
-        console.log(`D|>|Mention: ${target}`);
+        if (debugg) console.log(`D|>|Mention: ${target}`);
       }
       break;
     case "bdEmbed":
@@ -50,10 +51,10 @@ module.exports = async (message, args) => {
       await message.channel.send(debugEmbed);
     case "message":
     case "msg":
-      console.log(message);
+      if (debugg) console.log("D|>|Message: ", message);
       break;
     default:
-      console.log(`D|>|Default: ${args}`);
+      if (debugg) console.log(`D|>|Default: ${args}`);
   }
   return;
 };

@@ -29,7 +29,7 @@ module.exports = async (message) => {
 
       await message.channel.send(listEmbed);
     } catch (err) {
-      console.log(`X|>|${err} at listBd.js`);
+      console.error(`X|>|${err} at listBd.js`);
     }
   });
 

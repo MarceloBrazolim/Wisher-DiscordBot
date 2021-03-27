@@ -2,6 +2,7 @@
 const Discord = require("discord.js");
 const mongo = require("../mongo");
 const BDStorage = require("../schemes/main-schema");
+const { debugg } = require("../config.json");
 
 module.exports = async (u, message) => {
   await mongo().then(async () => {
@@ -19,13 +20,14 @@ module.exports = async (u, message) => {
         }
       );
       if (del.n == 0) throw `X|>|No elements deleted of a minimum: 1`;
-      // console.log(`D|>|Deleted ${del.n} entry from ${u}.`);
+      // if (debugg) console.log(`D|>|Deleted ${del.n} entry from ${u}.`);
 
       const debugEmbed = new Discord.MessageEmbed()
         .setColor("#831fde")
         .setDescription(`Registros para <@!${u}> deletados 👍`);
       await message.channel.send(debugEmbed);
-      console.log(`O|>|Removed: ${message.channel.guild.id} from user: ${u}`);
+      if (debugg)
+        console.log(`O|>|Removed: ${message.channel.guild.id} from user: ${u}`);
     } catch (err) {
       console.error(`X|<|${err} at delete.js`);
       const debugEmbed = new Discord.MessageEmbed()

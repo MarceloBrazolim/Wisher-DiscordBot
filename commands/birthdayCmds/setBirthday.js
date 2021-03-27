@@ -2,6 +2,7 @@ const Discord = require("discord.js");
 const moment = require("moment");
 const update = require("../../util/update");
 const { prefix } = require("../../config.json");
+// const { debugg } = require("../../config.json");
 
 module.exports = async (message, args, user) => {
   try {
@@ -14,7 +15,7 @@ module.exports = async (message, args, user) => {
     }
     var dateIntern = dateRaw.format("MM DD");
     var date = dateRaw.format("D [de] MMMM");
-    // console.log(`D|>|Date: ${date}`);
+    // if (debugg) console.log(`D|>|Date: ${date}`);
 
     // Embeds
     // var confirmationEmbed = new Discord.MessageEmbed()

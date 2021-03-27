@@ -1,8 +1,9 @@
 const getImage = require("../../util/getImage");
+// const { debugg } = require("../../config.json");
 
 module.exports = async (message) => {
   const xpath = ".image a.link img";
-  const path = "https://www.dogpile.com/serp?qc=images&q=astolfo+fate+gifs"
+  const path = "https://www.dogpile.com/serp?qc=images&q=astolfo+fate+gifs";
   // const xpath = ".GifList .column .GifListItem .Gif img";
   // const path = "https://tenor.com/search/astolfo-fate-gifs";
   const att = "src";
@@ -19,7 +20,7 @@ module.exports = async (message) => {
 //     message.channel.send("Ops.. Não achei o que procurava.. 😔");
 //     throw "No results found";
 //   }
-//   console.log(`||>|Url: ${result[0].url}`);
+//   if (debugg) console.log(`||>|Url: ${result[0].url}`);
 
 //   return result[0];
 // };

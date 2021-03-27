@@ -3,6 +3,7 @@ const mongo = require("../../mongo");
 const BDStorage = require("../../schemes/main-schema");
 const moment = require("moment");
 const getImage = require("../../util/getImage");
+// const { debugg } = require("../../config.json");
 
 module.exports = async (message, command, client) => {
   moment.locale("pt-br");
@@ -31,7 +32,7 @@ module.exports = async (message, command, client) => {
           new moment(new Date(a.bdate)).format("MMDD") -
           new moment(new Date(b.bdate)).format("MMDD")
       );
-      // console.log("sortedDates: " + sortedDates);
+      // if (debugg) console.log("sortedDates: " + sortedDates);
 
       const todayYear = new Date().getFullYear();
 
@@ -43,7 +44,7 @@ module.exports = async (message, command, client) => {
           "DD[/]MMM[/]YYYY"
         );
 
-        // console.log(userBD, isFuture);
+        // if (debugg) console.log(userBD, isFuture);
 
         if (isFuture) {
           replyEmbed.setDescription(
@@ -101,7 +102,7 @@ module.exports = async (message, command, client) => {
         }
         // { name: "\u200B", value: "\u200B" }
       );
-      // console.log(birthdayEmbed);
+      // if (debugg) console.log(birthdayEmbed);
       for (let result of results) {
         let tmpUser = client.users.cache.get(result._id);
         birthdayEmbed.addField(

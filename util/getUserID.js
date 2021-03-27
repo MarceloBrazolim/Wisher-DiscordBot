@@ -1,11 +1,13 @@
+const { debugg } = require("../config.json");
+
 module.exports = async (message, command) => {
   const user = message.mentions.users.first();
   if (!user) {
-    console.log("x|>|Err: No mention");
+    if (debugg) console.log("D|>|Err: No mention");
     message.channel.send("Você tem que mencionar alguém, bobinho..");
     return;
   }
-  console.log(`||>|Mentioned: { ${user.username}#${user.discriminator} }`);
+  if (debugg) console.log(`||>|Mentioned: { ${user.username}#${user.discriminator} }`);
   switch (command) {
     case "info":
       await message.author.send(
