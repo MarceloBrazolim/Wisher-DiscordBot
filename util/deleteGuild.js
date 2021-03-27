@@ -16,7 +16,7 @@ module.exports = async (currentGuild) => {
         }
       );
     } catch (err) {
-      console.error(`X|<|${err}`);
+      console.error(`X|<|${err} at deleteGuild.js`);
     }
   });
 };
