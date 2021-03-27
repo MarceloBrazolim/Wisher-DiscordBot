@@ -64,7 +64,7 @@ module.exports = async (message, command, client) => {
 
     const birthdayEmbed = new Discord.MessageEmbed()
       .setColor("#831fde")
-      .setAuthor("Wisher", client.user.displayAvatarURL({ dynamic: true }))
+      .setAuthor(client.user.tag, client.user.displayAvatarURL({ dynamic: true }))
       .setTimestamp();
 
     if (!results[1]) {

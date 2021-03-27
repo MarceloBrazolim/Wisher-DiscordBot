@@ -5,7 +5,7 @@ const getUserID = require("./getUserID");
 
 // Dev
 const debugg = require("../commands/debugg");
-const { version } = require("../package.json");
+const { version, name } = require("../package.json");
 
 // Adm
 // const avatar = require("../commands/avatar");
@@ -66,7 +66,7 @@ module.exports = async (message, command, args, client) => {
     case "versao":
     case "versão":
     case "ver":
-      await message.channel.send(`Wisher Bot App v${version}`);
+      await message.channel.send(`${name}v${version}`);
       break;
 
     // Misc
