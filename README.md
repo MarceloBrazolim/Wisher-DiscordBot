@@ -6,7 +6,8 @@ Just create a file called "config.json" alongside "main.js" with the following i
 {
     "wisher": "YOUR_BOT_ACCES_KEY_HERE",
     "prefix": "YOUR_PREFIX_HERE",
-    "mongoPath": "YOUR_DATABASE_PATH_HERE"
+    "mongoPath": "YOUR_DATABASE_PATH_HERE",
+    "debugg": false
 }
 ```
 
