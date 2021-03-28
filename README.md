@@ -15,6 +15,7 @@ Just create a file called "config.json" alongside "main.js" with the following i
 - [ ] __Document__ (optional...),
 - [ ] Fix any bugs (ongoing endlessly),
 - [ ] Add option for the user to opt to not be included in the data-base,
+- [ ] Add support for other languages (not decided yet),
 - [ ] Host the bot,
 - [x] Optimize img and gif commands (web scraper),
 - [x] Change web scraper from ~~dogpile~~ one that doesn't work to ~~google~~ one that works (ongoing (tricky)),
