@@ -41,7 +41,7 @@ client.once("ready", async () => {
         ],
       })
       .then((link) => {
-        console.log(`||>|Bot invite link: ${link}`);
+        if (config.debugg) console.log(`||>|Bot invite link: ${link}`);
       });
   } catch (err) {
     console.error(`X|<|${err} at main.js.generateInvite`);
