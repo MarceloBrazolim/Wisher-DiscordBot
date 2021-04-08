@@ -16,8 +16,15 @@ module.exports = async (message) => {
         throw "No registry";
       }
 
+      // Sorting method
+      const sortedDates = results.sort(
+        (a, b) =>
+          new moment(new Date(a.bdate)).format("MMDD") -
+          new moment(new Date(b.bdate)).format("MMDD")
+      );
+
       let userList = "";
-      for (let result of results) {
+      for (let result of sortedDates) {
         userList += `- <@!${result._id}> faz aniversário em **${moment(
           new Date(result.bdate)
         ).format("D [de] MMMM")}**\n`;
