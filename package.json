@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MarceloMarchezini/Wisher-DiscordBot.git"
+    "url": "git+https://github.com/MarceloBrazolim/Wisher-DiscordBot.git"
   },
   "author": "Marcelo Brazolim",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/MarceloMarchezini/Wisher-DiscordBot/issues"
+    "url": "https://github.com/MarceloBrazolim/Wisher-DiscordBot/issues"
   },
-  "homepage": "https://github.com/MarceloMarchezini/Wisher-DiscordBot#readme",
+  "homepage": "https://github.com/MarceloBrazolim/Wisher-DiscordBot#readme",
   "dependencies": {
     "cheerio": "^1.0.0-rc.5",
     "discord.js": "^12.5.1",
