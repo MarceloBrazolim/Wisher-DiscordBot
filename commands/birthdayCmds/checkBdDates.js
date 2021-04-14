@@ -17,6 +17,7 @@ module.exports = async (message, command, client) => {
         .date(new Date().getDate())
         .format("MM DD"),
     });
+    console.log(results[0]);
 
     if (!results[0]) {
       const list = await BDStorage.find({
@@ -65,16 +66,19 @@ module.exports = async (message, command, client) => {
 
     const birthdayEmbed = new Discord.MessageEmbed()
       .setColor("#831fde")
-      .setAuthor(client.user.tag, client.user.displayAvatarURL({ dynamic: true }))
+      .setAuthor(
+        client.user.tag,
+        client.user.displayAvatarURL({ dynamic: true })
+      )
       .setTimestamp();
 
     if (!results[1]) {
       // Embed
-      const user = client.users.cache.get(results[0]._id);
+      // const user = client.users.cache.get(results[0]._id);
       birthdayEmbed
         .setTitle("HOJE É SEU ANIVERSÁRIO!!!")
-        .setDescription(`<@!${user.id}>`)
-        .setThumbnail(user.displayAvatarURL({ dynamic: true }))
+        .setDescription(`<@!${results[0]._id}>`)
+        // .setThumbnail(user.displayAvatarURL({ dynamic: true }))
         .addFields(
           {
             name: "Obrigada por fazer parte do nosso server!",
@@ -111,9 +115,7 @@ module.exports = async (message, command, client) => {
         );
       }
     }
-    await getImage(message, path, xpath, att, command, {
-      embed: birthdayEmbed,
-    });
+    await getImage(message, path, xpath, att, command, "", birthdayEmbed);
     // } catch (err) {
     //   console.error(`X|>|${err} at checkBdDates.js`);
     // }
