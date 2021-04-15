@@ -98,22 +98,18 @@ module.exports = async (message, command, client) => {
         {
           name: "Obrigada por fazerem parte do nosso server!",
           value:
-            "Muitas felicidades e muitos anos de vida pra vocês,\ntenham um ótimo dia e um excelente aniversário!",
-        },
-        {
-          name: "🇭 🇦 🇵 🇵 🇾 🥳 🎉 👏",
-          value: "🇧 🇮 🇷 🇹 🇭 🇩 🇦 🇾\n🎈 🪅 🎉 🎊 🎈 🪅 🎊 🎉",
+            "Muitas felicidades e muitos anos de vida pra vocês," +
+            "\ntenham um ótimo dia e um excelente aniversário!\n" +
+            "\n🇭 🇦 🇵 🇵 🇾 🥳 🎉 👏\n🇧 🇮 🇷 🇹 🇭 🇩 🇦 🇾\n🎈 🪅 🎉 🎊 🎈 🪅 🎊 🎉",
         }
         // { name: "\u200B", value: "\u200B" }
       );
       // if (debugg) console.log(birthdayEmbed);
+      let tmpUser = "";
       for (let result of results) {
-        let tmpUser = client.users.cache.get(result._id);
-        birthdayEmbed.addField(
-          `${tmpUser.username}`,
-          `#${tmpUser.discriminator}`
-        );
+        tmpUser += `<@!${result._id}>\n`;
       }
+      birthdayEmbed.addField("\u200B", `${tmpUser}`);
     }
     await getImage(message, path, xpath, att, command, "", birthdayEmbed);
     // } catch (err) {
