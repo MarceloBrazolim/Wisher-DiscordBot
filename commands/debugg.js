@@ -47,7 +47,7 @@ module.exports = async (message, args) => {
         .setColor("#831fde")
         .setTitle(`Título: ${args}`)
         .setDescription(`Descrição: ${args}`)
-        .addField(`Campo 1: ${args}`, `Campo 2: ${args}`, true);
+        .addField(`${args}`, `Campo 2: ${args}`, true);
       await message.channel.send(debugEmbed);
     case "message":
     case "msg":
