@@ -42,7 +42,6 @@ module.exports = async (message, args, client) => {
         prefix +
         "img <args>`:**\n" +
         "" +
-        "\n" +
         "**`" +
         prefix +
         "gif <args>`:**\n" +
