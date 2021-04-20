@@ -89,6 +89,12 @@ client.on("message", async (message) => {
     .filter(() => (arg = "'"))
     .join("")
     .split("%20");
+  for (let i = 0; i < args.length; i++) {
+    if (args[i] === "") {
+      args.splice(i, 1);
+      i--;
+    }
+  }
   const command = args.shift().toLowerCase();
   if (config.debugg) {
     console.log(
