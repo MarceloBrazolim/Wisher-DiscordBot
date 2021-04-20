@@ -9,7 +9,10 @@ module.exports = async (message, args, client) => {
   var helpEmbed = new Discord.MessageEmbed()
     .setColor("#831fde")
     .setTitle("Lista de comandos disponíveis:")
-    .setAuthor(client.user.username, client.user.displayAvatarURL({ dynamic: true }))
+    .setAuthor(
+      client.user.username,
+      client.user.displayAvatarURL({ dynamic: true })
+    )
     .addFields({
       name: "Comandos Gerais",
       value:
@@ -17,37 +20,34 @@ module.exports = async (message, args, client) => {
         prefix +
         "help <misc/adm/dev>`**\n" +
         "Exibe esta lista que você está lendo.\n" +
-        
         "\n" +
         "**`" +
         prefix +
         "birthday <set/check/list/next>`:**\n" +
         "-> **`set <mention> <mês-dia>`**" +
         " Registra a pessoa pra receber feliz aniversário!\n" +
-        "   -Ex.: " + prefix + "bd set @" + client.user.tag + " 3-6 (6 de março)\n" +
-
+        "   -Ex.: " +
+        prefix +
+        "bd set @" +
+        client.user.tag +
+        " 3-6 (6 de março)\n" +
         "-> **`check <mention>`:**" +
         " Checa a data de aniversário de um membro registrado.\n" +
-
         "-> **`list`:**" +
         " Lista a data de aniversário de todo mundo do servidor!\n" +
-
         "-> **`next`:**" +
         " Checa se alguem faz aniversário hoje e mostra qual a próxima data de aniversário.\n" +
-        
         "\n" +
         "**`" +
         prefix +
         "img <args>`:**\n" +
-        "Mostra uma imagem ou gif aleatória com o que você quiser!" +
-
+        "" +
         "\n" +
         "**`" +
         prefix +
         "gif <args>`:**\n" +
-        "É praticamente a mesma coisa do " +
-        prefix +
-        "img... só que .gif :)\n" +
+        "Mostra uma imagem ou gif aleatório com o que você quiser!" +
+        // "As funções de imagem só podem ser usadas em canais NSFW. não me julgue, são as regras do Discord..."
 
         "\n" +
         "**`" +
@@ -70,17 +70,14 @@ module.exports = async (message, args, client) => {
             prefix +
             "macaco`:**\n" +
             "largals 🦎\n" +
-
             "**`" +
             prefix +
             "lagarto`:**\n" +
             "camaquinhu 🐒\n" +
-            
             "**`" +
             prefix +
             "coinmaster`:**\n" +
             "VILA? 👀\n" +
-            
             "**`" +
             prefix +
             "hello`:**\n" +
@@ -106,7 +103,6 @@ module.exports = async (message, args, client) => {
             prefix +
             "info <mention>`:**\n" +
             "Mando informaçoes técnicas do usuário mencionado por DM\n" +
-            
             "**`" +
             prefix +
             "avatar <mention>`:**\n" +
@@ -133,7 +129,6 @@ module.exports = async (message, args, client) => {
           prefix +
           "debugg <args>`:**\n" +
           "Ferramenta de teste do desenvolvedor.\n" +
-          
           "**`" +
           prefix +
           "version`:**\n" +
@@ -158,7 +153,7 @@ module.exports = async (message, args, client) => {
           "**`" +
           prefix +
           "unregisterAll`:**\n" +
-          "Remove todos os registros de membros do servidor atual da minha lista de aniversariantes.\n"
+          "Remove todos os registros de membros do servidor atual da minha lista de aniversariantes.\n",
       });
     }
   }
