@@ -49,7 +49,17 @@ client.once("ready", async () => {
 });
 
 // Triggers everytime bot joins a guild
-client.on("guildCreate", async function (guild) {
+client.on("guildCreate", async (guild) => {
+  if (guild.systemChannel) {
+    let guildJoinEmbed = new Discord.MessageEmbed()
+      .setColor("#831fde")
+      .addField(
+        "Obrigada por me adicionar ao servidor! 😊",
+        `Para ver a lista de comandos disponíveis digite ${config.prefix}help!`
+      );
+    await guild.systemChannel.send(guildJoinEmbed);
+  }
+
   if (config.debugg) console.log(`||>|Bot Joined guild: "${guild.name}"`);
   await addWhenJoin(guild.id, guild.name, guild.ownerID);
 });
@@ -61,9 +71,9 @@ client.on("guildDelete", async function (guild) {
 });
 
 client.on("disconnect", async function (event) {
-  await mongo().then((mongoose) => {
-    mongoose.connection.close();
-  });
+    await mongo().then((mongoose) => {
+        mongoose.connection.close();
+    });
 });
 
 client.on("message", async (message) => {
