@@ -41,11 +41,10 @@ module.exports = async (message, args, client) => {
         "**`" +
         prefix +
         "img <args>`:**\n" +
-        "" +
         "**`" +
         prefix +
         "gif <args>`:**\n" +
-        "Mostra uma imagem ou gif aleatório com o que você quiser!" +
+        "Mostra uma imagem ou gif aleatório com o que você quiser!\n" +
         // "As funções de imagem só podem ser usadas em canais NSFW. não me julgue, são as regras do Discord..."
 
         "\n" +
