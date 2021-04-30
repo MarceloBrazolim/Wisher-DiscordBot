@@ -9,7 +9,7 @@ const { debugg } = require("../config.json");
 //   return `${fdata[8]}${fdata[9]}-${fdata[5]}${fdata[6]}-${fdata[0]}${fdata[1]}${fdata[2]}${fdata[3]}`; // Ano Mes Dia
 // }
 
-module.exports = async (message, args) => {
+module.exports = async (message, args, client) => {
   switch (args[0]) {
     case "date":
       moment.locale("pt-br");
@@ -53,6 +53,32 @@ module.exports = async (message, args) => {
     case "msg":
       if (debugg) console.log("D|>|Message: ", message);
       break;
+
+    case "guild":
+      let guilds = client.guilds.cache.map((guild) => guild.id);
+      let names = client.guilds.cache.map((guild) => guild.name);
+      console.log(guilds, names);
+      break;
+
+    case "me":
+      console.log(message.author);
+      break;
+
+    case "you":
+      console.log(client, "\n\n", client.guilds);
+      break;
+
+    case "path":
+    case "p":
+      const channel = message.guild.channels.cache.find(
+        (channel) =>
+          channel.type === "text" &&
+          channel.permissionsFor(message.guild.me).has("SEND_MESSAGES")
+      );
+      await channel.send("Thanks for invite me");
+      console.log(message.guild.channels);
+      break;
+
     default:
       if (debugg) console.log(`D|>|Default: ${args}`);
   }
