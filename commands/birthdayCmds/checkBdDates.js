@@ -111,7 +111,7 @@ module.exports = async (message, command, client) => {
       }
       birthdayEmbed.addField("\u200B", `${tmpUser}`);
     }
-    await getImage(message, path, xpath, att, command, "", birthdayEmbed);
+    await getImage(message.channel, path, xpath, att, command, "", birthdayEmbed);
     // } catch (err) {
     //   console.error(`X|>|${err} at checkBdDates.js`);
     // }
