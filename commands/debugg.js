@@ -54,18 +54,20 @@ module.exports = async (message, args, client) => {
       if (debugg) console.log("D|>|Message: ", message);
       break;
 
-    case "guild":
-      let guilds = client.guilds.cache.map((guild) => guild.id);
-      let names = client.guilds.cache.map((guild) => guild.name);
-      console.log(guilds, names);
-      break;
-
     case "me":
       console.log(message.author);
       break;
 
     case "you":
       console.log(client, "\n\n", client.guilds);
+      break;
+
+    case "guild":
+      // let guilds = client.guilds.cache.map((guild) => guild.id);
+      // let names = client.guilds.cache.map((guild) => guild.name);
+
+      let guild = await client.guilds.fetch("837634248151793684");
+      console.log(guild);
       break;
 
     case "path":
@@ -75,7 +77,7 @@ module.exports = async (message, args, client) => {
           channel.type === "text" &&
           channel.permissionsFor(message.guild.me).has("SEND_MESSAGES")
       );
-      await channel.send("Thanks for invite me");
+      await channel.send("Thanks for inviting me");
       console.log(message.guild.channels);
       break;
 
