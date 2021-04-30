@@ -23,6 +23,6 @@ module.exports = async (message, command) => {
     )
     .addField("🇭 🇦 🇵 🇵 🇾 🥳 🎉 👏", "🇧 🇮 🇷 🇹 🇭 🇩 🇦 🇾")
     .setTimestamp();
-  await getImage(message, path, xpath, att, command, { embed: birthdayEmbed });
+  await getImage(message.channel, path, xpath, att, command, { embed: birthdayEmbed });
   return;
 };
