@@ -16,22 +16,36 @@ async function everydayCheck(message, command, client) {
         .date(new Date().getDate())
         .format("MM DD"),
     });
-    console.log(results);
+    // console.log(results);
 
-    // // Send gif
-    // const xpath = ".GifList .column .GifListItem .Gif img";
-    // const path = "https://tenor.com/search/celebration-gifs";
-    // const att = "src";
+    for (let result of results) {
+      let guild = await client.guilds.fetch(result.gID);
 
-    // const birthdayEmbed = new Discord.MessageEmbed()
-    //   .setColor("#831fde")
-    //   .setAuthor(
-    //     client.user.tag,
-    //     client.user.displayAvatarURL({ dynamic: true })
-    //   )
-    //   .setTimestamp();
+      if (!guild.available) continue;
 
-    // if (!results[1]) {
+      const channel = guild.channels.cache.find(
+        (channel) =>
+          channel.type === "text" &&
+          channel.permissionsFor(guild.me).has("SEND_MESSAGES")
+      );
+      // await channel.send("EMBED");
+    await getImage(channel, path, xpath, att, "bd", "", birthdayEmbed);
+    }
+
+    // Send gif
+    const xpath = ".GifList .column .GifListItem .Gif img";
+    const path = "https://tenor.com/search/celebration-gifs";
+    const att = "src";
+
+    const birthdayEmbed = new Discord.MessageEmbed()
+      .setColor("#831fde")
+      .setAuthor(
+        client.user.tag,
+        client.user.displayAvatarURL({ dynamic: true })
+      )
+      .setTimestamp();
+
+    // if (results[0] && !results[1]) {
     //   // Embed
     //   // const user = client.users.cache.get(results[0]._id);
     //   birthdayEmbed
