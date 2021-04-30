@@ -66,7 +66,7 @@ module.exports = async (message, command, args, client) => {
     case "versao":
     case "versão":
     case "ver":
-      await message.channel.send(`${name}v${version}`);
+      await message.channel.send(`${name} v${version}`);
       break;
 
     // Misc
