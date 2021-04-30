@@ -43,8 +43,10 @@ module.exports = async (message, command, args, client) => {
     case "gif":
     case "astolfo":
       if (!(await isNSFW(message))) {
-        await message.channel.send("Só posso executar esse comando num canal NSFW :/")
-		break
+        await message.channel.send(
+          "Só posso executar esse comando num canal NSFW :/"
+        );
+        break;
       }
       await imgInit(message, command, args);
       break;
@@ -59,8 +61,8 @@ module.exports = async (message, command, args, client) => {
     // Dev
     case "debugg":
     case "d":
-      if (!(await isAdm(message))) break;
-      await debugg(message, args);
+      if (!message.author.id === "213000073141813248") break;
+      await debugg(message, args, client);
       break;
     case "version":
     case "versao":
