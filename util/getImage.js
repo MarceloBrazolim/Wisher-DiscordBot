@@ -54,7 +54,7 @@ module.exports = async (message, path, xpath, att, command, args, embed) => {
       case "debugg":
       case "d":
         embed.setImage(urls[x]);
-        await message.channel.send("@everyone", { embed });
+        await message.send("@everyone", { embed });
         break;
       default:
         var argsLower = [];
@@ -69,14 +69,14 @@ module.exports = async (message, path, xpath, att, command, args, embed) => {
         //   }
         // }
 
+        await message.channel.send(urls[x]);
+
         for (let key of censorList.listToUhg) {
           if (argsLower.includes(key)) {
             await message.react("😒");
             break;
           }
         }
-
-        await message.channel.send(urls[x]);
         break;
     }
   });
